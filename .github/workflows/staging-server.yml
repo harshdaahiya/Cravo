@@ -27,9 +27,9 @@ jobs:
         working-directory: ./server
         run: npm ci
 
-      - name: Check for syntax errors
+      - name: Build and check for errors
         working-directory: ./server
-        run: node -c src/index.js
+        run: npm run build
 
       - name: Deploy to Render (Server Staging)
         run: |
