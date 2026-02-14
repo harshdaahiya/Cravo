@@ -86,7 +86,7 @@ const addressSlice = createSlice({
       })
       .addCase(fetchAllAddresses.fulfilled, (state, action) => {
         state.loading = 'succeeded';
-        state.list = action.payload;
+        state.list = action.payload.addresses || action.payload;
         state.error = null;
       })
       .addCase(fetchAllAddresses.rejected, (state, action) => {
@@ -100,7 +100,7 @@ const addressSlice = createSlice({
       })
       .addCase(createNewAddress.fulfilled, (state, action) => {
         state.loading = 'succeeded';
-        state.list = action.payload;
+        state.list = action.payload.addresses || action.payload;
         state.error = null;
       })
       .addCase(createNewAddress.rejected, (state, action) => {
@@ -114,7 +114,7 @@ const addressSlice = createSlice({
       })
       .addCase(updateAddress.fulfilled, (state, action) => {
         state.loading = 'succeeded';
-        state.list = action.payload;
+        state.list = action.payload.addresses || action.payload;
         state.error = null;
       })
       .addCase(updateAddress.rejected, (state, action) => {
@@ -128,7 +128,7 @@ const addressSlice = createSlice({
       })
       .addCase(deleteAddress.fulfilled, (state, action) => {
         state.loading = 'succeeded';
-        state.list = action.payload;
+        state.list = action.payload.addresses || action.payload;
         state.error = null;
       })
       .addCase(deleteAddress.rejected, (state, action) => {

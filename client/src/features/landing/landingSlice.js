@@ -24,7 +24,7 @@ export const initializeApplication = createAsyncThunk(
       const categories = categoriesRes.data.data.categories;
       console.log('api location res', ipLocationRes);
       const { lat, lon, city, country, countryCode, region, regionName, zip } =
-        ipLocationRes.data.data;
+        ipLocationRes.data.data.location || ipLocationRes.data.data;
       // const { city, country, countryCode, region, regionName, zip } =
       //   ipLocationRes.data;
       // const lat = 23.2599;

@@ -23,8 +23,8 @@ export const fetchAllWishlists = createAsyncThunk(
 
       // Use a utility function to combine the responses into a single, clean format
       const combinedLists = normalizeAndCombineLists(
-        productsResponse.data.data,
-        restaurantsResponse.data.data
+        productsResponse.data.data.lists || productsResponse.data.data,
+        restaurantsResponse.data.data.lists || restaurantsResponse.data.data
       );
 
       return combinedLists;
@@ -122,7 +122,7 @@ export const TransferProductFromList = createAsyncThunk(
         { productId, sourceListId, destinationListId }
       );
       console.log('response of the TransferProductFromList', response);
-      return response.data.data;
+      return response.data.data.lists || response.data.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -176,32 +176,32 @@ const wishlistSlice = createSlice({
 
       // Handle adding and removing items
       .addCase(addItemToWishlist.fulfilled, (state, action) => {
-        const updatedList = action.payload.data;
+        const updatedList = action.payload.data.list || action.payload.data;
         state.lists = state.lists.map(list =>
           list._id === updatedList._id
             ? {
-                ...updatedList,
-                // Check the list type from the API response and map it to the 'items' key
-                items:
-                  updatedList.list_type === 'productList'
-                    ? updatedList.items
-                    : updatedList.restaurants,
-              }
+              ...updatedList,
+              // Check the list type from the API response and map it to the 'items' key
+              items:
+                updatedList.list_type === 'productList'
+                  ? updatedList.items || updatedList.products
+                  : updatedList.restaurants,
+            }
             : list
         );
       })
       .addCase(removeItemFromWishlist.fulfilled, (state, action) => {
-        const updatedList = action.payload.data;
+        const updatedList = action.payload.data.list || action.payload.data;
         state.lists = state.lists.map(list =>
           list._id === updatedList._id
             ? {
-                ...updatedList,
-                // Check the list type from the API response and map it to the 'items' key
-                items:
-                  updatedList.list_type === 'productList'
-                    ? updatedList.items
-                    : updatedList.restaurants,
-              }
+              ...updatedList,
+              // Check the list type from the API response and map it to the 'items' key
+              items:
+                updatedList.list_type === 'productList'
+                  ? updatedList.items || updatedList.products
+                  : updatedList.restaurants,
+            }
             : list
         );
       })
@@ -209,7 +209,7 @@ const wishlistSlice = createSlice({
       // Handle creating new Product and Restaurants List
       .addCase(createNewWishList.fulfilled, (state, action) => {
         // Extract the new list object from the payload.
-        const newList = action.payload.data;
+        const newList = action.payload.data.list || action.payload.data;
 
         // Create a new array by copying the existing lists and adding the new one.
         state.lists.push(newList);

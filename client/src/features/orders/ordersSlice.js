@@ -198,7 +198,7 @@ const orderSlice = createSlice({
       })
       .addCase(AllUserOrdersThunk.fulfilled, (state, action) => {
         state.isOrdersLoading = false;
-        state.userOrders = action.payload; // Store the list of orders
+        state.userOrders = action.payload.orders || action.payload; // Store the list of orders
         state.ordersError = null;
       })
       .addCase(AllUserOrdersThunk.rejected, (state, action) => {
@@ -215,7 +215,7 @@ const orderSlice = createSlice({
       })
       .addCase(getOrderDetailThunk.fulfilled, (state, action) => {
         state.isOrderDetailsLoading = false;
-        state.selectedOrder = action.payload; // Store the detailed order
+        state.selectedOrder = action.payload.data?.order || action.payload.data || action.payload; // Store the detailed order
         state.orderDetailsError = null;
       })
       .addCase(getOrderDetailThunk.rejected, (state, action) => {
@@ -233,7 +233,7 @@ const orderSlice = createSlice({
         state.isOrderActionLoading = false;
         state.orderActionError = null;
         // Update the specific order in the list and selectedOrder state
-        const updatedOrder = action.payload;
+        const updatedOrder = action.payload.order || action.payload;
 
         // Update userOrders list
         const index = state.userOrders.findIndex(

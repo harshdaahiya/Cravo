@@ -14,7 +14,7 @@ export const loginUser = createAsyncThunk(
       // The value returned here will become the `action.payload` for `loginUser.fulfilled`
       // console.log(res);
 
-      return res.data;
+      return res.data.data;
     } catch (err) {
       // Axios errors often have a `response` object
       console.log(err);
@@ -65,7 +65,7 @@ export const checkAuthStatus = createAsyncThunk(
           // Unexpected server error (e.g., 500).
           return rejectWithValue(
             err.response.data?.message ||
-              'An unexpected error occurred during authentication check.'
+            'An unexpected error occurred during authentication check.'
           );
         }
       } else if (err.request) {
@@ -155,8 +155,8 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.user = action.payload.user;
-        state.role = action.payload.role;
-        state.token = action.payload.token;
+        state.role = action.payload.user?.role || action.payload.role;
+        state.token = action.payload.accessToken || action.payload.token;
         state.isAuthenticated = true;
         state.isAuthChecking = false;
         state.isInitialized = true;

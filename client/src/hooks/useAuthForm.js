@@ -42,8 +42,8 @@ export const useAuthForm = () => {
     try {
       const loginResult = await dispatch(loginUser(formData)).unwrap();
 
-      if (loginResult?.data?.accessToken) {
-        const token = loginResult.data.accessToken;
+      if (loginResult?.accessToken) {
+        const token = loginResult.accessToken;
         setAuthHeader(token);
       }
 
