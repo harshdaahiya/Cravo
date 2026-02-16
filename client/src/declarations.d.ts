@@ -1,0 +1,17 @@
+declare module './pages/Restaurant-Details/RestaurantMenu';
+declare module './pages/adminPage/AdminPage';
+declare module './pages/cartPage/CartPage';
+declare module './pages/categoryResultPage/CategoryResultPage';
+declare module './pages/corporatePage/CorporatePage';
+declare module './pages/dineoutRestaurantsPage/DineOutRestaurantPage';
+declare module './pages/getTheApp/GetTheAppPage';
+declare module './pages/landingPage/LandingPage';
+declare module './pages/offersPage/OffersPage';
+declare module './pages/profilePage/Account/AccountPage';
+declare module './pages/profilePage/Address/Address';
+declare module './pages/profilePage/Help-Support';
+declare module './pages/profilePage/Payment';
+declare module './pages/profilePage/Settings';
+declare module './pages/profilePage/favorites/FavoritesPage';
+declare module './pages/profilePage/orders/Orders';
+declare module './pages/restaurant-Overview-Page/RestaurantsOverviewPage';
