@@ -109,7 +109,7 @@ const RestaurantMenuPage: React.FC = () => {
     return (
         <>
             <div className="bg-bg-subtle font-helvetica min-h-screen">
-                <Navbar showSearch={true} currentPage="restaurant" cartCount={2} />
+                <Navbar showSearch={true} />
                 <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
                     <RestaurantHeader restaurant={restaurant} />
                     <DealsSection />

@@ -68,7 +68,7 @@ const restaurantMenuSlice = createSlice({
       .addCase(fetchRestaurantMenu.fulfilled, (state, action: PayloadAction<{ restaurantId: string; data: RestaurantMenuResponse }>) => {
         const { restaurantId, data } = action.payload;
         state.menus[restaurantId] = {
-          restaurant: data.restaurant,
+          restaurant: data.restaurantDetails,
           products: data.products,
           loading: 'succeeded',
           error: null,

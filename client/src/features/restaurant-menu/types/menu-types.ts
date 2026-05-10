@@ -14,6 +14,6 @@ export interface RestaurantMenuState {
 }
 
 export interface RestaurantMenuResponse {
-  restaurant: IRestaurant;
+  restaurantDetails: IRestaurant;
   products: IProduct[];
 }
