@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Fast Food Website based on MERN",
   "type": "module",
-  "main": "index.js",
+  "main": "dist/server.js",
   "scripts": {
     "start": "node dist/server.js",
     "dev": "nodemon --ext ts --exec tsx src/server.ts",
