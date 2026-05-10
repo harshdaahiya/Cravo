@@ -6,7 +6,7 @@ export const selectWishlistState = (state: RootState) => state.wishlist as Wishl
 
 export const selectAllWishlists = createSelector(
   [selectWishlistState],
-  (wishlist) => wishlist.lists
+  (wishlist) => wishlist?.lists ?? []
 );
 
 export const selectDefaultProductListId = createSelector(
