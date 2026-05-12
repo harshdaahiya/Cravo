@@ -92,7 +92,7 @@ const Footer: React.FC = () => (
 
                 {/* Company Links */}
                 <div className="space-y-3">
-                    <h4 className="text-md font-semibold tracking-wide text-muted">
+                    <h4 className="text-md font-semibold tracking-wide text-muted-foreground">
                         Company
                     </h4>
                     <div className="flex flex-col space-y-2">
@@ -105,7 +105,7 @@ const Footer: React.FC = () => (
 
                 {/* Services Links */}
                 <div className="space-y-3">
-                    <h4 className="text-md font-semibold tracking-wide text-muted">
+                    <h4 className="text-md font-semibold tracking-wide text-muted-foreground">
                         Services
                     </h4>
                     <div className="flex flex-col space-y-2">
@@ -118,7 +118,7 @@ const Footer: React.FC = () => (
 
                 {/* Partners Links */}
                 <div className="space-y-3">
-                    <h4 className="text-md font-semibold tracking-wide text-muted">
+                    <h4 className="text-md font-semibold tracking-wide text-muted-foreground">
                         Partners
                     </h4>
                     <div className="flex flex-col space-y-2">
@@ -135,7 +135,7 @@ const Footer: React.FC = () => (
 
                 {/* Support & Apps */}
                 <div className="space-y-3">
-                    <h4 className="text-md font-semibold tracking-wide text-muted">
+                    <h4 className="text-md font-semibold tracking-wide text-muted-foreground">
                         Support
                     </h4>
                     <div className="flex flex-col space-y-2">
