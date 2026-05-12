@@ -6,24 +6,7 @@ import Icon from '../../../components/ui/Icon';
 import { setUserLocation } from '../../../features/location';
 import { useSearchContext } from '../../../features/search-context';
 import { RootState, AppDispatch } from '../../../store';
-
-const SUPPORTED_CITIES = [
-    'ahmadabad',
-    'bangalore',
-    'bhopal',
-    'calcutta',
-    'chennai',
-    'delhi',
-    'hyderabad',
-    'indore',
-    'jaipur',
-    'kochi',
-    'lucknow',
-    'mumbai',
-    'nagpur',
-    'pune',
-    'surat',
-];
+import { HERO_CONTENT, HERO_FEATURES, SUPPORTED_CITIES } from '../../../config/hero';
 
 const Hero: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -110,17 +93,19 @@ const Hero: React.FC = () => {
                 <div className="space-y-6 sm:space-y-8">
                     <div className="space-y-3 sm:space-y-4">
                         <h1 className="text-center text-3xl font-black italic sm:text-left sm:text-4xl md:text-5xl lg:text-6xl">
-                            <span className="text-main block">Your Favorite</span>
-                            <span className="text-main block">Food, </span>
-                            <span className="relative inline-block">
-                                <span className="text-main relative z-10">Delivered</span>
-                                <span className="absolute bottom-2 left-0 -z-0 h-3 w-full rounded-ss-4xl rounded-se-4xl bg-background"></span>
-                            </span>
-                            <span className="text-main"> Fast</span>
+                            {HERO_CONTENT.titleParts.map((part, index) => (
+                                part.isHighlight ? (
+                                    <span key={index} className="relative inline-block">
+                                        <span className="text-main relative z-10">{part.text}</span>
+                                        <span className="absolute bottom-2 left-0 -z-0 h-3 w-full rounded-ss-4xl rounded-se-4xl bg-background"></span>
+                                    </span>
+                                ) : (
+                                    <span key={index} className="text-main">{part.text}</span>
+                                )
+                            ))}
                         </h1>
-                        <p className="text-text-secondary max-w-xl text-center text-base font-medium sm:text-left sm:text-lg md:text-xl">
-                            Order from 1000+ restaurants and get your cravings delivered in
-                            just 30 minutes ⚡
+                        <p className="text-muted-foreground max-w-xl text-center text-base font-medium sm:text-left sm:text-lg md:text-xl">
+                            {HERO_CONTENT.description}
                         </p>
                     </div>
 
@@ -155,17 +140,17 @@ const Hero: React.FC = () => {
                                         (suggestions.length > 0 || isLocationLoading) && (
                                             <div className="border-border absolute z-10 mt-2 max-h-64 w-full overflow-hidden overflow-y-auto rounded-xl border bg-background shadow-2xl">
                                                 <div
-                                                    className="hover:bg-bg-subtle flex cursor-pointer items-center gap-3 p-4 text-sm font-medium text-info"
+                                                    className="hover:bg-muted flex cursor-pointer items-center gap-3 p-4 text-sm font-medium text-info"
                                                     onClick={handleUseCurrentLocation}
                                                 >
                                                     <Icon name="locate-fixed" size={18} />
-                                                    <span>Use My Current Location</span>
+                                                    <span>{HERO_CONTENT.useCurrentLocationText}</span>
                                                 </div>
                                                 <hr className="border-border" />
 
                                                 {isLocationLoading && (
                                                     <div className="text-muted-foreground p-4 text-center text-sm">
-                                                        Loading...
+                                                        {HERO_CONTENT.suggestionLoadingText}
                                                     </div>
                                                 )}
                                                 {!isLocationLoading && suggestions.length > 0 && (
@@ -195,7 +180,7 @@ const Hero: React.FC = () => {
                                     />
                                     <input
                                         type="text"
-                                        placeholder="Pizza, Burger, Chinese..."
+                                        placeholder={HERO_CONTENT.searchPlaceholderText}
                                         value={categoryName}
                                         onChange={handleCategoryChange}
                                         className="border-border focus:border-border-focus text-foreground w-full rounded-xl border-2 py-3 pr-10 pl-10 text-sm font-medium focus:outline-none sm:py-4 sm:pl-12 sm:text-base"
@@ -209,7 +194,7 @@ const Hero: React.FC = () => {
                                 disabled={!selectedLocation || isLocationLoading}
                                 className="bg-primary hover:bg-primary-hover text-foreground w-full cursor-pointer rounded-xl py-3 text-sm font-bold shadow-md transition-colors disabled:opacity-50 sm:py-4 sm:text-base"
                             >
-                                Find Delicious Food
+                                {HERO_CONTENT.submitButtonText}
                             </button>
                         </div>
                     </div>
@@ -223,26 +208,22 @@ const Hero: React.FC = () => {
                                 <div className="from-primary to-primary-hover mx-auto flex h-48 w-48 items-center justify-center rounded-full bg-gradient-to-br shadow-lg sm:h-56 sm:w-56 lg:h-64 lg:w-64">
                                     <div className="text-center">
                                         <div className="mb-2 text-4xl sm:mb-4 sm:text-5xl lg:text-6xl">
-                                            🍽️
+                                            {HERO_FEATURES.mainEmoji}
                                         </div>
                                         <p className="text-foreground text-base font-bold sm:text-lg">
-                                            Premium Quality
+                                            {HERO_FEATURES.title}
                                         </p>
-                                        <p className="text-text-secondary text-xs sm:text-sm">
-                                            Fresh & Fast
+                                        <p className="text-muted-foreground text-xs sm:text-sm">
+                                            {HERO_FEATURES.subtitle}
                                         </p>
                                     </div>
                                 </div>
 
-                                <div className="bg-secondary absolute -top-2 -left-2 rounded-full px-2 py-1 text-xs font-bold text-white shadow-lg sm:-top-4 sm:-left-4 sm:px-4 sm:py-2 sm:text-sm">
-                                    🌿 Fresh
-                                </div>
-                                <div className="bg-primary-hover text-foreground absolute -right-2 -bottom-2 rounded-full px-2 py-1 text-xs font-bold shadow-lg sm:-right-4 sm:-bottom-4 sm:px-4 sm:py-2 sm:text-sm">
-                                    ⚡ 30 min
-                                </div>
-                                <div className="text-foreground border-border-focus absolute top-1/2 -right-4 rounded-full border-2 bg-background px-2 py-1 text-xs font-semibold shadow-lg sm:-right-8 sm:px-3 sm:py-2 sm:text-sm">
-                                    1000+ 🏪
-                                </div>
+                                {HERO_FEATURES.badges.map((badge, index) => (
+                                    <div key={index} className={`absolute rounded-full px-2 py-1 text-xs font-bold shadow-lg sm:px-4 sm:py-2 sm:text-sm ${badge.positionClass} ${badge.bgClass} ${badge.extraClass || ''}`}>
+                                        {badge.text}
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>

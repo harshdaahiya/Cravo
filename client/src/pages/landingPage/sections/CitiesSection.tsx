@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store';
 import { ICity } from '../../../types/domain-models';
+import { CITIES_CONFIG } from '../../../config/landing';
 
 interface CityCardProps {
     city: ICity;
@@ -25,7 +26,7 @@ const CitiesSection: React.FC = () => {
     const [showAll, setShowAll] = useState(false);
 
     // Number of cities to show initially
-    const INITIAL_CITIES_COUNT = 8;
+    const INITIAL_CITIES_COUNT = CITIES_CONFIG.initialVisibleCount;
 
     useEffect(() => {
         if (citiesData) {
@@ -54,10 +55,10 @@ const CitiesSection: React.FC = () => {
                 <div className="mt-15 mb-6 flex items-center justify-between">
                     <div>
                         <h2 className="text-foreground text-xl font-bold">
-                            Cities We Serve
+                            {CITIES_CONFIG.heading}
                         </h2>
                         <p className="text-text-secondary mt-1 text-sm">
-                            Bringing delicious food to your doorstep across India
+                            {CITIES_CONFIG.subheading}
                         </p>
                     </div>
                 </div>
@@ -77,14 +78,14 @@ const CitiesSection: React.FC = () => {
                                 onClick={handleShowMore}
                                 className="bg-primary-hover rounded-lg px-6 py-2 text-sm font-medium text-white transition-colors duration-200 hover:bg-primary-hover"
                             >
-                                Show More Cities ({cities.length - INITIAL_CITIES_COUNT})
+                                {CITIES_CONFIG.showMoreTextPrefix} ({cities.length - INITIAL_CITIES_COUNT})
                             </button>
                         ) : (
                             <button
                                 onClick={handleShowLess}
                                 className="rounded-lg bg-muted px-6 py-2 text-sm font-medium text-white transition-colors duration-200 hover:bg-muted"
                             >
-                                Show Less
+                                {CITIES_CONFIG.showLessText}
                             </button>
                         )}
                     </div>
@@ -93,19 +94,19 @@ const CitiesSection: React.FC = () => {
                 {/* Loading and Error States */}
                 {isLoading && (
                     <div className="flex items-center justify-center py-8">
-                        <div className="text-muted-foreground">Loading cities...</div>
+                        <div className="text-muted-foreground">{CITIES_CONFIG.loadingText}</div>
                     </div>
                 )}
 
                 {error && (
                     <div className="flex items-center justify-center py-8">
-                        <div className="text-destructive">Error loading cities</div>
+                        <div className="text-destructive">{CITIES_CONFIG.errorText}</div>
                     </div>
                 )}
 
                 {!isLoading && !error && cities.length === 0 && (
                     <div className="flex items-center justify-center py-8">
-                        <div className="text-muted-foreground">No cities available</div>
+                        <div className="text-muted-foreground">{CITIES_CONFIG.noDataText}</div>
                     </div>
                 )}
             </div>

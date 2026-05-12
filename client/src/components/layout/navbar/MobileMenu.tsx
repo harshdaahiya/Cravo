@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import Icon from '../../ui/Icon';
-import { NavItem } from './NavbarConfig';
+import { NavItem } from '../../../config/navbar';
 
 interface MobileMenuProps {
     isOpen: boolean;

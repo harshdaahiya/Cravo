@@ -8,7 +8,7 @@ import { SearchModal } from '../../../features/search-context';
 import Button from '../../ui/Button';
 import Icon from '../../ui/Icon';
 import MobileMenu from './MobileMenu';
-import { getNavItems, NavItem } from './NavbarConfig';
+import { getNavItems, NavItem, NAVBAR_TEXT } from '../../../config/navbar';
 import ProfileDropdown from './ProfileDropDown';
 import { RootState, AppDispatch } from '../../../store';
 
@@ -108,7 +108,7 @@ const Navbar: React.FC<NavbarProps> = ({ showSearch = true, visibility = "" }) =
                                 >
                                     <Icon name="search" size={18} className="text-muted-foreground" />
                                     <span className="text-muted-foreground overflow-hidden text-sm font-medium text-ellipsis whitespace-nowrap">
-                                        Search for food, restaurants...
+                                        {NAVBAR_TEXT.searchPlaceholder}
                                     </span>
                                 </div>
                             )}

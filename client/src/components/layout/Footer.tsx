@@ -1,13 +1,12 @@
 import React, { ReactNode } from 'react';
+import { Phone, Mail, LucideIcon } from 'lucide-react';
 import {
-    Github,
-    Instagram,
-    Linkedin,
-    Mail,
-    Phone,
-    Twitter,
-    LucideIcon,
-} from 'lucide-react';
+    FOOTER_BRANDING,
+    FOOTER_CONTACT,
+    FOOTER_LINK_GROUPS,
+    FOOTER_SOCIAL_LINKS,
+    FOOTER_COPYRIGHT,
+} from '../../config/footer';
 
 interface LinkItemProps {
     to?: string;
@@ -62,94 +61,54 @@ const Footer: React.FC = () => (
                 <div className="col-span-2 lg:col-span-2">
                     <div className="mb-4 flex items-center space-x-1">
                         <div className="h-18 w-18 cursor-pointer rounded-xl">
-                            <img src="/assets/Cravo_logo.png" alt="Cravo Logo" />
+                            <img src={FOOTER_BRANDING.logoSrc} alt="Cravo Logo" />
                         </div>
                         <div className="w-32">
                             <img
-                                src="/assets/Cravo_white_text_logo.png"
+                                src={FOOTER_BRANDING.textLogoSrc}
                                 alt="Cravo Text Logo"
                                 className="h-10"
                             />
                         </div>
                     </div>
                     <p className="mb-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
-                        Bringing your favourite dishes from the best restaurants straight to
-                        your doorstep.
+                        {FOOTER_BRANDING.description}
                     </p>
 
                     {/* Contact Info */}
                     <div className="space-y-2 text-sm text-muted">
                         <div className="flex items-center space-x-2">
                             <Phone size={14} className="text-primary" />
-                            <span>+1 (555) 123-4567</span>
+                            <span>{FOOTER_CONTACT[0].text}</span>
                         </div>
                         <div className="flex items-center space-x-2">
                             <Mail size={14} className="text-primary" />
-                            <span>my@cravoindia.com</span>
+                            <span>{FOOTER_CONTACT[1].text}</span>
                         </div>
                     </div>
                 </div>
 
-                {/* Company Links */}
-                <div className="space-y-3">
-                    <h4 className="text-md font-semibold tracking-wide text-muted-foreground">
-                        Company
-                    </h4>
-                    <div className="flex flex-col space-y-2">
-                        <InternalLinkItem to="/about-us">About Us</InternalLinkItem>
-                        <InternalLinkItem to="/careers">Careers</InternalLinkItem>
-                        <InternalLinkItem to="/team">Team</InternalLinkItem>
-                        <InternalLinkItem to="/press">Press</InternalLinkItem>
+                {/* Dynamic Link Groups */}
+                {FOOTER_LINK_GROUPS.map((group, index) => (
+                    <div key={index} className="space-y-3">
+                        <h4 className="text-md font-semibold tracking-wide text-muted-foreground">
+                            {group.title}
+                        </h4>
+                        <div className="flex flex-col space-y-2">
+                            {group.links.map((link, linkIndex) => (
+                                link.to ? (
+                                    <InternalLinkItem key={linkIndex} to={link.to}>
+                                        {link.label}
+                                    </InternalLinkItem>
+                                ) : (
+                                    <ExternalLinkItem key={linkIndex} href={link.href}>
+                                        {link.label}
+                                    </ExternalLinkItem>
+                                )
+                            ))}
+                        </div>
                     </div>
-                </div>
-
-                {/* Services Links */}
-                <div className="space-y-3">
-                    <h4 className="text-md font-semibold tracking-wide text-muted-foreground">
-                        Services
-                    </h4>
-                    <div className="flex flex-col space-y-2">
-                        <InternalLinkItem to="/cravo-one">Cravo One</InternalLinkItem>
-                        <InternalLinkItem to="/cravo-instamart">Instamart</InternalLinkItem>
-                        <InternalLinkItem to="/cravo-dineout">Dineout</InternalLinkItem>
-                        <InternalLinkItem to="/cravo-genie">Genie</InternalLinkItem>
-                    </div>
-                </div>
-
-                {/* Partners Links */}
-                <div className="space-y-3">
-                    <h4 className="text-md font-semibold tracking-wide text-muted-foreground">
-                        Partners
-                    </h4>
-                    <div className="flex flex-col space-y-2">
-                        <InternalLinkItem to="/partner-with-us">
-                            Restaurants
-                        </InternalLinkItem>
-                        <InternalLinkItem to="/for-riders">
-                            Delivery Partners
-                        </InternalLinkItem>
-                        <InternalLinkItem to="/for-businesses">Businesses</InternalLinkItem>
-                        <InternalLinkItem to="/cravo-corporate">Corporate</InternalLinkItem>
-                    </div>
-                </div>
-
-                {/* Support & Apps */}
-                <div className="space-y-3">
-                    <h4 className="text-md font-semibold tracking-wide text-muted-foreground">
-                        Support
-                    </h4>
-                    <div className="flex flex-col space-y-2">
-                        <InternalLinkItem to="/contact-us">Help Center</InternalLinkItem>
-                        <InternalLinkItem to="/privacy-policy">Privacy</InternalLinkItem>
-                        <InternalLinkItem to="/terms-of-service">Terms</InternalLinkItem>
-                        <ExternalLinkItem href="https://apps.apple.com/us/app/cravo-ios">
-                            iOS App
-                        </ExternalLinkItem>
-                        <ExternalLinkItem href="https://play.google.com/store/apps/details?id=com.cravo.android">
-                            Android App
-                        </ExternalLinkItem>
-                    </div>
-                </div>
+                ))}
             </div>
         </div>
 
@@ -160,34 +119,22 @@ const Footer: React.FC = () => (
                     {/* Social Icons */}
                     <div className="flex items-center space-x-3">
                         <span className="mr-2 text-sm text-muted-foreground">Follow us:</span>
-                        <SocialIcon
-                            Icon={Github}
-                            href="https://github.com/believeharsh"
-                            label="Facebook"
-                        />
-                        <SocialIcon
-                            Icon={Twitter}
-                            href="https://x.com/believeharsh?t=TIwrahwHjYlsDs8-EbUxig&s=09"
-                            label="Twitter"
-                        />
-                        <SocialIcon
-                            Icon={Instagram}
-                            href="https://www.instagram.com/theharshdahiya1/"
-                            label="Instagram"
-                        />
-                        <SocialIcon
-                            Icon={Linkedin}
-                            href="https://www.linkedin.com/in/believeharsh11/"
-                            label="LinkedIn"
-                        />
+                        {FOOTER_SOCIAL_LINKS.map((social, index) => (
+                            <SocialIcon
+                                key={index}
+                                Icon={social.Icon}
+                                href={social.href}
+                                label={social.label}
+                            />
+                        ))}
                     </div>
 
                     {/* Copyright */}
                     <div className="flex items-center space-x-4 text-sm text-muted-foreground">
-                        <span>© {new Date().getFullYear()} Cravo Limited</span>
+                        <span>© {new Date().getFullYear()} {FOOTER_COPYRIGHT.company}</span>
                         <span className="hidden sm:inline">•</span>
                         <span className="hidden sm:inline">
-                            Made By Harsh Dahiya
+                            {FOOTER_COPYRIGHT.author}
                         </span>
                     </div>
                 </div>
@@ -197,3 +144,4 @@ const Footer: React.FC = () => (
 );
 
 export default Footer;
+

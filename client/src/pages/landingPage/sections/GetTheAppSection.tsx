@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Icon from '../../../components/ui/Icon';
+import { GET_THE_APP_CONFIG } from '../../../config/landing';
 
 const GetTheAppSection: React.FC = () => {
     return (
@@ -10,29 +11,24 @@ const GetTheAppSection: React.FC = () => {
                 <div className="space-y-3 text-center md:w-3/5 md:text-left">
                     <h2 className="text-3xl leading-snug font-extrabold md:text-4xl">
                         <span className="bg-gradient-to-r from-yellow-400 to-amber-300 bg-clip-text text-transparent">
-                            Cravo: Faster, Fresher, Yours.
+                            {GET_THE_APP_CONFIG.headingHighlight}
                         </span>
-                        Download Today!
+                        {GET_THE_APP_CONFIG.headingSuffix}
                     </h2>
                     <p className="mx-auto text-base text-muted-foreground md:mx-0 md:w-5/6">
-                        Get exclusive app-only deals and real-time delivery tracking right
-                        on your smartphone.
+                        {GET_THE_APP_CONFIG.description}
                     </p>
                 </div>
 
                 {/* Right Content: Download Buttons and Minimal QR Code */}
                 <div className="flex flex-col items-center space-y-4 md:w-2/5 md:items-end">
                     <div className="flex flex-wrap justify-center gap-3 md:justify-end">
-                        <button className="bg-primary-hover text-foreground hover:bg-primary flex transform items-center gap-2 rounded-xl px-5 py-2 font-bold shadow-lg transition-all duration-300 hover:scale-[1.02]">
-                            <Icon name="download" className="h-5 w-5" />
-                            App Store
-                        </button>
-
-                        {/* Google Play Button */}
-                        <button className="bg-primary-hover text-foreground hover:bg-primary flex transform items-center gap-2 rounded-xl px-5 py-2 font-bold shadow-lg transition-all duration-300 hover:scale-[1.02]">
-                            <Icon name="download" className="h-5 w-5" />
-                            Google Play
-                        </button>
+                        {GET_THE_APP_CONFIG.buttons.map((button, index) => (
+                            <button key={index} className="bg-primary-hover text-foreground hover:bg-primary flex transform items-center gap-2 rounded-xl px-5 py-2 font-bold shadow-lg transition-all duration-300 hover:scale-[1.02]">
+                                <Icon name={button.icon} className="h-5 w-5" />
+                                {button.label}
+                            </button>
+                        ))}
                     </div>
 
                     {/* QR Code Display */}
@@ -41,7 +37,7 @@ const GetTheAppSection: React.FC = () => {
                             <Icon name="qr-code" className="text-foreground h-5 w-5" />
                         </div>
                         <p className="pr-1 text-sm font-medium text-muted-foreground">
-                            Scan for instant download link
+                            {GET_THE_APP_CONFIG.qrCodeText}
                         </p>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
-import { AppDispatch } from '../../../store';
-import { IconName } from '../../ui/Icon';
+import { AppDispatch } from '../store';
+import { IconName } from '../components/ui/Icon';
 
 export interface NavItem {
   id: string;
@@ -11,6 +11,10 @@ export interface NavItem {
   showOnMobile: boolean;
   action?: () => void;
 }
+
+export const NAVBAR_TEXT = {
+  searchPlaceholder: 'Search for food, restaurants...',
+};
 
 export const getNavItems = (
   isAuthenticated: boolean,
@@ -73,3 +77,4 @@ export const getNavItems = (
 
   return baseNavItems;
 };
+

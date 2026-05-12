@@ -6,6 +6,7 @@ import Icon from '../../../components/ui/Icon';
 import { logoutUser } from '../../../features/auth';
 import { openAuthSidebar } from '../../../features/ui';
 import { RootState, AppDispatch } from '../../../store';
+import { NAVIGATION_CONFIG } from '../../../config/landing';
 
 const LandingNavigation: React.FC = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -24,45 +25,8 @@ const LandingNavigation: React.FC = () => {
         navigate('/');
     };
 
-    const profileMenuItems = [
-        { label: 'Account', path: '/profile/account', icon: 'user' as const, type: 'link' },
-        {
-            label: 'Account Settings',
-            path: '/profile/settings',
-            icon: 'settings' as const,
-            type: 'link',
-        },
-        {
-            label: 'My Orders',
-            path: '/profile/orders',
-            icon: 'package' as const,
-            type: 'link',
-        },
-        {
-            label: 'Favorites',
-            path: '/profile/favorites',
-            icon: 'heart' as const,
-            type: 'link',
-        },
-        {
-            label: 'Help & Support',
-            path: '/profile/help-support',
-            icon: 'help-circle' as const,
-            type: 'link',
-        },
-        {
-            label: 'Sign Out',
-            icon: 'log-out' as const,
-            type: 'button',
-            onClick: handleSignOut,
-        },
-    ];
-
-    const mobileMenuItems = [
-        { label: 'Corporate', path: '/corporate', icon: 'building-2' as const },
-        { label: 'Partner with us', path: '/partner', icon: 'handshake' as const },
-        { label: 'Get The App', path: '/get-the-app', icon: 'smartphone' as const },
-    ];
+    const profileMenuItems = NAVIGATION_CONFIG.getProfileMenuItems(handleSignOut);
+    const mobileMenuItems = NAVIGATION_CONFIG.mobileMenuItems;
 
     // Close mobile menu when clicking outside
     useEffect(() => {
@@ -91,14 +55,14 @@ const LandingNavigation: React.FC = () => {
                 >
                     <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-2xl border-2 border-white sm:h-14 sm:w-14">
                         <img
-                            src="/assets/Cravo_logo.png"
+                            src={NAVIGATION_CONFIG.logoSrc}
                             alt="Cravo Logo"
                             className="h-full w-full object-contain"
                         />
                     </div>
                     <div className="w-20 sm:w-28 md:w-32">
                         <img
-                            src="/assets/Cravo_white_text_logo.png"
+                            src={NAVIGATION_CONFIG.textLogoSrc}
                             alt="Cravo"
                             className="h-auto w-full object-contain"
                         />
@@ -120,17 +84,17 @@ const LandingNavigation: React.FC = () => {
                             <span className="text-md">Corporate</span>
                         </NavLink>
                         <NavLink
-                            to="/partner"
+                            to={mobileMenuItems[1].path}
                             className={({ isActive }) =>
                                 `flex items-center rounded-lg px-3 py-2 font-medium transition-all duration-200 ${isActive ? 'bg-warning-muted text-primary-hover' : 'text-foreground hover:text-text-secondary hover:bg-bg-subtle'}`
                             }
                         >
-                            <span className="text-md">Partner with us</span>
+                            <span className="text-md">{mobileMenuItems[1].label}</span>
                         </NavLink>
-                        <NavLink to="/get-the-app">
+                        <NavLink to={mobileMenuItems[2].path}>
                             <button className="text-foreground bg-muted hover:bg-bg-subtle text-md flex cursor-pointer items-center justify-center rounded-xl border border-border px-4 py-2 font-medium transition-all duration-200 hover:border-border">
-                                <Icon name="smartphone" size={16} className="mr-2" />
-                                Get The App
+                                <Icon name={mobileMenuItems[2].icon!} size={16} className="mr-2" />
+                                {NAVIGATION_CONFIG.getTheAppText}
                             </button>
                         </NavLink>
                     </div>
@@ -180,7 +144,7 @@ const LandingNavigation: React.FC = () => {
                         >
                             <button className="hover:bg-bg-subtle text-text-secondary hover:text-text-main hover:border-border flex items-center space-x-2 rounded-xl border border-transparent px-3 py-2 font-medium transition-all duration-200 hover:scale-105">
                                 <Icon name="user" size={18} />
-                                <span className="text-md hidden sm:block">Profile</span>
+                                <span className="text-md hidden sm:block">{NAVIGATION_CONFIG.profileButtonText}</span>
                                 <Icon
                                     name="chevron-down"
                                     size={14}
@@ -203,7 +167,7 @@ const LandingNavigation: React.FC = () => {
                                                         onClick={() => setIsProfileDropdownOpen(false)}
                                                     >
                                                         <Icon
-                                                            name={item.icon}
+                                                            name={`${item.icon}`}
                                                             size={16}
                                                             className="text-muted-foreground"
                                                         />
@@ -219,7 +183,7 @@ const LandingNavigation: React.FC = () => {
                                                     className="text-text-secondary hover:bg-bg-subtle flex w-full items-center space-x-3 px-4 py-3 text-sm transition-colors duration-150 hover:text-destructive"
                                                 >
                                                     <Icon
-                                                        name={item.icon}
+                                                        name={`${item.icon}`}
                                                         size={16}
                                                         className="text-destructive"
                                                     />
@@ -239,7 +203,7 @@ const LandingNavigation: React.FC = () => {
                             >
                                 <Icon name="log-in" size={16} className="text-info" />
                                 <span className="text-foreground text-sm font-medium">
-                                    Sign in
+                                    {NAVIGATION_CONFIG.signInText}
                                 </span>
                             </button>
                         </div>

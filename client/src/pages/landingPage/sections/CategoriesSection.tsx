@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import Icon from '../../../components/ui/Icon';
+import { CATEGORIES_CONFIG } from '../../../config/landing';
 import { RootState } from '../../../store';
 import { ICategory } from '../../../types/domain-models';
 
@@ -14,13 +15,18 @@ interface CategoryCardProps {
 }
 
 // This component can render either a real category card or a skeleton loader
-const CategoryCard: React.FC<CategoryCardProps> = ({ c, width, onClick, isLoading }) => {
+const CategoryCard: React.FC<CategoryCardProps> = ({
+    c,
+    width,
+    onClick,
+    isLoading,
+}) => {
     if (isLoading || !c) {
         return (
             <div className="flex-shrink-0 sm:px-1" style={{ width }}>
                 <div className="flex flex-col items-center justify-center">
-                    <div className="h-24 w-24 animate-pulse rounded-full bg-muted sm:h-28 sm:w-28"></div>
-                    <div className="mt-2 h-4 w-20 animate-pulse rounded bg-muted"></div>
+                    <div className="bg-muted h-24 w-24 animate-pulse rounded-full sm:h-28 sm:w-28"></div>
+                    <div className="bg-muted mt-2 h-4 w-20 animate-pulse rounded"></div>
                 </div>
             </div>
         );
@@ -52,7 +58,11 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ c, width, onClick, isLoadin
 const CategoriesSlider: React.FC = () => {
     const itemsPerView = { mobile: 2, tablet: 4, desktop: 6 };
     const [foodCategories, setFoodCategories] = useState<ICategory[]>([]);
-    const { data, isAppInitializing: isLoading, appInitError: error } = useSelector((state: RootState) => state.landingPage);
+    const {
+        data,
+        isAppInitializing: isLoading,
+        appInitError: error,
+    } = useSelector((state: RootState) => state.landingPage);
     const { user } = useSelector((state: RootState) => state.auth);
 
     const userName = user?.name;
@@ -148,7 +158,7 @@ const CategoriesSlider: React.FC = () => {
             <section className="bg-background py-5">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6">
                     <div className="py-8 text-center">
-                        <p className="text-destructive">Failed to load categories</p>
+                        <p className="text-destructive">{CATEGORIES_CONFIG.errorText}</p>
                     </div>
                 </div>
             </section>
@@ -160,7 +170,8 @@ const CategoriesSlider: React.FC = () => {
             <div className="mx-auto max-w-7xl px-4 sm:px-6">
                 <div className="mb-6 flex items-center justify-between">
                     <p className="text-foreground text-xl font-semibold">
-                        What's on your mind <span>{UserFirstName}</span> ?
+                        {CATEGORIES_CONFIG.headingPrefix} <span>{UserFirstName}</span>{' '}
+                        {CATEGORIES_CONFIG.headingSuffix}
                     </p>
                     {categoriesPerRow > itemsToShow && !isLoading && (
                         <div className="flex gap-2">
@@ -168,8 +179,8 @@ const CategoriesSlider: React.FC = () => {
                                 onClick={() => setIndex(i => Math.max(0, i - 1))}
                                 disabled={index === 0}
                                 className={`rounded-full border p-2 transition ${index === 0
-                                    ? 'border-border cursor-not-allowed text-muted-foreground'
-                                    : 'text-text-secondary hover:border-border-focus border-border hover:text-primary-hover'
+                                        ? 'border-border text-muted-foreground cursor-not-allowed'
+                                        : 'text-text-secondary hover:border-border-focus border-border hover:text-primary-hover'
                                     }`}
                             >
                                 <Icon name={'chevron-left'} size={18} />
@@ -178,8 +189,8 @@ const CategoriesSlider: React.FC = () => {
                                 onClick={() => setIndex(i => Math.min(maxIndex, i + 1))}
                                 disabled={index === maxIndex}
                                 className={`rounded-full border p-2 transition ${index === maxIndex
-                                    ? 'border-border cursor-not-allowed text-muted-foreground'
-                                    : 'text-text-secondary hover:border-border-focus border-border hover:text-primary-hover'
+                                        ? 'border-border text-muted-foreground cursor-not-allowed'
+                                        : 'text-text-secondary hover:border-border-focus border-border hover:text-primary-hover'
                                     }`}
                             >
                                 <Icon name={'chevron-right'} size={18} />
