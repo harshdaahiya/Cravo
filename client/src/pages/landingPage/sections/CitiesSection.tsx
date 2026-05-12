@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { RootState } from '../../../store';
 import { ICity } from '../../../types/domain-models';
 import { CITIES_CONFIG } from '../../../config/landing';
 
 interface CityCardProps {
     city: ICity;
+    onClick: (cityName: string) => void;
 }
 
-const CityCard: React.FC<CityCardProps> = ({ city }) => (
-    <div className="mb-4 px-2 sm:px-3">
-        <div className="border-border flex flex-col items-center justify-center rounded-xl border bg-background py-5 transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-md">
+const CityCard: React.FC<CityCardProps> = ({ city, onClick }) => (
+    <div className="mb-4 px-2 sm:px-3" onClick={() => onClick(city.name)}>
+        <div className="cursor-pointer border-border flex flex-col items-center justify-center rounded-xl border bg-background py-5 transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-md">
             <span className="text-text-secondary text-center text-sm font-medium">
                 {city.name}
             </span>
@@ -24,6 +26,7 @@ const CitiesSection: React.FC = () => {
 
     const [cities, setCities] = useState<ICity[]>([]);
     const [showAll, setShowAll] = useState(false);
+    const navigate = useNavigate();
 
     // Number of cities to show initially
     const INITIAL_CITIES_COUNT = CITIES_CONFIG.initialVisibleCount;
@@ -48,6 +51,10 @@ const CitiesSection: React.FC = () => {
         setShowAll(false);
     };
 
+    const handleCityClick = (cityName: string) => {
+        navigate(`/restaurants?cityName=${cityName}`);
+    };
+
     return (
         <section className="mb-2 bg-background">
             <div className="mx-auto max-w-7xl px-4 sm:px-6">
@@ -66,7 +73,7 @@ const CitiesSection: React.FC = () => {
                 {/* Cities Grid */}
                 <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
                     {citiesToDisplay.map(city => (
-                        <CityCard key={city._id} city={city} />
+                        <CityCard key={city._id} city={city} onClick={handleCityClick} />
                     ))}
                 </div>
 
