@@ -65,7 +65,7 @@ const WishlistSelectionView: React.FC<WishlistSelectionViewProps> = ({ wishlists
                 <div className="mb-8 flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-yellow-50 to-amber-100 shadow-lg">
                     <Heart className="h-12 w-12 text-amber-500" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-text-main mb-3 text-2xl font-bold">
+                <h3 className="text-foreground mb-3 text-2xl font-bold">
                     No Wishlists Yet
                 </h3>
                 <p className="text-text-secondary mb-8 max-w-md leading-relaxed">
@@ -74,7 +74,7 @@ const WishlistSelectionView: React.FC<WishlistSelectionViewProps> = ({ wishlists
                 </p>
                 <button
                     onClick={() => setShowNewListInput(true)}
-                    className="group bg-primary text-text-main inline-flex transform cursor-pointer items-center gap-3 rounded-2xl px-8 py-4 font-semibold shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-yellow-300 hover:shadow-xl"
+                    className="group bg-primary text-foreground inline-flex transform cursor-pointer items-center gap-3 rounded-2xl px-8 py-4 font-semibold shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary hover:shadow-xl"
                 >
                     <Plus className="h-5 w-5 transition-transform duration-300 group-hover:rotate-90" />
                     Create Your First List
@@ -88,7 +88,7 @@ const WishlistSelectionView: React.FC<WishlistSelectionViewProps> = ({ wishlists
             {/* Header */}
             <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-center">
                 <div>
-                    <h1 className="text-text-main mb-2 text-4xl font-bold">
+                    <h1 className="text-foreground mb-2 text-4xl font-bold">
                         My Wishlists
                     </h1>
                     <p className="text-text-secondary">
@@ -98,7 +98,7 @@ const WishlistSelectionView: React.FC<WishlistSelectionViewProps> = ({ wishlists
                 {!showNewListInput && (
                     <button
                         onClick={() => setShowNewListInput(true)}
-                        className="group bg-primary text-text-main inline-flex transform cursor-pointer items-center gap-3 self-start rounded-xl px-6 py-3 font-semibold shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-yellow-300 hover:shadow-xl"
+                        className="group bg-primary text-foreground inline-flex transform cursor-pointer items-center gap-3 self-start rounded-xl px-6 py-3 font-semibold shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary hover:shadow-xl"
                     >
                         <Plus className="h-5 w-5 transition-transform duration-300 group-hover:rotate-90" />
                         Create New List
@@ -108,13 +108,13 @@ const WishlistSelectionView: React.FC<WishlistSelectionViewProps> = ({ wishlists
 
             {/* New List Input */}
             {showNewListInput && (
-                <div className="animate-in slide-in-from-top-4 transform rounded-2xl border border-yellow-100 bg-white p-6 shadow-xl duration-300">
-                    <div className="bg-bg-subtle mb-6 flex items-center space-x-4 rounded-xl p-2 shadow-inner">
+                <div className="animate-in slide-in-from-top-4 transform rounded-2xl border border-ring bg-background p-6 shadow-xl duration-300">
+                    <div className="bg-muted mb-6 flex items-center space-x-4 rounded-xl p-2 shadow-inner">
                         <button
                             onClick={() => setNewListType('productList')}
                             className={`flex flex-1 items-center justify-center gap-2 rounded-xl py-3 font-semibold transition-all duration-200 ${newListType === 'productList'
-                                    ? 'bg-primary text-text-main shadow-md'
-                                    : 'text-text-secondary hover:bg-gray-100'
+                                    ? 'bg-primary text-foreground shadow-md'
+                                    : 'text-text-secondary hover:bg-muted'
                                 }`}
                         >
                             <ShoppingBag className="h-5 w-5" />
@@ -123,8 +123,8 @@ const WishlistSelectionView: React.FC<WishlistSelectionViewProps> = ({ wishlists
                         <button
                             onClick={() => setNewListType('restaurantList')}
                             className={`flex flex-1 items-center justify-center gap-2 rounded-xl py-3 font-semibold transition-all duration-200 ${newListType === 'restaurantList'
-                                    ? 'bg-primary text-text-main shadow-md'
-                                    : 'text-text-secondary hover:bg-gray-100'
+                                    ? 'bg-primary text-foreground shadow-md'
+                                    : 'text-text-secondary hover:bg-muted'
                                 }`}
                         >
                             <Coffee className="h-5 w-5" />
@@ -139,7 +139,7 @@ const WishlistSelectionView: React.FC<WishlistSelectionViewProps> = ({ wishlists
                                 value={newListName}
                                 onChange={e => setNewListName(e.target.value)}
                                 placeholder={`Enter name for your new ${newListType.replace('List', '').toLowerCase()} list...`}
-                                className="text-text-main focus:border-border-focus w-full rounded-xl border border-yellow-200 bg-yellow-50 px-6 py-4 placeholder-gray-500 transition-all duration-200 focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+                                className="text-foreground focus:border-border-focus w-full rounded-xl border border-ring bg-warning-muted px-6 py-4 placeholder-gray-500 transition-all duration-200 focus:ring-2 focus:ring-ring focus:outline-none"
                                 autoFocus
                             />
                         </div>
@@ -147,7 +147,7 @@ const WishlistSelectionView: React.FC<WishlistSelectionViewProps> = ({ wishlists
                             <button
                                 onClick={handleSave}
                                 disabled={!newListName.trim()}
-                                className="transform rounded-xl bg-green-500 px-8 py-4 font-semibold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-green-600 hover:shadow-xl disabled:cursor-not-allowed disabled:bg-gray-300"
+                                className="transform rounded-xl bg-success px-8 py-4 font-semibold text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-success hover:shadow-xl disabled:cursor-not-allowed disabled:bg-muted"
                             >
                                 Save
                             </button>
@@ -156,7 +156,7 @@ const WishlistSelectionView: React.FC<WishlistSelectionViewProps> = ({ wishlists
                                     setShowNewListInput(false);
                                     setNewListName('');
                                 }}
-                                className="text-text-main transform rounded-xl bg-yellow-100 px-6 py-4 font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:bg-yellow-200"
+                                className="text-foreground transform rounded-xl bg-warning-muted px-6 py-4 font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:bg-warning-muted"
                             >
                                 Cancel
                             </button>
@@ -175,36 +175,36 @@ const WishlistSelectionView: React.FC<WishlistSelectionViewProps> = ({ wishlists
                         <div
                             key={list._id}
                             onClick={() => setSelectedListId(list._id)}
-                            className={`group relative bg-gradient-to-br ${getGradientClass(index)} transform cursor-pointer rounded-2xl border border-yellow-200/50 p-5 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl`}
+                            className={`group relative bg-gradient-to-br ${getGradientClass(index)} transform cursor-pointer rounded-2xl border border-ring/50 p-5 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl`}
                         >
                             <div className="bg-primary/10 absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                             <div className="relative z-10">
                                 <div className="mb-6 flex items-start justify-between">
-                                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-yellow-200/30 bg-white/90 shadow-lg backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
+                                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-ring/30 bg-white/90 shadow-lg backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
                                         <IconComponent
                                             className="text-brown h-7 w-7"
                                             strokeWidth={1.5}
                                         />
                                     </div>
-                                    <ChevronRight className="text-text-muted group-hover:text-brown h-5 w-5 transition-all duration-300 group-hover:translate-x-1" />
+                                    <ChevronRight className="text-muted-foreground group-hover:text-brown h-5 w-5 transition-all duration-300 group-hover:translate-x-1" />
                                 </div>
 
                                 <div className="space-y-3">
-                                    <h3 className="text-text-main group-hover:text-text-main line-clamp-2 text-xl font-bold transition-colors duration-200">
+                                    <h3 className="text-foreground group-hover:text-text-main line-clamp-2 text-xl font-bold transition-colors duration-200">
                                         {list.name}
                                     </h3>
 
                                     <div className="flex items-center justify-between">
-                                        <span className="text-brown inline-flex items-center gap-2 rounded-full border border-yellow-200/50 bg-white/70 px-3 py-1.5 text-sm font-medium capitalize backdrop-blur-sm">
+                                        <span className="text-brown inline-flex items-center gap-2 rounded-full border border-ring/50 bg-white/70 px-3 py-1.5 text-sm font-medium capitalize backdrop-blur-sm">
                                             <Star
-                                                className="h-3.5 w-3.5 text-yellow-500"
+                                                className="h-3.5 w-3.5 text-primary"
                                                 fill="currentColor"
                                             />
                                             {list.list_type?.replace('List', '') || 'Custom'} List
                                         </span>
 
-                                        <span className="text-text-main group-hover:text-text-main text-lg font-bold transition-colors duration-200">
+                                        <span className="text-foreground group-hover:text-text-main text-lg font-bold transition-colors duration-200">
                                             {itemCount}
                                             <span className="text-text-secondary ml-1 text-sm font-medium">
                                                 {itemCount === 1 ? 'item' : 'items'}
@@ -213,9 +213,9 @@ const WishlistSelectionView: React.FC<WishlistSelectionViewProps> = ({ wishlists
                                     </div>
                                 </div>
 
-                                <div className="mt-4 border-t border-yellow-300/40 pt-4">
+                                <div className="mt-4 border-t border-ring/40 pt-4">
                                     <div className="flex items-center gap-2">
-                                        <div className="h-2 flex-grow overflow-hidden rounded-full bg-yellow-200/40">
+                                        <div className="h-2 flex-grow overflow-hidden rounded-full bg-warning-muted/40">
                                             <div
                                                 className="h-full rounded-full bg-gradient-to-r from-yellow-400 to-amber-500 transition-all duration-500"
                                                 style={{
@@ -236,10 +236,10 @@ const WishlistSelectionView: React.FC<WishlistSelectionViewProps> = ({ wishlists
 
             {/* Stats Footer */}
             {wishlists.length > 0 && (
-                <div className="mt-12 rounded-2xl border border-yellow-200 bg-gradient-to-r from-yellow-50 to-amber-50 p-6">
+                <div className="mt-12 rounded-2xl border border-ring bg-gradient-to-r from-yellow-50 to-amber-50 p-6">
                     <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
                         <div className="text-center sm:text-left">
-                            <p className="text-text-main text-2xl font-bold">
+                            <p className="text-foreground text-2xl font-bold">
                                 {wishlists.length}{' '}
                                 {wishlists.length === 1 ? 'Wishlist' : 'Wishlists'}
                             </p>
@@ -254,7 +254,7 @@ const WishlistSelectionView: React.FC<WishlistSelectionViewProps> = ({ wishlists
                             </p>
                         </div>
                         <div className="text-brown flex items-center gap-2">
-                            <Heart className="h-5 w-5 text-red-400" fill="currentColor" />
+                            <Heart className="h-5 w-5 text-destructive" fill="currentColor" />
                             <span className="text-sm font-medium">
                                 Keep exploring and saving!
                             </span>

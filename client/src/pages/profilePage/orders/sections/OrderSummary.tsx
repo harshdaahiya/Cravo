@@ -62,13 +62,13 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
                 <div className="min-w-0 flex-1">
                     <div className="flex items-start justify-between gap-4">
                         <div className="flex-1">
-                            <h3 className="text-text-main text-lg font-bold">
+                            <h3 className="text-foreground text-lg font-bold">
                                 {order.restaurant.name}
                             </h3>
-                            <p className="text-text-muted mt-0.5 text-sm">
+                            <p className="text-muted-foreground mt-0.5 text-sm">
                                 {formatDate(order.orderDate)}
                             </p>
-                            <p className="mt-1 text-xs text-gray-400">
+                            <p className="mt-1 text-xs text-muted-foreground">
                                 Order ID: {order.orderId}
                             </p>
 
@@ -83,27 +83,27 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
                                 </span>
 
                                 {order.estimatedDelivery && order.status !== 'delivered' && (
-                                    <span className="text-xs font-medium text-yellow-600">
+                                    <span className="text-xs font-medium text-primary-hover">
                                         ETA: {formatETA(order.estimatedDelivery)}
                                     </span>
                                 )}
                             </div>
 
                             {order.status === 'cancelled' && order.cancellationReason && (
-                                <p className="mt-2 text-xs text-red-600">
+                                <p className="mt-2 text-xs text-destructive">
                                     Reason: {order.cancellationReason}
                                 </p>
                             )}
                         </div>
 
                         <div className="text-right">
-                            <p className="text-text-main text-xl font-bold">
+                            <p className="text-foreground text-xl font-bold">
                                 ₹{order.total.toFixed(2)}
                             </p>
-                            <p className="text-text-muted mt-1 text-sm">
+                            <p className="text-muted-foreground mt-1 text-sm">
                                 {order.items.length} items
                             </p>
-                            <p className="mt-1 text-xs font-medium text-green-600">
+                            <p className="mt-1 text-xs font-medium text-success">
                                 {order.paymentStatus}
                             </p>
                         </div>
@@ -114,7 +114,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
                         {order.canReorder && (
                             <button
                                 onClick={() => onReorder(order)}
-                                className="bg-primary hover:bg-primary-hover text-text-main inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-colors"
+                                className="bg-primary hover:bg-primary-hover text-foreground inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-colors"
                             >
                                 <ShoppingCart className="h-4 w-4" />
                                 Reorder
@@ -125,7 +125,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
                             order.canCancel && (
                                 <button
                                     onClick={() => onCancel(order.id)}
-                                    className="inline-flex items-center gap-2 rounded-lg bg-red-50 px-4 py-2 text-sm font-semibold text-red-700 transition-colors hover:bg-red-100"
+                                    className="inline-flex items-center gap-2 rounded-lg bg-destructive-muted px-4 py-2 text-sm font-semibold text-destructive-foreground transition-colors hover:bg-destructive-muted"
                                 >
                                     <XCircle className="h-4 w-4" />
                                     Cancel
@@ -135,7 +135,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
                         {['preparing', 'on_the_way'].includes(order.status) && (
                             <button
                                 onClick={() => onTrack(order)}
-                                className="text-text-main inline-flex items-center gap-2 rounded-lg bg-gray-100 px-4 py-2 text-sm font-semibold transition-colors hover:bg-gray-200"
+                                className="text-foreground inline-flex items-center gap-2 rounded-lg bg-muted px-4 py-2 text-sm font-semibold transition-colors hover:bg-muted"
                             >
                                 <Navigation className="h-4 w-4" />
                                 Track
@@ -144,7 +144,7 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({
 
                         <button
                             onClick={onToggleExpand}
-                            className="text-text-main inline-flex items-center gap-2 rounded-lg bg-gray-100 px-4 py-2 text-sm font-semibold transition-colors hover:bg-gray-200"
+                            className="text-foreground inline-flex items-center gap-2 rounded-lg bg-muted px-4 py-2 text-sm font-semibold transition-colors hover:bg-muted"
                         >
                             {isExpanded ? 'Hide' : 'View'} Details
                             {isExpanded ? (

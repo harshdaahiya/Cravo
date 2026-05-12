@@ -31,7 +31,7 @@ const AddressPage: React.FC = () => {
 
     if (loading === 'pending') {
         return (
-            <div className="bg-bg-subtle flex min-h-screen items-center justify-center">
+            <div className="bg-muted flex min-h-screen items-center justify-center">
                 <p className="text-text-secondary animate-pulse text-xl font-medium">
                     Loading addresses...
                 </p>
@@ -41,19 +41,19 @@ const AddressPage: React.FC = () => {
 
     if (loading === 'failed' && error) {
         return (
-            <div className="bg-bg-subtle flex min-h-screen items-center justify-center">
-                <p className="text-xl font-medium text-red-500">Error: {error}</p>
+            <div className="bg-muted flex min-h-screen items-center justify-center">
+                <p className="text-xl font-medium text-destructive">Error: {error}</p>
             </div>
         );
     }
 
     return (
-        <div className="text-text-main min-h-screen rounded-xl py-2">
+        <div className="text-foreground min-h-screen rounded-xl py-2">
             <div className="mx-auto px-4 sm:px-6 md:max-w-6xl lg:px-8">
                 <div className="mb-8 flex items-center justify-between">
                     <div className="flex items-center space-x-3">
                         <Icon name="home" className="text-text-secondary h-9 w-9" />
-                        <h1 className="text-text-main text-4xl font-extrabold">
+                        <h1 className="text-foreground text-4xl font-extrabold">
                             Your Addresses
                         </h1>
                     </div>
@@ -62,15 +62,15 @@ const AddressPage: React.FC = () => {
                             setCurrentAddress(null);
                             handleOpenAddressModal();
                         }}
-                        className="bg-primary-hover focus:ring-opacity-75 transform cursor-pointer rounded-lg px-6 py-3 font-semibold text-white shadow-lg transition-all hover:scale-105 hover:bg-yellow-600 focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+                        className="bg-primary-hover focus:ring-opacity-75 transform cursor-pointer rounded-lg px-6 py-3 font-semibold text-white shadow-lg transition-all hover:scale-105 hover:bg-primary-hover focus:ring-2 focus:ring-ring focus:outline-none"
                     >
                         New
                     </button>
                 </div>
 
                 {userAddresses.length === 0 ? (
-                    <div className="border-border rounded-xl border bg-white p-12 text-center shadow-md">
-                        <p className="text-text-muted text-xl font-light">
+                    <div className="border-border rounded-xl border bg-background p-12 text-center shadow-md">
+                        <p className="text-muted-foreground text-xl font-light">
                             You haven't saved any addresses yet. Add one to get started!
                         </p>
                     </div>

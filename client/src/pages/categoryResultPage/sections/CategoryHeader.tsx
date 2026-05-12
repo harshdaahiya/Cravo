@@ -14,7 +14,7 @@ const CategoryHeader: React.FC<CategoryHeaderProps> = ({
     cityName,
 }) => {
     return (
-        <div className="relative mb-10 rounded-2xl border border-gray-100 bg-gradient-to-br from-gray-50 to-white p-6 shadow-sm">
+        <div className="relative mb-10 rounded-2xl border border-border bg-gradient-to-br from-gray-50 to-white p-6 shadow-sm">
             {/* Decorative background element */}
             <div className="absolute top-0 right-0 h-32 w-32 rounded-2xl bg-gradient-to-bl from-yellow-50 to-transparent opacity-60"></div>
 
@@ -26,7 +26,7 @@ const CategoryHeader: React.FC<CategoryHeaderProps> = ({
                 </div>
 
                 {/* Main heading */}
-                <h1 className="text-text-main mb-3 text-3xl leading-tight font-bold lg:text-4xl">
+                <h1 className="text-foreground mb-3 text-3xl leading-tight font-bold lg:text-4xl">
                     {categoryName}
                 </h1>
 
@@ -38,18 +38,18 @@ const CategoryHeader: React.FC<CategoryHeaderProps> = ({
                 {/* Meta information */}
                 <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
                     <div className="text-text-secondary flex items-center space-x-2">
-                        <div className="flex h-5 w-5 items-center justify-center rounded-full bg-green-100">
-                            <div className="h-2 w-2 rounded-full bg-green-500"></div>
+                        <div className="flex h-5 w-5 items-center justify-center rounded-full bg-success-muted">
+                            <div className="h-2 w-2 rounded-full bg-success"></div>
                         </div>
                         <span className="font-medium">{restaurantCount}</span>
-                        <span className="text-text-muted">restaurants available</span>
+                        <span className="text-muted-foreground">restaurants available</span>
                     </div>
 
                     <div className="text-text-secondary flex items-center space-x-2">
-                        <div className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-100">
-                            <div className="h-2 w-2 rounded-full bg-blue-500"></div>
+                        <div className="flex h-5 w-5 items-center justify-center rounded-full bg-info-muted">
+                            <div className="h-2 w-2 rounded-full bg-info"></div>
                         </div>
-                        <span className="text-text-muted">Delivering to</span>
+                        <span className="text-muted-foreground">Delivering to</span>
                         <span className="font-medium">{cityName}</span>
                     </div>
                 </div>

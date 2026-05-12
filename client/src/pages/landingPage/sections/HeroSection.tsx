@@ -114,7 +114,7 @@ const Hero: React.FC = () => {
                             <span className="text-main block">Food, </span>
                             <span className="relative inline-block">
                                 <span className="text-main relative z-10">Delivered</span>
-                                <span className="absolute bottom-2 left-0 -z-0 h-3 w-full rounded-ss-4xl rounded-se-4xl bg-white"></span>
+                                <span className="absolute bottom-2 left-0 -z-0 h-3 w-full rounded-ss-4xl rounded-se-4xl bg-background"></span>
                             </span>
                             <span className="text-main"> Fast</span>
                         </h1>
@@ -125,14 +125,14 @@ const Hero: React.FC = () => {
                     </div>
 
                     {/* Search Section */}
-                    <div className="border-border rounded-2xl border bg-white p-4 shadow-lg sm:p-6">
+                    <div className="border-border rounded-2xl border bg-background p-4 shadow-lg sm:p-6">
                         <div className="space-y-4">
                             <div className="grid grid-cols-1 gap-3 sm:gap-4 md:grid-cols-2">
                                 {/* Location Search */}
                                 <div className="relative" ref={locationRef}>
                                     <Icon
                                         name="map-pin"
-                                        className="text-text-muted absolute top-1/2 left-3 -translate-y-1/2 transform sm:left-4"
+                                        className="text-muted-foreground absolute top-1/2 left-3 -translate-y-1/2 transform sm:left-4"
                                         size={18}
                                     />
                                     <input
@@ -141,11 +141,11 @@ const Hero: React.FC = () => {
                                         value={locationSearchTerm}
                                         onChange={handleLocationChange}
                                         onFocus={handleInputFocus}
-                                        className="border-border focus:border-border-focus text-text-main w-full rounded-xl border-2 py-3 pr-10 pl-10 text-sm font-medium focus:outline-none sm:py-4 sm:pl-12 sm:text-base"
+                                        className="border-border focus:border-border-focus text-foreground w-full rounded-xl border-2 py-3 pr-10 pl-10 text-sm font-medium focus:outline-none sm:py-4 sm:pl-12 sm:text-base"
                                     />
                                     <Icon
                                         name={isLocationLoading ? 'loading' : 'chevron-down'}
-                                        className={`text-text-muted absolute top-1/2 right-3 -translate-y-1/2 transform sm:right-4 ${isLocationLoading ? 'animate-spin' : ''
+                                        className={`text-muted-foreground absolute top-1/2 right-3 -translate-y-1/2 transform sm:right-4 ${isLocationLoading ? 'animate-spin' : ''
                                             }`}
                                         size={18}
                                     />
@@ -153,9 +153,9 @@ const Hero: React.FC = () => {
                                     {/* Suggestions Dropdown */}
                                     {showSuggestions &&
                                         (suggestions.length > 0 || isLocationLoading) && (
-                                            <div className="border-border absolute z-10 mt-2 max-h-64 w-full overflow-hidden overflow-y-auto rounded-xl border bg-white shadow-2xl">
+                                            <div className="border-border absolute z-10 mt-2 max-h-64 w-full overflow-hidden overflow-y-auto rounded-xl border bg-background shadow-2xl">
                                                 <div
-                                                    className="hover:bg-bg-subtle flex cursor-pointer items-center gap-3 p-4 text-sm font-medium text-blue-600"
+                                                    className="hover:bg-bg-subtle flex cursor-pointer items-center gap-3 p-4 text-sm font-medium text-info"
                                                     onClick={handleUseCurrentLocation}
                                                 >
                                                     <Icon name="locate-fixed" size={18} />
@@ -164,7 +164,7 @@ const Hero: React.FC = () => {
                                                 <hr className="border-border" />
 
                                                 {isLocationLoading && (
-                                                    <div className="text-text-muted p-4 text-center text-sm">
+                                                    <div className="text-muted-foreground p-4 text-center text-sm">
                                                         Loading...
                                                     </div>
                                                 )}
@@ -190,7 +190,7 @@ const Hero: React.FC = () => {
                                 <div className="relative">
                                     <Icon
                                         name="search"
-                                        className="text-text-muted absolute top-1/2 left-3 -translate-y-1/2 transform sm:left-4"
+                                        className="text-muted-foreground absolute top-1/2 left-3 -translate-y-1/2 transform sm:left-4"
                                         size={18}
                                     />
                                     <input
@@ -198,7 +198,7 @@ const Hero: React.FC = () => {
                                         placeholder="Pizza, Burger, Chinese..."
                                         value={categoryName}
                                         onChange={handleCategoryChange}
-                                        className="border-border focus:border-border-focus text-text-main w-full rounded-xl border-2 py-3 pr-10 pl-10 text-sm font-medium focus:outline-none sm:py-4 sm:pl-12 sm:text-base"
+                                        className="border-border focus:border-border-focus text-foreground w-full rounded-xl border-2 py-3 pr-10 pl-10 text-sm font-medium focus:outline-none sm:py-4 sm:pl-12 sm:text-base"
                                     />
                                 </div>
                             </div>
@@ -207,7 +207,7 @@ const Hero: React.FC = () => {
                             <button
                                 onClick={handleSearchSubmit}
                                 disabled={!selectedLocation || isLocationLoading}
-                                className="bg-primary hover:bg-primary-hover text-text-main w-full cursor-pointer rounded-xl py-3 text-sm font-bold shadow-md transition-colors disabled:opacity-50 sm:py-4 sm:text-base"
+                                className="bg-primary hover:bg-primary-hover text-foreground w-full cursor-pointer rounded-xl py-3 text-sm font-bold shadow-md transition-colors disabled:opacity-50 sm:py-4 sm:text-base"
                             >
                                 Find Delicious Food
                             </button>
@@ -225,7 +225,7 @@ const Hero: React.FC = () => {
                                         <div className="mb-2 text-4xl sm:mb-4 sm:text-5xl lg:text-6xl">
                                             🍽️
                                         </div>
-                                        <p className="text-text-main text-base font-bold sm:text-lg">
+                                        <p className="text-foreground text-base font-bold sm:text-lg">
                                             Premium Quality
                                         </p>
                                         <p className="text-text-secondary text-xs sm:text-sm">
@@ -237,10 +237,10 @@ const Hero: React.FC = () => {
                                 <div className="bg-secondary absolute -top-2 -left-2 rounded-full px-2 py-1 text-xs font-bold text-white shadow-lg sm:-top-4 sm:-left-4 sm:px-4 sm:py-2 sm:text-sm">
                                     🌿 Fresh
                                 </div>
-                                <div className="bg-primary-hover text-text-main absolute -right-2 -bottom-2 rounded-full px-2 py-1 text-xs font-bold shadow-lg sm:-right-4 sm:-bottom-4 sm:px-4 sm:py-2 sm:text-sm">
+                                <div className="bg-primary-hover text-foreground absolute -right-2 -bottom-2 rounded-full px-2 py-1 text-xs font-bold shadow-lg sm:-right-4 sm:-bottom-4 sm:px-4 sm:py-2 sm:text-sm">
                                     ⚡ 30 min
                                 </div>
-                                <div className="text-text-main border-border-focus absolute top-1/2 -right-4 rounded-full border-2 bg-white px-2 py-1 text-xs font-semibold shadow-lg sm:-right-8 sm:px-3 sm:py-2 sm:text-sm">
+                                <div className="text-foreground border-border-focus absolute top-1/2 -right-4 rounded-full border-2 bg-background px-2 py-1 text-xs font-semibold shadow-lg sm:-right-8 sm:px-3 sm:py-2 sm:text-sm">
                                     1000+ 🏪
                                 </div>
                             </div>

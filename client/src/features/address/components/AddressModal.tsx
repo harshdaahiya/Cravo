@@ -52,8 +52,8 @@ const AddressModal: React.FC<AddressModalProps> = ({ initialData }) => {
 
     return (
         <div className="bg-opacity-50 fixed inset-0 z-50 flex items-center justify-center p-4">
-            <div className="w-full max-w-lg rounded-xl bg-white p-6 shadow-2xl">
-                <h2 className="text-text-main mb-4 text-2xl font-bold">
+            <div className="w-full max-w-lg rounded-xl bg-background p-6 shadow-2xl">
+                <h2 className="text-foreground mb-4 text-2xl font-bold">
                     {initialData?._id ? 'Edit Address' : 'Add New Address'}
                 </h2>
 
@@ -66,7 +66,7 @@ const AddressModal: React.FC<AddressModalProps> = ({ initialData }) => {
                             value={formData.addressLine1}
                             onChange={handleChange}
                             required
-                            className="bg-bg-subtle text-text-main col-span-2 rounded-lg border border-gray-300 p-3 focus:border-yellow-500 focus:ring-yellow-500 outline-none"
+                            className="bg-muted text-foreground col-span-2 rounded-lg border border-border p-3 focus:border-ring focus:ring-ring outline-none"
                         />
 
                         <input
@@ -75,7 +75,7 @@ const AddressModal: React.FC<AddressModalProps> = ({ initialData }) => {
                             placeholder="Address Line 2"
                             value={formData.addressLine2}
                             onChange={handleChange}
-                            className="bg-bg-subtle text-text-main col-span-2 rounded-lg border border-gray-300 p-3 focus:border-yellow-500 focus:ring-yellow-500 outline-none"
+                            className="bg-muted text-foreground col-span-2 rounded-lg border border-border p-3 focus:border-ring focus:ring-ring outline-none"
                         />
 
                         <input
@@ -85,7 +85,7 @@ const AddressModal: React.FC<AddressModalProps> = ({ initialData }) => {
                             value={formData.city}
                             onChange={handleChange}
                             required
-                            className="bg-bg-subtle text-text-main rounded-lg border border-gray-300 p-3 focus:border-yellow-500 focus:ring-yellow-500 outline-none"
+                            className="bg-muted text-foreground rounded-lg border border-border p-3 focus:border-ring focus:ring-ring outline-none"
                         />
 
                         <input
@@ -95,7 +95,7 @@ const AddressModal: React.FC<AddressModalProps> = ({ initialData }) => {
                             value={formData.state}
                             onChange={handleChange}
                             required
-                            className="bg-bg-subtle text-text-main rounded-lg border border-gray-300 p-3 focus:border-yellow-500 focus:ring-yellow-500 outline-none"
+                            className="bg-muted text-foreground rounded-lg border border-border p-3 focus:border-ring focus:ring-ring outline-none"
                         />
 
                         <input
@@ -105,7 +105,7 @@ const AddressModal: React.FC<AddressModalProps> = ({ initialData }) => {
                             value={formData.zipCode}
                             onChange={handleChange}
                             required
-                            className="bg-bg-subtle text-text-main rounded-lg border border-gray-300 p-3 focus:border-yellow-500 focus:ring-yellow-500 outline-none"
+                            className="bg-muted text-foreground rounded-lg border border-border p-3 focus:border-ring focus:ring-ring outline-none"
                         />
 
                         <input
@@ -115,7 +115,7 @@ const AddressModal: React.FC<AddressModalProps> = ({ initialData }) => {
                             value={formData.country}
                             onChange={handleChange}
                             required
-                            className="bg-bg-subtle text-text-main rounded-lg border border-gray-300 p-3 focus:border-yellow-500 focus:ring-yellow-500 outline-none"
+                            className="bg-muted text-foreground rounded-lg border border-border p-3 focus:border-ring focus:ring-ring outline-none"
                         />
 
                         <div className="col-span-2 flex items-center gap-4">
@@ -128,7 +128,7 @@ const AddressModal: React.FC<AddressModalProps> = ({ initialData }) => {
                                 id="addressType"
                                 value={formData.addressType}
                                 onChange={handleChange}
-                                className="bg-bg-subtle text-text-main rounded-lg border border-gray-300 p-3 focus:border-yellow-500 focus:ring-yellow-500 outline-none"
+                                className="bg-muted text-foreground rounded-lg border border-border p-3 focus:border-ring focus:ring-ring outline-none"
                             >
                                 <option value="Home">Home</option>
                                 <option value="Work">Work</option>
@@ -143,7 +143,7 @@ const AddressModal: React.FC<AddressModalProps> = ({ initialData }) => {
                                 id="isDefault"
                                 checked={formData.isDefault}
                                 onChange={handleChange}
-                                className="h-4 w-4 rounded border-gray-300 bg-gray-100 text-yellow-500 focus:ring-yellow-500 cursor-pointer"
+                                className="h-4 w-4 rounded border-border bg-muted text-primary focus:ring-ring cursor-pointer"
                             />
 
                             <label
@@ -159,14 +159,14 @@ const AddressModal: React.FC<AddressModalProps> = ({ initialData }) => {
                         <button
                             type="button"
                             onClick={handleCloseAddressModal}
-                            className="text-text-main cursor-pointer rounded-lg bg-gray-200 px-6 py-3 transition-colors hover:bg-gray-300"
+                            className="text-foreground cursor-pointer rounded-lg bg-muted px-6 py-3 transition-colors hover:bg-muted"
                         >
                             Cancel
                         </button>
 
                         <button
                             type="submit"
-                            className="bg-primary hover:bg-yellow-600 cursor-pointer rounded-lg px-6 py-3 text-white transition-colors"
+                            className="bg-primary hover:bg-primary-hover cursor-pointer rounded-lg px-6 py-3 text-white transition-colors"
                         >
                             Save Address
                         </button>

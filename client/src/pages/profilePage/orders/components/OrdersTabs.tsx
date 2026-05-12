@@ -26,8 +26,8 @@ const OrdersTabs: React.FC<OrdersTabsProps> = ({ activeTab, setActiveTab, counts
                     key={key}
                     onClick={() => setActiveTab(key)}
                     className={`rounded-xl px-6 py-2.5 font-semibold whitespace-nowrap transition-all ${activeTab === key
-                            ? 'bg-primary text-text-main shadow-lg'
-                            : 'text-text-secondary hover:bg-bg-subtle border-border border bg-white'
+                            ? 'bg-primary text-foreground shadow-lg'
+                            : 'text-text-secondary hover:bg-bg-subtle border-border border bg-background'
                         }`}
                 >
                     {label} {count > 0 && `(${count})`}

@@ -101,7 +101,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ item, listId }) => {
 
     return (
         <div
-            className="relative flex flex-col rounded-2xl bg-white shadow-md transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg"
+            className="relative flex flex-col rounded-2xl bg-background shadow-md transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg"
         >
             {/* Image Section */}
             <div className="relative overflow-hidden rounded-t-2xl">
@@ -124,9 +124,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ item, listId }) => {
                     onClick={
                         isAuthenticated ? handleWishlistClick : handleOpenAuthRequireModal
                     }
-                    className={`absolute top-2 right-2 cursor-pointer rounded-full bg-white p-1.5 shadow-md transition-colors duration-200 ${isProductInWishlist
-                            ? 'text-red-500'
-                            : 'text-gray-400 hover:text-red-500'
+                    className={`absolute top-2 right-2 cursor-pointer rounded-full bg-background p-1.5 shadow-md transition-colors duration-200 ${isProductInWishlist
+                            ? 'text-destructive'
+                            : 'text-muted-foreground hover:text-destructive'
                         }`}
                 >
                     <Icon name="heart" className="h-4 w-4 fill-current" />
@@ -143,39 +143,39 @@ const ProductCard: React.FC<ProductCardProps> = ({ item, listId }) => {
                             Bestseller
                         </span>
                     )}
-                    <h3 className="text-text-main line-clamp-1 text-base font-bold">
+                    <h3 className="text-foreground line-clamp-1 text-base font-bold">
                         {item.name}
                     </h3>
-                    <p className="text-text-muted line-clamp-2 text-xs">
+                    <p className="text-muted-foreground line-clamp-2 text-xs">
                         {item.description}
                     </p>
                 </div>
 
                 {/* Bottom Section (Price + Actions) */}
-                <div className="mt-auto flex items-center justify-between border-t border-gray-100 pt-2">
+                <div className="mt-auto flex items-center justify-between border-t border-border pt-2">
                     {/* Price */}
                     <div className="flex items-center">
-                        <Icon name="indian-rupee" className="text-text-main mr-1 h-4 w-4" />
-                        <span className="text-text-main text-base font-extrabold">
+                        <Icon name="indian-rupee" className="text-foreground mr-1 h-4 w-4" />
+                        <span className="text-foreground text-base font-extrabold">
                             {item.price}
                         </span>
                     </div>
 
                     {/* Add to Cart / Quantity */}
                     {existingCartItem ? (
-                        <div className="flex items-center space-x-1.5 rounded-full border border-yellow-200 bg-white px-2 py-0.5">
+                        <div className="flex items-center space-x-1.5 rounded-full border border-ring bg-background px-2 py-0.5">
                             <button
                                 onClick={handleDecrement}
-                                className="bg-primary text-text-main hover:bg-primary-hover flex h-6 w-6 cursor-pointer items-center justify-center rounded-full font-semibold transition-colors duration-200"
+                                className="bg-primary text-foreground hover:bg-primary-hover flex h-6 w-6 cursor-pointer items-center justify-center rounded-full font-semibold transition-colors duration-200"
                             >
                                 -
                             </button>
-                            <span className="text-text-main text-sm font-bold">
+                            <span className="text-foreground text-sm font-bold">
                                 {existingCartItem.quantity}
                             </span>
                             <button
                                 onClick={handleIncrement}
-                                className="bg-primary text-text-main hover:bg-primary-hover flex h-6 w-6 cursor-pointer items-center justify-center rounded-full font-semibold transition-colors duration-200"
+                                className="bg-primary text-foreground hover:bg-primary-hover flex h-6 w-6 cursor-pointer items-center justify-center rounded-full font-semibold transition-colors duration-200"
                             >
                                 +
                             </button>
@@ -183,7 +183,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ item, listId }) => {
                     ) : (
                         <button
                             onClick={() => handleAddToCart(item._id)}
-                            className="bg-primary text-text-main hover:bg-primary-hover flex cursor-pointer items-center rounded-full px-3 py-1.5 text-sm font-semibold shadow-md transition-colors duration-200"
+                            className="bg-primary text-foreground hover:bg-primary-hover flex cursor-pointer items-center rounded-full px-3 py-1.5 text-sm font-semibold shadow-md transition-colors duration-200"
                         >
                             <Icon name="shopping-cart" className="mr-1 h-4 w-4" /> Add
                         </button>

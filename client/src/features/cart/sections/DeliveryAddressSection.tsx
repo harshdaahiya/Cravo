@@ -24,9 +24,9 @@ const DeliveryAddressSection: React.FC<DeliveryAddressSectionProps> = ({
     const { handleOpenAddressModal } = useAddressActions();
 
     return (
-        <div className="rounded-3xl bg-white p-4 shadow-lg">
+        <div className="rounded-3xl bg-background p-4 shadow-lg">
             <div className="flex items-center justify-between pb-1">
-                <h2 className="text-text-main mb-3 text-xl font-bold">
+                <h2 className="text-foreground mb-3 text-xl font-bold">
                     Delivery Details
                 </h2>
                 <button
@@ -44,10 +44,10 @@ const DeliveryAddressSection: React.FC<DeliveryAddressSectionProps> = ({
                     <div
                         key={addr._id}
                         onClick={() => setSelectedAddress(addr._id)}
-                        className={`cursor-pointer rounded-xl p-3 transition-all duration-200 ${selectedAddress === addr._id ? 'border-border-focus border-2 bg-yellow-50' : 'bg-bg-subtle border border-transparent hover:bg-gray-100'}`}
+                        className={`cursor-pointer rounded-xl p-3 transition-all duration-200 ${selectedAddress === addr._id ? 'border-border-focus border-2 bg-warning-muted' : 'bg-muted border border-transparent hover:bg-muted'}`}
                     >
                         <div className="flex items-center space-x-3">
-                            <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-white shadow">
+                            <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-background shadow">
                                 {addr.addressType.toLowerCase() === 'home' ? (
                                     <Icon name="home" className="text-text-secondary h-4 w-4" />
                                 ) : (
@@ -58,10 +58,10 @@ const DeliveryAddressSection: React.FC<DeliveryAddressSectionProps> = ({
                                 )}
                             </div>
                             <div className="flex-grow">
-                                <p className="text-text-main font-semibold">
+                                <p className="text-foreground font-semibold">
                                     {addr.addressType}
                                 </p>
-                                <p className="text-text-muted text-sm">
+                                <p className="text-muted-foreground text-sm">
                                     {addr.addressLine1}, {addr.addressLine2},
                                 </p>
                             </div>

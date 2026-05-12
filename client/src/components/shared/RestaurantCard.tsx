@@ -89,7 +89,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ data, listId, className
     };
 
     const baseContainerClasses =
-        'bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 ease-in-out group cursor-pointer overflow-hidden border border-gray-100';
+        'bg-background rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 ease-in-out group cursor-pointer overflow-hidden border border-border';
 
     const cardLayoutClasses = 'w-full flex flex-col';
     const imageContainerClasses = 'relative flex-shrink-0 overflow-hidden h-36'; // Fixed height for grid
@@ -120,13 +120,13 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ data, listId, className
 
                 {/* Min order badge (Grid placement) */}
                 <div className="absolute bottom-3 left-3 rounded-lg bg-white/95 px-2 py-1 shadow-md backdrop-blur-sm">
-                    <span className="text-text-main text-sm font-bold">
+                    <span className="text-foreground text-sm font-bold">
                         Min ₹{data.min_order_value}
                     </span>
                 </div>
 
                 {/* Delivery time badge (Grid placement) */}
-                <div className="text-text-main absolute top-3 right-3 rounded-full bg-white/90 px-2 py-1 text-xs font-semibold shadow-md">
+                <div className="text-foreground absolute top-3 right-3 rounded-full bg-white/90 px-2 py-1 text-xs font-semibold shadow-md">
                     {data.delivery_time_mins}m
                 </div>
 
@@ -134,8 +134,8 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ data, listId, className
                 <button
                     onClick={onFavoriteButtonClick}
                     className={`absolute top-3 left-3 z-10 cursor-pointer rounded-full bg-white/80 p-2 transition-all duration-200 hover:bg-white ${isRestaurantInWishlist
-                        ? 'text-red-500 opacity-100'
-                        : 'text-gray-400 opacity-0 group-hover:opacity-100 hover:text-red-500'
+                        ? 'text-destructive opacity-100'
+                        : 'text-muted-foreground opacity-0 group-hover:opacity-100 hover:text-destructive'
                         }`}
                 >
                     <Icon name="heart" size={16} className="h-4 w-4 fill-current" />
@@ -145,7 +145,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ data, listId, className
             {/* CONTENT SECTION */}
             <div className={contentContainerClasses}>
                 {/* Restaurant name */}
-                <h3 className="text-text-main line-clamp-1 text-lg leading-tight font-bold transition-colors group-hover:text-yellow-500">
+                <h3 className="text-foreground line-clamp-1 text-lg leading-tight font-bold transition-colors group-hover:text-primary">
                     {data.name}
                 </h3>
 
@@ -163,29 +163,29 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ data, listId, className
 
                 {/* Rating and Reviews */}
                 <div className="flex items-center gap-4">
-                    <div className="flex items-center gap-1 rounded-lg border border-emerald-100 bg-emerald-50 px-2 py-0.5">
+                    <div className="flex items-center gap-1 rounded-lg border border-emerald-100 bg-success-muted px-2 py-0.5">
                         <Icon
                             name="star"
                             size={14}
-                            className="fill-current text-emerald-600"
+                            className="fill-current text-success"
                         />
-                        <span className="text-sm font-semibold text-emerald-700">
+                        <span className="text-sm font-semibold text-success-foreground">
                             {data.rating}
                         </span>
                     </div>
                     {data.numberOfReviews > 0 && (
-                        <span className="text-text-muted text-sm">
+                        <span className="text-muted-foreground text-sm">
                             ({data.numberOfReviews}+ reviews)
                         </span>
                     )}
                 </div>
 
                 {/* Footer Info (Delivery Time & Veg Status) */}
-                <div className="mt-auto flex items-center justify-between border-t border-gray-100 pt-2 text-sm">
+                <div className="mt-auto flex items-center justify-between border-t border-border pt-2 text-sm">
                     <span className="text-text-secondary font-medium">
                         {data.delivery_time_mins} mins
                     </span>
-                    <span className="font-semibold text-emerald-600">
+                    <span className="font-semibold text-success">
                         {data.is_veg ? 'Veg' : 'Non-Veg'}
                     </span>
                 </div>
@@ -193,7 +193,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ data, listId, className
                 {/* Address (Street) */}
                 <div className="">
                     {(data.address as any)?.street && (
-                        <p className="text-text-muted truncate text-sm text-shadow-xs">
+                        <p className="text-muted-foreground truncate text-sm text-shadow-xs">
                             {(data.address as any).street}
                         </p>
                     )}

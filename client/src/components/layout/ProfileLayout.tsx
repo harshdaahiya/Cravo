@@ -25,14 +25,14 @@ const ProfileLayout: React.FC = () => {
             path: 'account',
             title: 'Account',
             icon: 'user',
-            color: 'text-yellow-400',
+            color: 'text-primary',
         },
         {
             id: 'orders',
             path: 'orders',
             title: 'Orders',
             icon: 'shopping-bag',
-            color: 'text-yellow-400',
+            color: 'text-primary',
             count: '12',
         },
         {
@@ -40,7 +40,7 @@ const ProfileLayout: React.FC = () => {
             path: 'favorites',
             title: 'Favorites',
             icon: 'heart',
-            color: 'text-red-500',
+            color: 'text-destructive',
             count: '8',
         },
         {
@@ -48,14 +48,14 @@ const ProfileLayout: React.FC = () => {
             path: 'payments',
             title: 'Payments',
             icon: 'credit-card',
-            color: 'text-green-400',
+            color: 'text-success',
         },
         {
             id: 'addresses',
             path: 'addresses',
             title: 'Addresses',
             icon: 'map-pin',
-            color: 'text-blue-500',
+            color: 'text-info',
             count: '3',
         },
         {
@@ -63,7 +63,7 @@ const ProfileLayout: React.FC = () => {
             path: 'settings',
             title: 'Settings',
             icon: 'settings',
-            color: 'text-gray-400',
+            color: 'text-muted-foreground',
         },
     ];
 
@@ -73,13 +73,13 @@ const ProfileLayout: React.FC = () => {
             path: 'help-support',
             title: 'Help & Support',
             icon: 'help-circle',
-            color: 'text-blue-500',
+            color: 'text-info',
         },
         {
             id: 'logout',
             title: 'Logout',
             icon: 'log-out',
-            color: 'text-red-500',
+            color: 'text-destructive',
             action: () => console.log('Logout clicked'),
         },
     ];
@@ -98,7 +98,7 @@ const ProfileLayout: React.FC = () => {
     return (
         <>
             <Navbar />
-            <div className="bg-gray-50 flex min-h-screen">
+            <div className="bg-muted flex min-h-screen">
                 {/* Mobile Overlay */}
                 {isSidebarOpen && (
                     <div
@@ -109,7 +109,7 @@ const ProfileLayout: React.FC = () => {
 
                 {/* Sidebar */}
                 <aside
-                    className={`border-gray-100 fixed inset-y-0 left-0 z-50 w-72 transform border-r bg-white transition-transform duration-300 ease-in-out lg:static lg:z-0 ${isSidebarOpen
+                    className={`border-border fixed inset-y-0 left-0 z-50 w-72 transform border-r bg-background transition-transform duration-300 ease-in-out lg:static lg:z-0 ${isSidebarOpen
                             ? 'translate-x-0'
                             : '-translate-x-full lg:translate-x-0'
                         }`}
@@ -118,7 +118,7 @@ const ProfileLayout: React.FC = () => {
                     <div className="absolute top-4 right-4 z-40 lg:hidden">
                         <Button
                             onClick={() => setIsSidebarOpen(false)}
-                            className="text-gray-500 hover:text-gray-900"
+                            className="text-muted-foreground hover:text-foreground"
                             variant="ghost"
                             size="sm"
                         >
@@ -134,9 +134,9 @@ const ProfileLayout: React.FC = () => {
                                         key={id}
                                         to={path}
                                         className={({ isActive }) =>
-                                            `flex w-full items-center justify-between rounded-lg px-4 py-3 text-left hover:bg-gray-100 transition-colors ${isActive
-                                                ? 'bg-yellow-50 font-semibold text-yellow-700'
-                                                : 'text-gray-700'
+                                            `flex w-full items-center justify-between rounded-lg px-4 py-3 text-left hover:bg-muted transition-colors ${isActive
+                                                ? 'bg-warning-muted font-semibold text-warning-foreground'
+                                                : 'text-muted-foreground'
                                             }`
                                         }
                                         onClick={() => setIsSidebarOpen(false)}
@@ -145,13 +145,13 @@ const ProfileLayout: React.FC = () => {
                                             <Icon name={icon} className={`${color}`} size={20} />
                                             <span>{title}</span>
                                             {badge && (
-                                                <span className="ml-2 rounded-full bg-yellow-100 px-2 py-0.5 text-[10px] text-yellow-800 font-bold">
+                                                <span className="ml-2 rounded-full bg-warning-muted px-2 py-0.5 text-[10px] text-warning-foreground font-bold">
                                                     {badge}
                                                 </span>
                                             )}
                                         </div>
                                         {count && (
-                                            <span className="text-gray-400 text-xs font-medium">{count}</span>
+                                            <span className="text-muted-foreground text-xs font-medium">{count}</span>
                                         )}
                                     </NavLink>
                                 ) : (
@@ -161,7 +161,7 @@ const ProfileLayout: React.FC = () => {
                                             action?.();
                                             setIsSidebarOpen(false);
                                         }}
-                                        className="text-gray-700 flex w-full items-center justify-between rounded-lg px-4 py-3 text-left hover:bg-gray-100 transition-colors cursor-pointer"
+                                        className="text-muted-foreground flex w-full items-center justify-between rounded-lg px-4 py-3 text-left hover:bg-muted transition-colors cursor-pointer"
                                     >
                                         <div className="flex items-center gap-3">
                                             <Icon name={icon} className={`${color}`} size={20} />
@@ -175,15 +175,15 @@ const ProfileLayout: React.FC = () => {
 
                 {/* Main Content Area */}
                 <main className="flex flex-1 flex-col">
-                    <header className="border-gray-100 sticky top-0 z-20 flex items-center justify-between border-b bg-white p-4 lg:hidden">
+                    <header className="border-border sticky top-0 z-20 flex items-center justify-between border-b bg-background p-4 lg:hidden">
                         <Button onClick={() => setIsSidebarOpen(true)} variant="ghost" size="sm">
                             <Icon name={'menu'} size={24} />
                         </Button>
-                        <h1 className="text-gray-900 text-lg font-semibold">
+                        <h1 className="text-foreground text-lg font-semibold">
                             {getMobileSectionTitle()}
                         </h1>
                         <div className="bg-primary flex h-8 w-8 items-center justify-center rounded-full">
-                            <Icon name="shopping-cart" size={18} className="text-gray-900" />
+                            <Icon name="shopping-cart" size={18} className="text-foreground" />
                         </div>
                     </header>
 

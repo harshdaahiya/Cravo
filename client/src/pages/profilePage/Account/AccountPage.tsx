@@ -74,7 +74,7 @@ const AccountPage: React.FC = () => {
                 onAvatarUpload={handleAvatarUpload}
             />
 
-            <div className="col-span-8 rounded-2xl bg-white p-6 shadow">
+            <div className="col-span-8 rounded-2xl bg-background p-6 shadow">
                 {renderTabContent()}
             </div>
         </div>

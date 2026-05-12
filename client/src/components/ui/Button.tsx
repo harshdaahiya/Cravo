@@ -36,7 +36,7 @@ const Button: React.FC<ButtonProps> = ({
             break;
         case 'secondary':
             variantClasses =
-                'bg-medium-gray text-white hover:bg-gray-600 active:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-medium-gray focus:ring-opacity-75';
+                'bg-medium-gray text-white hover:bg-muted active:bg-muted focus:outline-none focus:ring-2 focus:ring-medium-gray focus:ring-opacity-75';
             break;
         case 'outline':
             variantClasses =
@@ -44,15 +44,15 @@ const Button: React.FC<ButtonProps> = ({
             break;
         case 'ghost':
             variantClasses =
-                'text-charcoal hover:bg-gray-100 active:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-75';
+                'text-charcoal hover:bg-muted active:bg-muted focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-75';
             break;
         case 'success':
             variantClasses =
-                'bg-mint-green text-white hover:bg-green-600 active:bg-green-700 focus:outline-none focus:ring-2 focus:ring-mint-green focus:ring-opacity-75';
+                'bg-mint-green text-white hover:bg-success active:bg-green-700 focus:outline-none focus:ring-2 focus:ring-mint-green focus:ring-opacity-75';
             break;
         default:
             variantClasses =
-                'bg-gray-200 text-charcoal hover:bg-gray-300 active:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-medium-gray focus:ring-opacity-75';
+                'bg-muted text-charcoal hover:bg-muted active:bg-muted focus:outline-none focus:ring-2 focus:ring-medium-gray focus:ring-opacity-75';
     }
 
     // Styles based on the 'size' prop

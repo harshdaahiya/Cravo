@@ -36,11 +36,11 @@ interface CuisineCardProps {
 }
 
 const CuisineCard: React.FC<CuisineCardProps> = ({ r }) => (
-    <div className="overflow-hidden rounded-2xl bg-white shadow transition hover:shadow-lg">
+    <div className="overflow-hidden rounded-2xl bg-background shadow transition hover:shadow-lg">
         {/* text */}
         <div className="p-4">
-            <h3 className="text-text-main font-bold">{r.name}</h3>
-            <p className="text-text-muted mt-1 text-xs">{r.cuisine} cuisine</p>
+            <h3 className="text-foreground font-bold">{r.name}</h3>
+            <p className="text-muted-foreground mt-1 text-xs">{r.cuisine} cuisine</p>
         </div>
     </div>
 );
@@ -49,9 +49,9 @@ const CuisineCard: React.FC<CuisineCardProps> = ({ r }) => (
 /*  Main grid component                                               */
 /* ------------------------------------------------------------------ */
 const NearbyCuisineGrid: React.FC = () => (
-    <section className="bg-bg-subtle py-12">
+    <section className="bg-muted py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <h2 className="text-text-main mb-8 text-3xl font-bold lg:text-4xl">
+            <h2 className="text-foreground mb-8 text-3xl font-bold lg:text-4xl">
                 Best Cuisines Near You
             </h2>
 

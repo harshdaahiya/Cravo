@@ -18,7 +18,7 @@ const CartStatusSection: React.FC = () => {
     }
 
     return (
-        <div className="fixed right-0 bottom-0 left-0 z-50 rounded-t-2xl bg-gray-900 p-2 text-white shadow-lg">
+        <div className="fixed right-0 bottom-0 left-0 z-50 rounded-t-2xl bg-foreground p-2 text-white shadow-lg">
             <div className="mx-auto flex max-w-md items-center justify-between">
                 <div className="flex items-center space-x-4">
                     <span className="text-sm font-semibold">
@@ -30,7 +30,7 @@ const CartStatusSection: React.FC = () => {
                     onClick={() => {
                         navigate('/cart');
                     }}
-                    className="bg-primary text-text-main hover:bg-primary-hover cursor-pointer rounded-full px-6 py-2 font-semibold transition-colors"
+                    className="bg-primary text-foreground hover:bg-primary-hover cursor-pointer rounded-full px-6 py-2 font-semibold transition-colors"
                 >
                     View Cart
                 </button>

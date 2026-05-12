@@ -111,8 +111,8 @@ const LandingNavigation: React.FC = () => {
                             to="/corporate"
                             className={({ isActive }) =>
                                 `flex items-center space-x-2 rounded-lg px-3 py-2 font-medium transition-all duration-200 ${isActive
-                                    ? 'bg-yellow-50 text-yellow-600'
-                                    : 'text-text-main hover:text-text-secondary hover:bg-bg-subtle'
+                                    ? 'bg-warning-muted text-primary-hover'
+                                    : 'text-foreground hover:text-text-secondary hover:bg-bg-subtle'
                                 }`
                             }
                         >
@@ -122,13 +122,13 @@ const LandingNavigation: React.FC = () => {
                         <NavLink
                             to="/partner"
                             className={({ isActive }) =>
-                                `flex items-center rounded-lg px-3 py-2 font-medium transition-all duration-200 ${isActive ? 'bg-yellow-50 text-yellow-600' : 'text-text-main hover:text-text-secondary hover:bg-bg-subtle'}`
+                                `flex items-center rounded-lg px-3 py-2 font-medium transition-all duration-200 ${isActive ? 'bg-warning-muted text-primary-hover' : 'text-foreground hover:text-text-secondary hover:bg-bg-subtle'}`
                             }
                         >
                             <span className="text-md">Partner with us</span>
                         </NavLink>
                         <NavLink to="/get-the-app">
-                            <button className="text-text-main bg-bg-subtle hover:bg-bg-subtle text-md flex cursor-pointer items-center justify-center rounded-xl border border-gray-300 px-4 py-2 font-medium transition-all duration-200 hover:border-gray-400">
+                            <button className="text-foreground bg-muted hover:bg-bg-subtle text-md flex cursor-pointer items-center justify-center rounded-xl border border-border px-4 py-2 font-medium transition-all duration-200 hover:border-border">
                                 <Icon name="smartphone" size={16} className="mr-2" />
                                 Get The App
                             </button>
@@ -136,7 +136,7 @@ const LandingNavigation: React.FC = () => {
                     </div>
 
                     <button
-                        className="text-text-main hover:bg-bg-subtle flex items-center justify-center rounded-lg p-2 transition-colors lg:hidden"
+                        className="text-foreground hover:bg-bg-subtle flex items-center justify-center rounded-lg p-2 transition-colors lg:hidden"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         ref={menuButtonRef}
                     >
@@ -145,7 +145,7 @@ const LandingNavigation: React.FC = () => {
                     {isMobileMenuOpen && (
                         <div
                             ref={mobileMenuRef}
-                            className="border-border absolute top-full right-4 z-50 mt-2 w-56 rounded-xl border bg-white py-2 shadow-lg sm:right-6 lg:hidden"
+                            className="border-border absolute top-full right-4 z-50 mt-2 w-56 rounded-xl border bg-background py-2 shadow-lg sm:right-6 lg:hidden"
                         >
                             {mobileMenuItems.map((item, index) => (
                                 <NavLink
@@ -154,7 +154,7 @@ const LandingNavigation: React.FC = () => {
                                     onClick={() => setIsMobileMenuOpen(false)}
                                     className={({ isActive }) =>
                                         `flex items-center space-x-3 px-4 py-3 text-sm font-medium transition-colors duration-150 ${isActive
-                                            ? 'bg-yellow-50 text-yellow-600'
+                                            ? 'bg-warning-muted text-primary-hover'
                                             : 'text-text-secondary hover:bg-bg-subtle'
                                         }`
                                     }
@@ -163,7 +163,7 @@ const LandingNavigation: React.FC = () => {
                                         <Icon
                                             name={item.icon}
                                             size={16}
-                                            className="text-text-muted"
+                                            className="text-muted-foreground"
                                         />
                                     )}
                                     <span>{item.label}</span>
@@ -192,7 +192,7 @@ const LandingNavigation: React.FC = () => {
                             {isProfileDropdownOpen && (
                                 <div className="absolute top-full right-0 z-50 pt-2">
                                     <div className="h-2 w-56 bg-transparent"></div>
-                                    <div className="border-border w-56 rounded-xl border bg-white py-2 shadow-lg">
+                                    <div className="border-border w-56 rounded-xl border bg-background py-2 shadow-lg">
                                         {profileMenuItems.map((item, index) => {
                                             if (item.type === 'link') {
                                                 return (
@@ -205,7 +205,7 @@ const LandingNavigation: React.FC = () => {
                                                         <Icon
                                                             name={item.icon}
                                                             size={16}
-                                                            className="text-text-muted"
+                                                            className="text-muted-foreground"
                                                         />
                                                         <span>{item.label}</span>
                                                     </Link>
@@ -216,12 +216,12 @@ const LandingNavigation: React.FC = () => {
                                                 <button
                                                     key={index}
                                                     onClick={item.onClick}
-                                                    className="text-text-secondary hover:bg-bg-subtle flex w-full items-center space-x-3 px-4 py-3 text-sm transition-colors duration-150 hover:text-red-600"
+                                                    className="text-text-secondary hover:bg-bg-subtle flex w-full items-center space-x-3 px-4 py-3 text-sm transition-colors duration-150 hover:text-destructive"
                                                 >
                                                     <Icon
                                                         name={item.icon}
                                                         size={16}
-                                                        className="text-red-500"
+                                                        className="text-destructive"
                                                     />
                                                     <span>{item.label}</span>
                                                 </button>
@@ -234,11 +234,11 @@ const LandingNavigation: React.FC = () => {
                     ) : (
                         <div className="">
                             <button
-                                className="bg-bg-subtle text-text-secondary border-border flex items-center space-x-2 rounded-xl border px-4 py-2 font-medium transition-all duration-200 hover:scale-105 hover:border-gray-300 hover:bg-gray-100"
+                                className="bg-muted text-text-secondary border-border flex items-center space-x-2 rounded-xl border px-4 py-2 font-medium transition-all duration-200 hover:scale-105 hover:border-border hover:bg-muted"
                                 onClick={() => dispatch(openAuthSidebar({ mode: 'login' }))}
                             >
-                                <Icon name="log-in" size={16} className="text-blue-600" />
-                                <span className="text-text-main text-sm font-medium">
+                                <Icon name="log-in" size={16} className="text-info" />
+                                <span className="text-foreground text-sm font-medium">
                                     Sign in
                                 </span>
                             </button>

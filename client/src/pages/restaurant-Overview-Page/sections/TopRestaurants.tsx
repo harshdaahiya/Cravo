@@ -16,31 +16,31 @@ interface SkeletonCardProps {
 
 const SkeletonCard: React.FC<SkeletonCardProps> = ({ width }) => (
     <div className="flex-shrink-0 px-2" style={{ width }}>
-        <div className="flex w-full animate-pulse flex-col overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm">
+        <div className="flex w-full animate-pulse flex-col overflow-hidden rounded-xl border border-border bg-background shadow-sm">
             {/* Skeleton Image */}
-            <div className="relative h-34 flex-shrink-0 bg-gray-200">
-                <div className="absolute bottom-3 left-3 h-6 w-20 rounded-lg bg-gray-300"></div>
-                <div className="absolute top-3 right-3 h-6 w-16 rounded-full bg-gray-300"></div>
+            <div className="relative h-34 flex-shrink-0 bg-muted">
+                <div className="absolute bottom-3 left-3 h-6 w-20 rounded-lg bg-muted"></div>
+                <div className="absolute top-3 right-3 h-6 w-16 rounded-full bg-muted"></div>
             </div>
             {/* Skeleton Content */}
             <div className="space-y-2 px-3 pt-1 pb-2">
                 {/* Restaurant name skeleton */}
-                <div className="h-6 w-3/4 rounded bg-gray-200"></div>
+                <div className="h-6 w-3/4 rounded bg-muted"></div>
                 {/* Rating skeleton */}
                 <div className="flex items-center gap-3">
-                    <div className="h-6 w-16 rounded bg-gray-200"></div>
-                    <div className="h-4 w-20 rounded bg-gray-200"></div>
+                    <div className="h-6 w-16 rounded bg-muted"></div>
+                    <div className="h-4 w-20 rounded bg-muted"></div>
                 </div>
                 {/* Tags skeleton */}
                 <div className="flex gap-1.5">
-                    <div className="h-6 w-16 rounded-full bg-gray-200"></div>
-                    <div className="h-6 w-20 rounded-full bg-gray-200"></div>
-                    <div className="h-6 w-12 rounded-full bg-gray-200"></div>
+                    <div className="h-6 w-16 rounded-full bg-muted"></div>
+                    <div className="h-6 w-20 rounded-full bg-muted"></div>
+                    <div className="h-6 w-12 rounded-full bg-muted"></div>
                 </div>
                 {/* Footer skeleton */}
-                <div className="flex justify-between border-t border-gray-100 pt-2">
-                    <div className="h-4 w-16 rounded bg-gray-200"></div>
-                    <div className="h-4 w-20 rounded bg-gray-200"></div>
+                <div className="flex justify-between border-t border-border pt-2">
+                    <div className="h-4 w-16 rounded bg-muted"></div>
+                    <div className="h-4 w-20 rounded bg-muted"></div>
                 </div>
             </div>
         </div>
@@ -153,11 +153,11 @@ const TopRestaurants: React.FC = () => {
 
     if (loading) {
         return (
-            <section className="bg-white py-12">
+            <section className="bg-background py-12">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6">
                     <div className="mb-8">
-                        <div className="mb-2 h-10 w-96 animate-pulse rounded bg-gray-200"></div>
-                        <div className="h-5 w-80 animate-pulse rounded bg-gray-200"></div>
+                        <div className="mb-2 h-10 w-96 animate-pulse rounded bg-muted"></div>
+                        <div className="h-5 w-80 animate-pulse rounded bg-muted"></div>
                     </div>
                     <div className="flex space-x-0">
                         {Array.from({ length: Math.ceil(itemsToShow) }).map((_, i) => (
@@ -171,21 +171,21 @@ const TopRestaurants: React.FC = () => {
 
     if (error) {
         return (
-            <section className="bg-white py-12">
+            <section className="bg-background py-12">
                 <div className="mx-auto max-w-7xl px-4 text-center sm:px-6">
-                    <div className="rounded-lg border border-red-200 bg-red-50 p-8">
+                    <div className="rounded-lg border border-destructive-muted bg-destructive-muted p-8">
                         <Icon
                             name="alert-circle"
                             size={48}
-                            className="mx-auto mb-4 text-red-500"
+                            className="mx-auto mb-4 text-destructive"
                         />
-                        <h3 className="mb-2 text-lg font-semibold text-red-800">{error}</h3>
-                        <p className="mb-4 text-red-600">
+                        <h3 className="mb-2 text-lg font-semibold text-destructive-foreground">{error}</h3>
+                        <p className="mb-4 text-destructive">
                             Please ensure your location is correctly set or try again later.
                         </p>
                         <button
                             onClick={() => window.location.reload()}
-                            className="rounded-lg bg-red-500 px-4 py-2 text-white transition-colors hover:bg-red-600"
+                            className="rounded-lg bg-destructive px-4 py-2 text-white transition-colors hover:bg-destructive"
                         >
                             Try Again
                         </button>
@@ -196,11 +196,11 @@ const TopRestaurants: React.FC = () => {
     }
 
     return (
-        <section className="bg-white py-2">
+        <section className="bg-background py-2">
             <div className="mx-auto max-w-7xl px-4 sm:px-6">
                 <div className="mb-8 flex items-center justify-between">
                     <div className="flex-1">
-                        <h2 className="text-text-main mb- font-bold text-xl">
+                        <h2 className="text-foreground mb- font-bold text-xl">
                             Top Restaurants Chain In
                             <span className="px-1">
                                 {searchParams.get('cityName') || defaultCity || 'Your Area'}
@@ -216,8 +216,8 @@ const TopRestaurants: React.FC = () => {
                             onClick={() => setCurrentIndex(i => Math.max(0, i - 1))}
                             disabled={currentIndex === 0}
                             className={`cursor-pointer rounded-full border p-2 transition-all ${currentIndex === 0
-                                    ? 'border-border cursor-not-allowed text-gray-300'
-                                    : 'text-text-secondary hover:border-border-focus border-gray-300 hover:text-yellow-600'
+                                    ? 'border-border cursor-not-allowed text-muted-foreground'
+                                    : 'text-text-secondary hover:border-border-focus border-border hover:text-primary-hover'
                                 }`}
                             aria-label="Previous restaurants"
                         >
@@ -227,8 +227,8 @@ const TopRestaurants: React.FC = () => {
                             onClick={() => setCurrentIndex(i => Math.min(maxIndex, i + 1))}
                             disabled={currentIndex >= maxIndex}
                             className={`cursor-pointer rounded-full border p-2 transition-all ${currentIndex >= maxIndex
-                                    ? 'border-border cursor-not-allowed text-gray-300'
-                                    : 'text-text-secondary hover:border-border-focus border-gray-300 hover:text-yellow-600'
+                                    ? 'border-border cursor-not-allowed text-muted-foreground'
+                                    : 'text-text-secondary hover:border-border-focus border-border hover:text-primary-hover'
                                 }`}
                             aria-label="Next restaurants"
                         >
@@ -266,7 +266,7 @@ const TopRestaurants: React.FC = () => {
                                 onClick={() => setCurrentIndex(i)}
                                 className={`h-2 w-2 rounded-full transition-all ${i === currentIndex
                                         ? 'bg-primary-hover w-6'
-                                        : 'bg-gray-300 hover:bg-gray-400'
+                                        : 'bg-muted hover:bg-muted'
                                     }`}
                                 aria-label={`Go to slide ${i + 1}`}
                             />

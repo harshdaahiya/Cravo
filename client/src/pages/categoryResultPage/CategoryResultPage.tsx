@@ -182,7 +182,7 @@ const CategoryResultPage = () => {
     // Initial loading state (show full screen loader only if no restaurants are loaded yet)
     if (loading && restaurants.length === 0) {
         return (
-            <div className="bg-bg-subtle flex min-h-screen items-center justify-center">
+            <div className="bg-muted flex min-h-screen items-center justify-center">
                 <p className="text-text-secondary text-xl font-semibold">
                     Loading restaurants...
                 </p>
@@ -193,8 +193,8 @@ const CategoryResultPage = () => {
     // Initial error state (show full screen error only if no restaurants are loaded yet)
     if (error && restaurants.length === 0) {
         return (
-            <div className="bg-bg-subtle flex min-h-screen items-center justify-center">
-                <p className="text-xl font-semibold text-red-500">{error}</p>
+            <div className="bg-muted flex min-h-screen items-center justify-center">
+                <p className="text-xl font-semibold text-destructive">{error}</p>
             </div>
         );
     }
@@ -227,7 +227,7 @@ const CategoryResultPage = () => {
                     <div
                         ref={filterBarRef}
                         className={`transition-all duration-100 ease-in ${isFilterBarSticky
-                                ? 'fixed top-0 right-0 left-0 z-40 bg-white'
+                                ? 'fixed top-0 right-0 left-0 z-40 bg-background'
                                 : 'relative bg-transparent'
                             }`}
                     >
@@ -264,7 +264,7 @@ const CategoryResultPage = () => {
                                 <button
                                     onClick={handleLoadMore}
                                     disabled={loading}
-                                    className="bg-primary hover:bg-primary-hover text-text-main rounded-xl px-6 py-3 font-semibold transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-50"
+                                    className="bg-primary hover:bg-primary-hover text-foreground rounded-xl px-6 py-3 font-semibold transition-colors duration-200 disabled:cursor-not-allowed disabled:opacity-50"
                                 >
                                     {loading ? 'Loading More...' : 'Load More'}
                                 </button>
@@ -272,7 +272,7 @@ const CategoryResultPage = () => {
                         )}
 
                         {error && restaurants.length > 0 && (
-                            <p className="mt-4 text-center text-sm text-red-500">{error}</p>
+                            <p className="mt-4 text-center text-sm text-destructive">{error}</p>
                         )}
                     </div>
 

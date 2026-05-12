@@ -115,10 +115,10 @@ const RestaurantCategoriesSlider: React.FC = () => {
     // Show loading state (skeleton loaders)
     if (isLoading) {
         return (
-            <section className="bg-white py-5">
+            <section className="bg-background py-5">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6">
                     <div className="mb-6 flex items-center justify-between">
-                        <p className="text-text-main text-xl font-bold">
+                        <p className="text-foreground text-xl font-bold">
                             {UserFirstName} What's on your mind?
                         </p>
                     </div>
@@ -132,8 +132,8 @@ const RestaurantCategoriesSlider: React.FC = () => {
                                 }}
                             >
                                 <div className="flex flex-col items-center">
-                                    <div className="h-20 w-20 animate-pulse rounded-full bg-gray-200 sm:h-24 sm:w-24 md:h-28 md:w-28"></div>
-                                    <div className="mt-2 h-4 w-16 animate-pulse rounded bg-gray-200"></div>
+                                    <div className="h-20 w-20 animate-pulse rounded-full bg-muted sm:h-24 sm:w-24 md:h-28 md:w-28"></div>
+                                    <div className="mt-2 h-4 w-16 animate-pulse rounded bg-muted"></div>
                                 </div>
                             </div>
                         ))}
@@ -146,10 +146,10 @@ const RestaurantCategoriesSlider: React.FC = () => {
     // Show error state
     if (error) {
         return (
-            <section className="bg-white py-5">
+            <section className="bg-background py-5">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6">
                     <div className="py-8 text-center">
-                        <p className="text-red-500">Failed to load categories</p>
+                        <p className="text-destructive">Failed to load categories</p>
                     </div>
                 </div>
             </section>
@@ -162,11 +162,11 @@ const RestaurantCategoriesSlider: React.FC = () => {
     }
 
     return (
-        <section className="mb-2 bg-white py-2">
+        <section className="mb-2 bg-background py-2">
             <div className="border-border mx-auto box-border max-w-7xl border-b px-4 sm:px-6">
                 {/* Header and navigation arrows */}
                 <div className="mb-6 flex items-center justify-between">
-                    <p className="text-text-main text-xl font-bold">
+                    <p className="text-foreground text-xl font-bold">
                         {UserFirstName} What's on your mind?
                     </p>
                     {/* Show arrows only if there are more categories than can fit in view */}
@@ -176,8 +176,8 @@ const RestaurantCategoriesSlider: React.FC = () => {
                                 onClick={slideLeft}
                                 disabled={currentIndex === 0}
                                 className={`cursor-pointer rounded-full border p-2 transition ${currentIndex === 0
-                                    ? 'border-border cursor-not-allowed text-gray-300'
-                                    : 'text-text-secondary hover:border-border-focus border-gray-300 hover:text-yellow-600'
+                                    ? 'border-border cursor-not-allowed text-muted-foreground'
+                                    : 'text-text-secondary hover:border-border-focus border-border hover:text-primary-hover'
                                     }`}
                                 aria-label="Previous categories"
                             >
@@ -187,8 +187,8 @@ const RestaurantCategoriesSlider: React.FC = () => {
                                 onClick={slideRight}
                                 disabled={currentIndex === maxIndex}
                                 className={`cursor-pointer rounded-full border p-2 transition ${currentIndex === maxIndex
-                                    ? 'border-border cursor-not-allowed text-gray-300'
-                                    : 'text-text-secondary hover:border-border-focus border-gray-300 hover:text-yellow-600'
+                                    ? 'border-border cursor-not-allowed text-muted-foreground'
+                                    : 'text-text-secondary hover:border-border-focus border-border hover:text-primary-hover'
                                     }`}
                                 aria-label="Next categories"
                             >

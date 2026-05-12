@@ -25,23 +25,23 @@ const Orders: React.FC = () => {
         const configs: Record<string, { label: string; color: string; dotColor: string }> = {
             Preparing: {
                 label: 'Preparing',
-                color: 'bg-yellow-100 text-yellow-800',
+                color: 'bg-warning-muted text-warning-foreground',
                 dotColor: 'bg-primary-hover',
             },
             'On the way': {
                 label: 'On the way',
-                color: 'bg-blue-100 text-blue-800',
-                dotColor: 'bg-blue-500',
+                color: 'bg-info-muted text-info-foreground',
+                dotColor: 'bg-info',
             },
             Delivered: {
                 label: 'Delivered',
-                color: 'bg-green-100 text-green-800',
-                dotColor: 'bg-green-500',
+                color: 'bg-success-muted text-success-foreground',
+                dotColor: 'bg-success',
             },
             Cancelled: {
                 label: 'Cancelled',
-                color: 'bg-red-100 text-red-800',
-                dotColor: 'bg-red-500',
+                color: 'bg-destructive-muted text-destructive-foreground',
+                dotColor: 'bg-destructive',
             },
         };
         // Fallback for different casing or unmapped statuses

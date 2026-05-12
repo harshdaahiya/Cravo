@@ -45,14 +45,14 @@ const OrderSummarySection: React.FC<OrderSummarySectionProps> = ({
     const [isNoContactSelected, setIsNoContactSelected] = useState(false);
 
     return (
-        <div className="space-y-4 rounded-3xl bg-white p-4 shadow-lg">
+        <div className="space-y-4 rounded-3xl bg-background p-4 shadow-lg">
             {/* Promo Code Input */}
             <div>
-                <h2 className="text-text-main mb-3 text-xl font-bold">Promo Code</h2>
+                <h2 className="text-foreground mb-3 text-xl font-bold">Promo Code</h2>
                 <div className="flex space-x-2">
                     <input
                         type="text"
-                        className="border-border flex-grow rounded-xl border p-3 transition-all focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+                        className="border-border flex-grow rounded-xl border p-3 transition-all focus:ring-2 focus:ring-ring focus:outline-none"
                         placeholder="Enter promo code"
                         value={promoCode}
                         onChange={e => setPromoCode(e.target.value)}
@@ -60,14 +60,14 @@ const OrderSummarySection: React.FC<OrderSummarySectionProps> = ({
                     {appliedPromo ? (
                         <button
                             onClick={removePromoCode}
-                            className="rounded-xl bg-red-500 px-4 py-3 font-semibold text-white transition-colors hover:bg-red-600"
+                            className="rounded-xl bg-destructive px-4 py-3 font-semibold text-white transition-colors hover:bg-destructive"
                         >
                             Remove
                         </button>
                     ) : (
                         <button
                             onClick={applyPromoCode}
-                            className="bg-primary hover:bg-primary-hover text-text-main rounded-xl px-4 py-3 font-semibold transition-colors"
+                            className="bg-primary hover:bg-primary-hover text-foreground rounded-xl px-4 py-3 font-semibold transition-colors"
                         >
                             Apply
                         </button>
@@ -75,7 +75,7 @@ const OrderSummarySection: React.FC<OrderSummarySectionProps> = ({
                 </div>
                 {promoMessage && (
                     <p
-                        className={`mt-2 text-sm font-medium ${appliedPromo ? 'text-green-600' : 'text-red-500'}`}
+                        className={`mt-2 text-sm font-medium ${appliedPromo ? 'text-success' : 'text-destructive'}`}
                     >
                         {promoMessage}
                     </p>
@@ -84,7 +84,7 @@ const OrderSummarySection: React.FC<OrderSummarySectionProps> = ({
 
             {/* Order Summary */}
             <div className="space-y-3">
-                <h2 className="text-text-main text-xl font-bold">Order Summary</h2>
+                <h2 className="text-foreground text-xl font-bold">Order Summary</h2>
                 <div className="text-text-secondary space-y-2 font-medium">
                     <div className="flex justify-between">
                         <span>Subtotal</span>
@@ -94,7 +94,7 @@ const OrderSummarySection: React.FC<OrderSummarySectionProps> = ({
                         </span>
                     </div>
                     {itemDiscount > 0 && (
-                        <div className="flex justify-between text-green-600">
+                        <div className="flex justify-between text-success">
                             <span>Item Discount</span>
                             <span className="flex items-center">
                                 -<Icon name="indian-rupee" className="h-3 w-3" />
@@ -103,7 +103,7 @@ const OrderSummarySection: React.FC<OrderSummarySectionProps> = ({
                         </div>
                     )}
                     {promoDiscount > 0 && (
-                        <div className="flex justify-between text-green-600">
+                        <div className="flex justify-between text-success">
                             <span>Promo Discount</span>
                             <span className="flex items-center">
                                 -<Icon name="indian-rupee" className="mr-1 h-4 w-4" />
@@ -139,7 +139,7 @@ const OrderSummarySection: React.FC<OrderSummarySectionProps> = ({
                         </span>
                     </div>
                 </div>
-                <div className="h-px bg-gray-200" />
+                <div className="h-px bg-muted" />
 
                 {/* No-contact delivery option */}
                 <div className="flex items-start space-x-2">
@@ -148,7 +148,7 @@ const OrderSummarySection: React.FC<OrderSummarySectionProps> = ({
                         id="no-contact-checkbox"
                         checked={isNoContactSelected}
                         onChange={e => setIsNoContactSelected(e.target.checked)}
-                        className="mt-1 h-7 w-7 accent-yellow-400 focus:ring-yellow-400"
+                        className="mt-1 h-7 w-7 accent-yellow-400 focus:ring-ring"
                     />
                     <label
                         htmlFor="no-contact-checkbox"
@@ -160,9 +160,9 @@ const OrderSummarySection: React.FC<OrderSummarySectionProps> = ({
                     </label>
                 </div>
 
-                <div className="h-px bg-gray-200" />
+                <div className="h-px bg-muted" />
 
-                <div className="text-text-main flex justify-between text-lg font-bold">
+                <div className="text-foreground flex justify-between text-lg font-bold">
                     <span>Final Total</span>
                     <div className="flex items-center">
                         <Icon name="indian-rupee" className="h-4 w-4" />
@@ -175,7 +175,7 @@ const OrderSummarySection: React.FC<OrderSummarySectionProps> = ({
             <div>
                 <button
                     onClick={handleCheckout}
-                    className="flex w-full cursor-pointer items-center justify-center rounded-xl bg-green-500 px-6 py-4 text-lg font-bold text-white shadow-lg transition-colors hover:bg-green-600"
+                    className="flex w-full cursor-pointer items-center justify-center rounded-xl bg-success px-6 py-4 text-lg font-bold text-white shadow-lg transition-colors hover:bg-success"
                 >
                     <Icon name="indian-rupee" className="mr-2 h-5 w-5" />
                     Proceed to Checkout

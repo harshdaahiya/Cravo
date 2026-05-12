@@ -72,10 +72,10 @@ const WishlistModal: React.FC = () => {
             <>
                 {/* Header */}
                 <div className="mb-4 flex items-center justify-between">
-                    <h2 className="text-text-main text-xl font-bold">Your Wishlists</h2>
+                    <h2 className="text-foreground text-xl font-bold">Your Wishlists</h2>
                     <button
                         onClick={() => dispatch(closeWishlistModal())}
-                        className="hover:text-text-main cursor-pointer text-gray-400 transition-colors duration-200"
+                        className="hover:text-text-main cursor-pointer text-muted-foreground transition-colors duration-200"
                         aria-label="Close"
                     >
                         <Icon name="x-circle" className="h-5 w-5" />
@@ -84,7 +84,7 @@ const WishlistModal: React.FC = () => {
 
                 {/* Existing Lists */}
                 <div className="custom-scrollbar mb-4 flex-grow overflow-y-auto">
-                    <h3 className="text-text-main mb-2 text-sm font-semibold">
+                    <h3 className="text-foreground mb-2 text-sm font-semibold">
                         Select a list to move the product to
                     </h3>
                     <div className="space-y-2">
@@ -95,8 +95,8 @@ const WishlistModal: React.FC = () => {
                                         key={list._id}
                                         onClick={() => setSelectedListId(list._id)}
                                         className={`flex w-full cursor-pointer items-center justify-between rounded-lg px-3 py-2 text-left shadow-sm transition-all duration-200 ${selectedListId === list._id
-                                            ? 'bg-primary text-text-main shadow-md'
-                                            : 'hover:bg-bg-subtle bg-white border border-gray-100'
+                                            ? 'bg-primary text-foreground shadow-md'
+                                            : 'hover:bg-bg-subtle bg-background border border-border'
                                             }`}
                                     >
                                         <div className="flex items-center space-x-2">
@@ -125,7 +125,7 @@ const WishlistModal: React.FC = () => {
                     {!isCreatingNewList ? (
                         <button
                             onClick={() => setIsCreatingNewList(true)}
-                            className="text-text-main flex w-full cursor-pointer items-center justify-center space-x-2 rounded-lg bg-gray-200 py-2 text-sm font-semibold transition-colors hover:bg-gray-300"
+                            className="text-foreground flex w-full cursor-pointer items-center justify-center space-x-2 rounded-lg bg-muted py-2 text-sm font-semibold transition-colors hover:bg-muted"
                         >
                             <Icon name="plus" className="h-4 w-4" />
                             <span>Create New List</span>
@@ -137,7 +137,7 @@ const WishlistModal: React.FC = () => {
                                 value={newListName}
                                 onChange={e => setNewListName(e.target.value)}
                                 placeholder="New list name"
-                                className="flex-grow rounded-lg border border-gray-300 px-3 py-2 text-sm focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+                                className="flex-grow rounded-lg border border-border px-3 py-2 text-sm focus:ring-2 focus:ring-ring focus:outline-none"
                                 onKeyDown={(e: KeyboardEvent) => {
                                     if (e.key === 'Enter') handleCreateListClick();
                                 }}
@@ -146,7 +146,7 @@ const WishlistModal: React.FC = () => {
                             <button
                                 disabled={newListName === ''}
                                 onClick={handleCreateListClick}
-                                className="bg-primary text-text-main hover:bg-primary-hover rounded-full p-2 transition-colors cursor-pointer disabled:bg-gray-300"
+                                className="bg-primary text-foreground hover:bg-primary-hover rounded-full p-2 transition-colors cursor-pointer disabled:bg-muted"
                             >
                                 <Icon name="check" className="h-4 w-4" />
                             </button>
@@ -157,8 +157,8 @@ const WishlistModal: React.FC = () => {
                 <button
                     onClick={handleMoveProductClick}
                     className={`mt-4 w-full cursor-pointer rounded-lg py-2 text-center text-sm font-semibold transition-colors ${selectedListId === defaultListId
-                        ? 'text-text-secondary cursor-not-allowed bg-gray-400'
-                        : 'bg-primary text-text-main hover:bg-primary-hover'
+                        ? 'text-text-secondary cursor-not-allowed bg-muted'
+                        : 'bg-primary text-foreground hover:bg-primary-hover'
                         }`}
                     disabled={selectedListId === defaultListId || isTransferring}
                 >
@@ -180,7 +180,7 @@ const WishlistModal: React.FC = () => {
                     exit={{ opacity: 0 }}
                 >
                     <motion.div
-                        className="absolute inset-0 bg-gray-200 opacity-20"
+                        className="absolute inset-0 bg-muted opacity-20"
                         onClick={() => dispatch(closeWishlistModal())}
                     />
                     <motion.div
@@ -188,7 +188,7 @@ const WishlistModal: React.FC = () => {
                         animate={{ x: 0 }}
                         exit={{ x: '100%' }}
                         transition={{ duration: 0.4 }}
-                        className="relative flex h-full w-full max-w-sm flex-col rounded-2xl bg-white p-6 shadow-2xl"
+                        className="relative flex h-full w-full max-w-sm flex-col rounded-2xl bg-background p-6 shadow-2xl"
                     >
                         {renderContent()}
                     </motion.div>

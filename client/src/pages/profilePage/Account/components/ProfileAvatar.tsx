@@ -13,7 +13,7 @@ const ProfileAvatar: React.FC<ProfileAvatarProps> = ({ initial, onUpload }) => (
         </div>
         <button
             onClick={onUpload}
-            className="border-white absolute right-0 bottom-0 rounded-full border-4 bg-gray-900 p-2 text-white shadow-lg transition-transform hover:scale-110"
+            className="border-white absolute right-0 bottom-0 rounded-full border-4 bg-foreground p-2 text-white shadow-lg transition-transform hover:scale-110"
         >
             <Camera className="h-4 w-4" />
         </button>

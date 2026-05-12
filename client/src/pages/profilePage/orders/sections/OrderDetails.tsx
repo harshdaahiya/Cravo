@@ -21,7 +21,7 @@ interface OrderDetailsProps {
 
 const OrderDetails: React.FC<OrderDetailsProps> = ({ order }) => {
     return (
-        <div className="border-border bg-bg-subtle space-y-6 border-t p-6">
+        <div className="border-border bg-muted space-y-6 border-t p-6">
             <OrderItemsList items={order.items} />
 
             <BillSummary

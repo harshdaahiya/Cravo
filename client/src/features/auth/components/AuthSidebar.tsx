@@ -151,7 +151,7 @@ const AuthSidebar: React.FC = () => {
                 >
                     {/* Backdrop */}
                     <motion.div
-                        className="absolute inset-0 bg-gray-200 opacity-20"
+                        className="absolute inset-0 bg-muted opacity-20"
                         onClick={handleClose}
                     />
 
@@ -161,12 +161,12 @@ const AuthSidebar: React.FC = () => {
                         animate={{ x: 0 }}
                         exit={{ x: '-100%' }}
                         transition={{ duration: 0.4, ease: 'easeInOut' }}
-                        className="relative flex h-full w-full max-w-sm flex-col rounded-3xl bg-white p-8 shadow-2xl md:p-10"
+                        className="relative flex h-full w-full max-w-sm flex-col rounded-3xl bg-background p-8 shadow-2xl md:p-10"
                     >
                         {/* Close Button */}
                         <button
                             onClick={handleClose}
-                            className="hover:text-text-main absolute top-4 right-4 cursor-pointer text-gray-400 transition-colors duration-200"
+                            className="hover:text-text-main absolute top-4 right-4 cursor-pointer text-muted-foreground transition-colors duration-200"
                             aria-label="Close authentication modal"
                         >
                             <Icon name="x-circle" className="h-6 w-6" />

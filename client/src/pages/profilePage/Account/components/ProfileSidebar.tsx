@@ -24,14 +24,14 @@ const ProfileSidebar: React.FC<ProfileSidebarProps> = ({
     ];
 
     return (
-        <div className="border-gray-200 col-span-4 flex flex-col items-center rounded-2xl border bg-white p-6 text-center shadow transition-all">
+        <div className="border-border col-span-4 flex flex-col items-center rounded-2xl border bg-background p-6 text-center shadow transition-all">
             <ProfileAvatar initial={profileData.firstName.charAt(0)} onUpload={onAvatarUpload} />
 
-            <h1 className="text-gray-900 mt-4 text-xl font-bold">
+            <h1 className="text-foreground mt-4 text-xl font-bold">
                 {profileData.firstName} {profileData.lastName}
             </h1>
-            <p className="text-gray-500 text-sm">{profileData.email}</p>
-            <p className="text-xs text-gray-400">
+            <p className="text-muted-foreground text-sm">{profileData.email}</p>
+            <p className="text-xs text-muted-foreground">
                 Member since {new Date(profileData.joinDate).toLocaleDateString()}
             </p>
 

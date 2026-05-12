@@ -45,10 +45,10 @@ const OTPVerificationForm: React.FC<OTPVerificationFormProps> = ({
             <div>
                 {/* Header */}
                 <div className="mb-6">
-                    <h2 className="text-text-main text-3xl font-bold">
+                    <h2 className="text-foreground text-3xl font-bold">
                         Verify Your Email
                     </h2>
-                    <p className="text-text-muted mt-2 text-sm">
+                    <p className="text-muted-foreground mt-2 text-sm">
                         A 6-digit code has been sent to{' '}
                         <span className="font-semibold">{email}</span>
                     </p>
@@ -56,7 +56,7 @@ const OTPVerificationForm: React.FC<OTPVerificationFormProps> = ({
 
                 {/* Error Message */}
                 {error && (
-                    <div className="mb-4 rounded-lg border border-red-200 bg-red-50 p-3 text-center text-red-500">
+                    <div className="mb-4 rounded-lg border border-destructive-muted bg-destructive-muted p-3 text-center text-destructive">
                         <p className="text-sm font-medium">{error}</p>
                     </div>
                 )}
@@ -70,13 +70,13 @@ const OTPVerificationForm: React.FC<OTPVerificationFormProps> = ({
                         placeholder="Enter OTP"
                         required
                         maxLength={6}
-                        className="w-full rounded-xl border border-gray-300 px-4 py-4 text-center text-2xl tracking-widest placeholder-gray-400 transition-all focus:ring-2 focus:ring-yellow-500 focus:outline-none"
+                        className="w-full rounded-xl border border-border px-4 py-4 text-center text-2xl tracking-widest placeholder-gray-400 transition-all focus:ring-2 focus:ring-ring focus:outline-none"
                     />
 
                     <button
                         type="submit"
                         disabled={isLoading || otp.length !== 6}
-                        className="bg-primary-hover w-full rounded-xl py-3 font-semibold text-white shadow-lg transition-colors hover:bg-yellow-600 disabled:cursor-not-allowed disabled:bg-gray-400 cursor-pointer"
+                        className="bg-primary-hover w-full rounded-xl py-3 font-semibold text-white shadow-lg transition-colors hover:bg-primary-hover disabled:cursor-not-allowed disabled:bg-muted cursor-pointer"
                     >
                         {isLoading ? <LoadingSpinner /> : 'Verify OTP'}
                     </button>
@@ -85,13 +85,13 @@ const OTPVerificationForm: React.FC<OTPVerificationFormProps> = ({
 
             {/* Footer */}
             <div className="mt-auto text-center">
-                <p className="text-text-muted text-sm">
+                <p className="text-muted-foreground text-sm">
                     Didn't receive the code?
                     <button
                         onClick={resendOTP}
                         disabled={resendCooldown > 0 || isResending}
                         type="button"
-                        className="ml-1 font-semibold text-yellow-600 hover:underline disabled:cursor-not-allowed disabled:text-gray-400 disabled:no-underline cursor-pointer"
+                        className="ml-1 font-semibold text-primary-hover hover:underline disabled:cursor-not-allowed disabled:text-muted-foreground disabled:no-underline cursor-pointer"
                     >
                         {isResending
                             ? 'Sending...'

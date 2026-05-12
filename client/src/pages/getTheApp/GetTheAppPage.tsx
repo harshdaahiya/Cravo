@@ -65,7 +65,7 @@ export default function CravoGetTheAPP() {
                         <h2 className="bg-gradient-to-r from-yellow-600 to-amber-500 bg-clip-text text-6xl leading-tight font-bold text-transparent">
                             Delicious Food, Delivered Fast
                         </h2>
-                        <p className="text-gray-600 text-xl leading-relaxed">
+                        <p className="text-muted-foreground text-xl leading-relaxed">
                             Experience the best food delivery service right at your
                             fingertips. Order from your favorite restaurants and enjoy quick,
                             reliable delivery.
@@ -73,7 +73,7 @@ export default function CravoGetTheAPP() {
 
                         {/* Download Buttons */}
                         <div className="flex flex-wrap gap-4">
-                            <button className="group text-gray-900 flex transform items-center gap-4 rounded-full bg-gradient-to-r from-yellow-400 to-amber-400 px-8 py-4 text-lg font-bold shadow-lg transition-all duration-300 hover:-translate-y-1 hover:from-yellow-500 hover:to-amber-500 hover:shadow-xl">
+                            <button className="group text-foreground flex transform items-center gap-4 rounded-full bg-gradient-to-r from-yellow-400 to-amber-400 px-8 py-4 text-lg font-bold shadow-lg transition-all duration-300 hover:-translate-y-1 hover:from-yellow-500 hover:to-amber-500 hover:shadow-xl">
                                 <svg
                                     className="h-8 w-8"
                                     viewBox="0 0 24 24"
@@ -87,7 +87,7 @@ export default function CravoGetTheAPP() {
                                 </div>
                             </button>
 
-                            <button className="group text-gray-900 flex transform items-center gap-4 rounded-full bg-gradient-to-r from-yellow-400 to-amber-400 px-8 py-4 text-lg font-bold shadow-lg transition-all duration-300 hover:-translate-y-1 hover:from-yellow-500 hover:to-amber-500 hover:shadow-xl">
+                            <button className="group text-foreground flex transform items-center gap-4 rounded-full bg-gradient-to-r from-yellow-400 to-amber-400 px-8 py-4 text-lg font-bold shadow-lg transition-all duration-300 hover:-translate-y-1 hover:from-yellow-500 hover:to-amber-500 hover:shadow-xl">
                                 <svg
                                     className="h-8 w-8"
                                     viewBox="0 0 24 24"
@@ -103,18 +103,18 @@ export default function CravoGetTheAPP() {
                         </div>
 
                         {/* QR Code Section */}
-                        <div className="mt-12 border-t-2 border-yellow-200 pt-8">
+                        <div className="mt-12 border-t-2 border-ring pt-8">
                             <div className="flex items-start gap-6">
-                                <div className="border-gray-200 rounded-2xl border-2 bg-white p-4 shadow-xl">
+                                <div className="border-border rounded-2xl border-2 bg-background p-4 shadow-xl">
                                     <div className="flex h-32 w-32 items-center justify-center rounded-xl bg-gradient-to-br from-yellow-400 to-amber-400">
-                                        <QrCode className="text-gray-900 h-20 w-20" />
+                                        <QrCode className="text-foreground h-20 w-20" />
                                     </div>
                                 </div>
                                 <div className="flex-1">
-                                    <h3 className="text-gray-900 mb-2 text-xl font-bold">
+                                    <h3 className="text-foreground mb-2 text-xl font-bold">
                                         Scan to Download
                                     </h3>
-                                    <p className="text-gray-600">
+                                    <p className="text-muted-foreground">
                                         Scan this QR code with your phone camera to download the
                                         Cravo app instantly!
                                     </p>
@@ -129,19 +129,19 @@ export default function CravoGetTheAPP() {
                             {/* Phone Frame */}
                             <div className="relative h-[650px] w-80">
                                 {/* Phone Body */}
-                                <div className="absolute inset-0 rounded-[3.5rem] bg-gray-900 shadow-2xl">
+                                <div className="absolute inset-0 rounded-[3.5rem] bg-foreground shadow-2xl">
                                     {/* Screen */}
-                                    <div className="absolute top-3 right-3 bottom-3 left-3 overflow-hidden rounded-[3rem] bg-white">
+                                    <div className="absolute top-3 right-3 bottom-3 left-3 overflow-hidden rounded-[3rem] bg-background">
                                         {/* Status Bar */}
                                         <div className="flex h-12 items-center justify-between bg-gradient-to-r from-yellow-400 to-amber-400 px-6">
-                                            <span className="text-gray-900 text-xs font-semibold">
+                                            <span className="text-foreground text-xs font-semibold">
                                                 9:41
                                             </span>
                                             <div className="flex gap-1">
-                                                <div className="h-3 w-1 rounded-full bg-gray-900"></div>
-                                                <div className="h-3 w-1 rounded-full bg-gray-900"></div>
-                                                <div className="h-3 w-1 rounded-full bg-gray-900"></div>
-                                                <div className="h-3 w-1 rounded-full bg-gray-900"></div>
+                                                <div className="h-3 w-1 rounded-full bg-foreground"></div>
+                                                <div className="h-3 w-1 rounded-full bg-foreground"></div>
+                                                <div className="h-3 w-1 rounded-full bg-foreground"></div>
+                                                <div className="h-3 w-1 rounded-full bg-foreground"></div>
                                             </div>
                                         </div>
 
@@ -165,7 +165,7 @@ export default function CravoGetTheAPP() {
                                                     />
                                                 </div>
 
-                                                <p className="text-gray-500 mt-2 text-sm">
+                                                <p className="text-muted-foreground mt-2 text-sm">
                                                     Food Delivery App
                                                 </p>
                                             </div>
@@ -173,35 +173,35 @@ export default function CravoGetTheAPP() {
                                             {/* Mock UI Elements */}
                                             <div className="mt-8 space-y-4">
                                                 {/* Search Bar */}
-                                                <div className="rounded-2xl border border-yellow-200 bg-white p-4 shadow-md">
-                                                    <div className="h-3 w-32 rounded-full bg-gray-200"></div>
+                                                <div className="rounded-2xl border border-ring bg-background p-4 shadow-md">
+                                                    <div className="h-3 w-32 rounded-full bg-muted"></div>
                                                 </div>
 
                                                 {/* Categories */}
                                                 <div className="flex gap-3 overflow-hidden">
                                                     <div className="h-20 w-20 flex-shrink-0 rounded-2xl bg-gradient-to-br from-yellow-400 to-amber-400 shadow-md"></div>
-                                                    <div className="h-20 w-20 flex-shrink-0 rounded-2xl border border-yellow-200 bg-white shadow-md"></div>
-                                                    <div className="h-20 w-20 flex-shrink-0 rounded-2xl border border-yellow-200 bg-white shadow-md"></div>
+                                                    <div className="h-20 w-20 flex-shrink-0 rounded-2xl border border-ring bg-background shadow-md"></div>
+                                                    <div className="h-20 w-20 flex-shrink-0 rounded-2xl border border-ring bg-background shadow-md"></div>
                                                 </div>
 
                                                 {/* Food Cards */}
                                                 <div className="space-y-3">
-                                                    <div className="rounded-2xl border border-yellow-200 bg-white p-4 shadow-md">
+                                                    <div className="rounded-2xl border border-ring bg-background p-4 shadow-md">
                                                         <div className="flex gap-3">
                                                             <div className="from-primary h-16 w-16 flex-shrink-0 rounded-xl bg-gradient-to-br to-amber-300"></div>
                                                             <div className="flex-1 space-y-2">
-                                                                <div className="h-2 w-full rounded-full bg-gray-200"></div>
-                                                                <div className="h-2 w-3/4 rounded-full bg-gray-200"></div>
+                                                                <div className="h-2 w-full rounded-full bg-muted"></div>
+                                                                <div className="h-2 w-3/4 rounded-full bg-muted"></div>
                                                             </div>
                                                         </div>
                                                     </div>
 
-                                                    <div className="rounded-2xl border border-yellow-200 bg-white p-4 shadow-md">
+                                                    <div className="rounded-2xl border border-ring bg-background p-4 shadow-md">
                                                         <div className="flex gap-3">
                                                             <div className="from-primary h-16 w-16 flex-shrink-0 rounded-xl bg-gradient-to-br to-amber-300"></div>
                                                             <div className="flex-1 space-y-2">
-                                                                <div className="h-2 w-full rounded-full bg-gray-200"></div>
-                                                                <div className="h-2 w-3/4 rounded-full bg-gray-200"></div>
+                                                                <div className="h-2 w-full rounded-full bg-muted"></div>
+                                                                <div className="h-2 w-3/4 rounded-full bg-muted"></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -211,13 +211,13 @@ export default function CravoGetTheAPP() {
                                     </div>
 
                                     {/* Notch */}
-                                    <div className="absolute top-0 left-1/2 h-8 w-40 -translate-x-1/2 transform rounded-b-3xl bg-gray-900"></div>
+                                    <div className="absolute top-0 left-1/2 h-8 w-40 -translate-x-1/2 transform rounded-b-3xl bg-foreground"></div>
                                 </div>
 
                                 {/* Side Buttons */}
-                                <div className="absolute top-32 right-0 h-16 w-1 rounded-l bg-gray-800"></div>
-                                <div className="absolute top-52 right-0 h-12 w-1 rounded-l bg-gray-800"></div>
-                                <div className="absolute top-68 right-0 h-12 w-1 rounded-l bg-gray-800"></div>
+                                <div className="absolute top-32 right-0 h-16 w-1 rounded-l bg-foreground"></div>
+                                <div className="absolute top-52 right-0 h-12 w-1 rounded-l bg-foreground"></div>
+                                <div className="absolute top-68 right-0 h-12 w-1 rounded-l bg-foreground"></div>
                             </div>
 
                             {/* Floating Animation Elements */}
@@ -237,79 +237,79 @@ export default function CravoGetTheAPP() {
                     </h2>
 
                     <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                        <div className="group hover:border-yellow-400 transform rounded-3xl border-2 border-yellow-200 bg-white/80 p-8 shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                        <div className="group hover:border-ring transform rounded-3xl border-2 border-ring bg-white/80 p-8 shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
                             <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-yellow-400 to-amber-400 transition-transform group-hover:scale-110">
-                                <Zap className="text-gray-900 h-8 w-8" />
+                                <Zap className="text-foreground h-8 w-8" />
                             </div>
-                            <h3 className="text-gray-900 mb-4 text-2xl font-bold">
+                            <h3 className="text-foreground mb-4 text-2xl font-bold">
                                 Lightning Fast Delivery
                             </h3>
-                            <p className="text-gray-600 leading-relaxed">
+                            <p className="text-muted-foreground leading-relaxed">
                                 Get your food delivered hot and fresh in record time with our
                                 efficient delivery network.
                             </p>
                         </div>
 
-                        <div className="group hover:border-yellow-400 transform rounded-3xl border-2 border-yellow-200 bg-white/80 p-8 shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                        <div className="group hover:border-ring transform rounded-3xl border-2 border-ring bg-white/80 p-8 shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
                             <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-yellow-400 to-amber-400 transition-transform group-hover:scale-110">
-                                <UtensilsCrossed className="text-gray-900 h-8 w-8" />
+                                <UtensilsCrossed className="text-foreground h-8 w-8" />
                             </div>
-                            <h3 className="text-gray-900 mb-4 text-2xl font-bold">
+                            <h3 className="text-foreground mb-4 text-2xl font-bold">
                                 Wide Restaurant Selection
                             </h3>
-                            <p className="text-gray-600 leading-relaxed">
+                            <p className="text-muted-foreground leading-relaxed">
                                 Choose from thousands of restaurants offering cuisines from
                                 around the world.
                             </p>
                         </div>
 
-                        <div className="group hover:border-yellow-400 transform rounded-3xl border-2 border-yellow-200 bg-white/80 p-8 shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                        <div className="group hover:border-ring transform rounded-3xl border-2 border-ring bg-white/80 p-8 shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
                             <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-yellow-400 to-amber-400 transition-transform group-hover:scale-110">
-                                <CreditCard className="text-gray-900 h-8 w-8" />
+                                <CreditCard className="text-foreground h-8 w-8" />
                             </div>
-                            <h3 className="text-gray-900 mb-4 text-2xl font-bold">
+                            <h3 className="text-foreground mb-4 text-2xl font-bold">
                                 Secure Payments
                             </h3>
-                            <p className="text-gray-600 leading-relaxed">
+                            <p className="text-muted-foreground leading-relaxed">
                                 Multiple payment options with bank-level security to keep your
                                 transactions safe.
                             </p>
                         </div>
 
-                        <div className="group hover:border-yellow-400 transform rounded-3xl border-2 border-yellow-200 bg-white/80 p-8 shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                        <div className="group hover:border-ring transform rounded-3xl border-2 border-ring bg-white/80 p-8 shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
                             <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-yellow-400 to-amber-400 transition-transform group-hover:scale-110">
-                                <MapPin className="text-gray-900 h-8 w-8" />
+                                <MapPin className="text-foreground h-8 w-8" />
                             </div>
-                            <h3 className="text-gray-900 mb-4 text-2xl font-bold">
+                            <h3 className="text-foreground mb-4 text-2xl font-bold">
                                 Real-Time Tracking
                             </h3>
-                            <p className="text-gray-600 leading-relaxed">
+                            <p className="text-muted-foreground leading-relaxed">
                                 Track your order in real-time and know exactly when it will
                                 arrive at your door.
                             </p>
                         </div>
 
-                        <div className="group hover:border-yellow-400 transform rounded-3xl border-2 border-yellow-200 bg-white/80 p-8 shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                        <div className="group hover:border-ring transform rounded-3xl border-2 border-ring bg-white/80 p-8 shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
                             <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-yellow-400 to-amber-400 transition-transform group-hover:scale-110">
-                                <Star className="text-gray-900 h-8 w-8" />
+                                <Star className="text-foreground h-8 w-8" />
                             </div>
-                            <h3 className="text-gray-900 mb-4 text-2xl font-bold">
+                            <h3 className="text-foreground mb-4 text-2xl font-bold">
                                 Exclusive Deals
                             </h3>
-                            <p className="text-gray-600 leading-relaxed">
+                            <p className="text-muted-foreground leading-relaxed">
                                 Enjoy special discounts and offers available only on the Cravo
                                 app.
                             </p>
                         </div>
 
-                        <div className="group hover:border-yellow-400 transform rounded-3xl border-2 border-yellow-200 bg-white/80 p-8 shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                        <div className="group hover:border-ring transform rounded-3xl border-2 border-ring bg-white/80 p-8 shadow-lg backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
                             <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-yellow-400 to-amber-400 transition-transform group-hover:scale-110">
-                                <Target className="text-gray-900 h-8 w-8" />
+                                <Target className="text-foreground h-8 w-8" />
                             </div>
-                            <h3 className="text-gray-900 mb-4 text-2xl font-bold">
+                            <h3 className="text-foreground mb-4 text-2xl font-bold">
                                 Easy to Use
                             </h3>
-                            <p className="text-gray-600 leading-relaxed">
+                            <p className="text-muted-foreground leading-relaxed">
                                 Simple, intuitive interface that makes ordering food a
                                 delightful experience.
                             </p>

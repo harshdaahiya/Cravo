@@ -100,18 +100,18 @@ const OTPVerificationModal: React.FC<OTPVerificationModalProps> = ({
                         animate={{ scale: 1, y: 0 }}
                         exit={{ scale: 0.8, y: -50 }}
                         transition={{ duration: 0.3 }}
-                        className="relative mx-4 w-full max-w-sm rounded-xl bg-white p-8 shadow-2xl"
+                        className="relative mx-4 w-full max-w-sm rounded-xl bg-background p-8 shadow-2xl"
                     >
                         <button
                             onClick={() => dispatch(closeAuthSidebar())}
-                            className="hover:text-text-main absolute top-4 right-4 text-3xl text-gray-400 transition-colors cursor-pointer"
+                            className="hover:text-text-main absolute top-4 right-4 text-3xl text-muted-foreground transition-colors cursor-pointer"
                         >
                             &times;
                         </button>
-                        <h2 className="text-text-main mb-2 text-center text-2xl font-bold">
+                        <h2 className="text-foreground mb-2 text-center text-2xl font-bold">
                             Verify Your Email
                         </h2>
-                        <p className="text-text-muted mb-6 text-center">
+                        <p className="text-muted-foreground mb-6 text-center">
                             A 6-digit code has been sent to <span className="font-bold">{email}</span>.
                         </p>
 
@@ -123,29 +123,29 @@ const OTPVerificationModal: React.FC<OTPVerificationModalProps> = ({
                                 placeholder="Enter OTP"
                                 required
                                 maxLength={6}
-                                className="w-full rounded-xl border border-gray-300 px-4 py-3 text-center text-xl tracking-widest placeholder-gray-400 transition-all focus:ring-2 focus:ring-yellow-500 focus:outline-none"
+                                className="w-full rounded-xl border border-border px-4 py-3 text-center text-xl tracking-widest placeholder-gray-400 transition-all focus:ring-2 focus:ring-ring focus:outline-none"
                             />
 
                             {error && (
-                                <p className="text-center text-sm text-red-500">{error}</p>
+                                <p className="text-center text-sm text-destructive">{error}</p>
                             )}
 
                             <button
                                 type="submit"
                                 disabled={loading}
-                                className="bg-primary-hover w-full rounded-xl py-3 font-semibold text-white shadow-lg transition-colors hover:bg-yellow-600 disabled:cursor-not-allowed disabled:bg-gray-400 cursor-pointer"
+                                className="bg-primary-hover w-full rounded-xl py-3 font-semibold text-white shadow-lg transition-colors hover:bg-primary-hover disabled:cursor-not-allowed disabled:bg-muted cursor-pointer"
                             >
                                 {loading ? 'Verifying...' : 'Verify OTP'}
                             </button>
                         </form>
 
                         <div className="mt-4 text-center text-sm">
-                            <p className="text-text-muted">
+                            <p className="text-muted-foreground">
                                 Didn't receive the code?
                                 <button
                                     onClick={handleResendOTP}
                                     disabled={resendCooldown > 0 || isResending}
-                                    className="ml-1 font-semibold text-yellow-600 hover:underline disabled:text-gray-400 disabled:no-underline cursor-pointer"
+                                    className="ml-1 font-semibold text-primary-hover hover:underline disabled:text-muted-foreground disabled:no-underline cursor-pointer"
                                 >
                                     {isResending
                                         ? 'Sending...'

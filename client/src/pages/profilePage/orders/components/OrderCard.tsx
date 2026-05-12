@@ -31,7 +31,7 @@ const OrderCard: React.FC<OrderCardProps> = ({
     formatETA,
 }) => {
     return (
-        <div className="border-border overflow-hidden rounded-2xl border bg-white transition-shadow hover:shadow-lg">
+        <div className="border-border overflow-hidden rounded-2xl border bg-background transition-shadow hover:shadow-lg">
             <OrderSummary
                 order={order}
                 status={status}

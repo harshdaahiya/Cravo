@@ -19,8 +19,8 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ c, width, onClick, isLoadin
         return (
             <div className="flex-shrink-0 sm:px-1" style={{ width }}>
                 <div className="flex flex-col items-center justify-center">
-                    <div className="h-24 w-24 animate-pulse rounded-full bg-gray-100 sm:h-28 sm:w-28"></div>
-                    <div className="mt-2 h-4 w-20 animate-pulse rounded bg-gray-200"></div>
+                    <div className="h-24 w-24 animate-pulse rounded-full bg-muted sm:h-28 sm:w-28"></div>
+                    <div className="mt-2 h-4 w-20 animate-pulse rounded bg-muted"></div>
                 </div>
             </div>
         );
@@ -145,10 +145,10 @@ const CategoriesSlider: React.FC = () => {
 
     if (error) {
         return (
-            <section className="bg-white py-5">
+            <section className="bg-background py-5">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6">
                     <div className="py-8 text-center">
-                        <p className="text-red-500">Failed to load categories</p>
+                        <p className="text-destructive">Failed to load categories</p>
                     </div>
                 </div>
             </section>
@@ -156,10 +156,10 @@ const CategoriesSlider: React.FC = () => {
     }
 
     return (
-        <section className="bg-white py-5">
+        <section className="bg-background py-5">
             <div className="mx-auto max-w-7xl px-4 sm:px-6">
                 <div className="mb-6 flex items-center justify-between">
-                    <p className="text-text-main text-xl font-semibold">
+                    <p className="text-foreground text-xl font-semibold">
                         What's on your mind <span>{UserFirstName}</span> ?
                     </p>
                     {categoriesPerRow > itemsToShow && !isLoading && (
@@ -168,8 +168,8 @@ const CategoriesSlider: React.FC = () => {
                                 onClick={() => setIndex(i => Math.max(0, i - 1))}
                                 disabled={index === 0}
                                 className={`rounded-full border p-2 transition ${index === 0
-                                    ? 'border-border cursor-not-allowed text-gray-300'
-                                    : 'text-text-secondary hover:border-border-focus border-gray-300 hover:text-yellow-600'
+                                    ? 'border-border cursor-not-allowed text-muted-foreground'
+                                    : 'text-text-secondary hover:border-border-focus border-border hover:text-primary-hover'
                                     }`}
                             >
                                 <Icon name={'chevron-left'} size={18} />
@@ -178,8 +178,8 @@ const CategoriesSlider: React.FC = () => {
                                 onClick={() => setIndex(i => Math.min(maxIndex, i + 1))}
                                 disabled={index === maxIndex}
                                 className={`rounded-full border p-2 transition ${index === maxIndex
-                                    ? 'border-border cursor-not-allowed text-gray-300'
-                                    : 'text-text-secondary hover:border-border-focus border-gray-300 hover:text-yellow-600'
+                                    ? 'border-border cursor-not-allowed text-muted-foreground'
+                                    : 'text-text-secondary hover:border-border-focus border-border hover:text-primary-hover'
                                     }`}
                             >
                                 <Icon name={'chevron-right'} size={18} />

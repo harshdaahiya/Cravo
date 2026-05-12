@@ -126,7 +126,7 @@ const RestaurantGrid: React.FC = () => {
         return (
             <section className="py-6 text-center">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6">
-                    <p className="text-red-500">Error: {error}</p>
+                    <p className="text-destructive">Error: {error}</p>
                 </div>
             </section>
         );
@@ -135,7 +135,7 @@ const RestaurantGrid: React.FC = () => {
         return (
             <section className="py-6 text-center">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6">
-                    <p className="text-text-muted">
+                    <p className="text-muted-foreground">
                         No restaurants found in {city || 'your area'}.
                     </p>
                 </div>
@@ -148,7 +148,7 @@ const RestaurantGrid: React.FC = () => {
         return (
             <section className="py-6">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6">
-                    <h2 className="text-text-main mb-8 text-xl font-bold">
+                    <h2 className="text-foreground mb-8 text-xl font-bold">
                         Loading Restaurants...
                     </h2>
                     <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-4">
@@ -166,7 +166,7 @@ const RestaurantGrid: React.FC = () => {
     return (
         <section className="">
             <div className="mx-auto max-w-7xl px-4 sm:px-6">
-                <h2 className="text-text-main mb-8 text-xl font-bold">
+                <h2 className="text-foreground mb-8 text-xl font-bold">
                     Restaurants with online delivery in {city}
                 </h2>
                 <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-4">
@@ -203,7 +203,7 @@ const RestaurantGrid: React.FC = () => {
                 {/* End of List Message */}
                 {!hasMore && restaurants.length > 0 && (
                     <div className="py-8 text-center">
-                        <p className="text-text-muted">
+                        <p className="text-muted-foreground">
                             You've reached the end of the list. ✨
                         </p>
                     </div>

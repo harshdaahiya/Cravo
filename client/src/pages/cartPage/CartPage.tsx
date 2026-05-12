@@ -337,19 +337,19 @@ const CartPage: React.FC = () => {
 
     if (!isAuthenticated) {
         return (
-            <div className="bg-bg-subtle flex min-h-screen items-center justify-center font-sans">
-                <div className="mx-auto max-w-md rounded-3xl bg-white p-8 text-center shadow-lg">
-                    <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-yellow-100">
-                        <Icon name="user" className="h-12 w-12 text-yellow-500" />
+            <div className="bg-muted flex min-h-screen items-center justify-center font-sans">
+                <div className="mx-auto max-w-md rounded-3xl bg-background p-8 text-center shadow-lg">
+                    <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-warning-muted">
+                        <Icon name="user" className="h-12 w-12 text-primary" />
                     </div>
-                    <h2 className="text-text-main mb-4 text-2xl font-bold">
+                    <h2 className="text-foreground mb-4 text-2xl font-bold">
                         Login Required
                     </h2>
                     <p className="text-text-secondary mb-8">
                         We are working on guest checkout. Please login to order food!
                     </p>
                     <Link to={'/login'}>
-                        <button className="bg-primary hover:bg-primary-hover text-text-main cursor-pointer rounded-full px-8 py-3 font-semibold shadow-lg transition-all">
+                        <button className="bg-primary hover:bg-primary-hover text-foreground cursor-pointer rounded-full px-8 py-3 font-semibold shadow-lg transition-all">
                             Login to Continue
                         </button>
                     </Link>
@@ -360,19 +360,19 @@ const CartPage: React.FC = () => {
 
     if (cartItems.length === 0) {
         return (
-            <div className="bg-bg-subtle flex min-h-screen items-center justify-center font-sans">
-                <div className="mx-auto max-w-md rounded-3xl bg-white p-8 text-center shadow-lg">
-                    <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-yellow-100">
-                        <Icon name="shopping-cart" className="h-12 w-12 text-yellow-500" />
+            <div className="bg-muted flex min-h-screen items-center justify-center font-sans">
+                <div className="mx-auto max-w-md rounded-3xl bg-background p-8 text-center shadow-lg">
+                    <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-warning-muted">
+                        <Icon name="shopping-cart" className="h-12 w-12 text-primary" />
                     </div>
-                    <h2 className="text-text-main mb-4 text-2xl font-bold">
+                    <h2 className="text-foreground mb-4 text-2xl font-bold">
                         Your cart is empty
                     </h2>
                     <p className="text-text-secondary mb-8">
                         Start adding delicious items to your order!
                     </p>
                     <Link to={'/restaurants'}>
-                        <button className="bg-primary hover:bg-primary-hover text-text-main cursor-pointer rounded-full px-8 py-3 font-semibold shadow-lg transition-all">
+                        <button className="bg-primary hover:bg-primary-hover text-foreground cursor-pointer rounded-full px-8 py-3 font-semibold shadow-lg transition-all">
                             Browse Restaurants
                         </button>
                     </Link>
@@ -383,7 +383,7 @@ const CartPage: React.FC = () => {
 
     return (
         <>
-            <div className="bg-bg-subtle min-h-screen font-sans">
+            <div className="bg-muted min-h-screen font-sans">
                 <CartNavigation />
                 <div className="mx-auto max-w-7xl px-4 py-6">
                     <div className="grid gap-6 lg:grid-cols-3">
@@ -443,9 +443,9 @@ const CartPage: React.FC = () => {
             {/* Loading Overlay */}
             {isCheckoutLoading && (
                 <div className="bg-opacity-50 fixed inset-0 z-50 flex items-center justify-center">
-                    <div className="rounded-2xl bg-white p-8 text-center shadow-2xl">
+                    <div className="rounded-2xl bg-background p-8 text-center shadow-2xl">
                         <div className="border-border-focus mx-auto mb-4 h-16 w-16 animate-spin rounded-full border-4 border-t-transparent"></div>
-                        <h3 className="text-text-main mb-2 text-xl font-semibold">
+                        <h3 className="text-foreground mb-2 text-xl font-semibold">
                             Processing Payment
                         </h3>
                         <p className="text-text-secondary">

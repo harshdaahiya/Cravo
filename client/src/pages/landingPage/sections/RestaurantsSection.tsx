@@ -12,27 +12,27 @@ interface RestaurantCardSkeletonProps {
 
 const RestaurantCardSkeleton: React.FC<RestaurantCardSkeletonProps> = ({ width }) => (
     <div
-        className="flex animate-pulse flex-col overflow-hidden rounded-xl bg-white p-4 shadow-sm"
+        className="flex animate-pulse flex-col overflow-hidden rounded-xl bg-background p-4 shadow-sm"
         style={{ width }}
     >
         {/* Image Placeholder */}
-        <div className="relative h-34 rounded-lg bg-gray-200 sm:h-36"></div>
+        <div className="relative h-34 rounded-lg bg-muted sm:h-36"></div>
 
         {/* Details Placeholder */}
         <div className="mt-4 flex flex-col">
             {/* Title */}
-            <div className="mb-2 h-6 w-3/4 rounded-md bg-gray-200"></div>
+            <div className="mb-2 h-6 w-3/4 rounded-md bg-muted"></div>
             {/* Cuisine */}
-            <div className="h-4 w-2/3 rounded-md bg-gray-200"></div>
+            <div className="h-4 w-2/3 rounded-md bg-muted"></div>
 
             <div className="border-border mt-4 border-t pt-3">
                 <div className="mb-1 flex items-center justify-between text-xs">
-                    <div className="h-3 w-1/3 rounded-md bg-gray-200"></div>
-                    <div className="h-3 w-1/4 rounded-md bg-gray-200"></div>
+                    <div className="h-3 w-1/3 rounded-md bg-muted"></div>
+                    <div className="h-3 w-1/4 rounded-md bg-muted"></div>
                 </div>
                 <div className="flex items-center justify-between text-xs">
-                    <div className="h-3 w-1/2 rounded-md bg-gray-200"></div>
-                    <div className="h-3 w-1/4 rounded-md bg-gray-200"></div>
+                    <div className="h-3 w-1/2 rounded-md bg-muted"></div>
+                    <div className="h-3 w-1/4 rounded-md bg-muted"></div>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
         restaurant.images?.[0] ||
         'https://placehold.co/400x240/f0f0f0/808080?text=Restaurant';
     return (
-        <div className="mb-1 flex transform cursor-pointer flex-col overflow-hidden rounded-xl bg-white shadow-sm transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
+        <div className="mb-1 flex transform cursor-pointer flex-col overflow-hidden rounded-xl bg-background shadow-sm transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
             {/* Restaurant Image */}
             <div className="sm:36 relative h-34 overflow-hidden">
                 <img
@@ -61,7 +61,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
                     }}
                 />
                 {restaurant.is_active && (
-                    <div className="absolute top-2 left-2 rounded-full bg-green-600 px-2 text-xs font-semibold text-white shadow-md">
+                    <div className="absolute top-2 left-2 rounded-full bg-success px-2 text-xs font-semibold text-white shadow-md">
                         Open
                     </div>
                 )}
@@ -74,7 +74,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
             {/* Restaurant Details with Fixed Height */}
             <div className="flex flex-col px-3 py-1" style={{ minHeight: '160px' }}>
                 <div>
-                    <h3 className="text-text-main mb-1 truncate text-lg font-bold">
+                    <h3 className="text-foreground mb-1 truncate text-lg font-bold">
                         {restaurant.name}
                     </h3>
 
@@ -87,7 +87,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
                 </div>
 
                 <div className="border-border border-t pt-3">
-                    <div className="text-text-muted mb-1 flex items-center justify-between text-xs">
+                    <div className="text-muted-foreground mb-1 flex items-center justify-between text-xs">
                         <div className="flex items-center gap-1">
                             <Icon name={'map-pin'} size={12} />
                             <span className="truncate">
@@ -104,7 +104,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
                         <span className="text-text-secondary font-medium">
                             Min Order: ₹{restaurant.min_order_value}
                         </span>
-                        <span className="text-text-muted">
+                        <span className="text-muted-foreground">
                             ({restaurant.numberOfReviews} reviews)
                         </span>
                     </div>
@@ -167,7 +167,7 @@ const RestaurantsSection: React.FC = () => {
 
         if (error) {
             return (
-                <p className="w-full text-center text-red-500">
+                <p className="w-full text-center text-destructive">
                     Failed to load restaurants.
                 </p>
             );
@@ -175,7 +175,7 @@ const RestaurantsSection: React.FC = () => {
 
         if (restaurantsData.length === 0) {
             return (
-                <p className="text-text-muted w-full text-center">
+                <p className="text-muted-foreground w-full text-center">
                     No popular restaurants found.
                 </p>
             );
@@ -204,7 +204,7 @@ const RestaurantsSection: React.FC = () => {
                 {/* header + arrows */}
                 <div className="mt-15 mb-6 flex items-center justify-between">
                     <div>
-                        <h2 className="text-text-main text-xl font-bold">
+                        <h2 className="text-foreground text-xl font-bold">
                             Popular Restaurants
                         </h2>
                         <p className="text-text-secondary mt-1 text-sm">
@@ -217,8 +217,8 @@ const RestaurantsSection: React.FC = () => {
                                 onClick={() => setIndex(i => Math.max(0, i - 1))}
                                 disabled={index === 0}
                                 className={`rounded-full border p-2 transition ${index === 0
-                                    ? 'border-border cursor-not-allowed text-gray-300'
-                                    : 'text-text-secondary hover:border-border-focus border-gray-300 hover:text-yellow-600'
+                                    ? 'border-border cursor-not-allowed text-muted-foreground'
+                                    : 'text-text-secondary hover:border-border-focus border-border hover:text-primary-hover'
                                     }`}
                             >
                                 <Icon name={'chevron-left'} size={18} />
@@ -227,8 +227,8 @@ const RestaurantsSection: React.FC = () => {
                                 onClick={() => setIndex(i => Math.min(maxIndex, i + 1))}
                                 disabled={index === maxIndex}
                                 className={`rounded-full border p-2 transition ${index === maxIndex
-                                    ? 'border-border cursor-not-allowed text-gray-300'
-                                    : 'text-text-secondary hover:border-border-focus border-gray-300 hover:text-yellow-600'
+                                    ? 'border-border cursor-not-allowed text-muted-foreground'
+                                    : 'text-text-secondary hover:border-border-focus border-border hover:text-primary-hover'
                                     }`}
                             >
                                 <Icon name={'chevron-right'} size={18} />

@@ -74,8 +74,8 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
             id: 'fastDelivery' as keyof ActiveFilters,
             label: 'Fast Delivery',
             icon: 'zap',
-            color: 'text-green-500',
-            activeColor: 'bg-green-100 text-green-700 border-green-300',
+            color: 'text-success',
+            activeColor: 'bg-success-muted text-success-foreground border-green-300',
         },
         {
             id: 'newProducts' as keyof ActiveFilters,
@@ -88,29 +88,29 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
             id: 'rating4Plus' as keyof ActiveFilters,
             label: 'Rating 4.0+',
             icon: 'star',
-            color: 'text-yellow-500',
-            activeColor: 'bg-yellow-100 text-yellow-700 border-yellow-300',
+            color: 'text-primary',
+            activeColor: 'bg-warning-muted text-warning-foreground border-ring',
         },
         {
             id: 'pureVeg' as keyof ActiveFilters,
             label: 'Pure Veg',
             icon: 'leaf',
-            color: 'text-green-600',
-            activeColor: 'bg-green-100 text-green-700 border-green-300',
+            color: 'text-success',
+            activeColor: 'bg-success-muted text-success-foreground border-green-300',
         },
         {
             id: 'offers' as keyof ActiveFilters,
             label: 'Offers',
             icon: 'tag',
-            color: 'text-red-500',
-            activeColor: 'bg-red-100 text-red-700 border-red-300',
+            color: 'text-destructive',
+            activeColor: 'bg-destructive-muted text-destructive-foreground border-destructive-muted',
         },
         {
             id: 'price300to600' as keyof ActiveFilters,
             label: '₹300-600',
             icon: null,
-            color: 'text-blue-500',
-            activeColor: 'bg-blue-100 text-blue-700 border-blue-300',
+            color: 'text-info',
+            activeColor: 'bg-info-muted text-info-foreground border-blue-300',
         },
         {
             id: 'priceLess300' as keyof ActiveFilters,
@@ -177,7 +177,7 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
             className={`fixed top-0 right-0 left-0 z-40 transition-transform duration-300 ease-in-out ${isVisible ? 'translate-y-0' : '-translate-y-full'
                 }`}
         >
-            <div className="border-border border-b bg-white shadow-md">
+            <div className="border-border border-b bg-background shadow-md">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6">
                     {/* Desktop View */}
                     <div className="hidden lg:block">
@@ -193,7 +193,7 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
                                             onClick={() => handleQuickFilterToggle(filter.id)}
                                             className={`flex items-center space-x-2 rounded-xl border px-3 py-2 font-medium whitespace-nowrap transition-all duration-200 ${isActive
                                                     ? filter.activeColor
-                                                    : 'bg-bg-subtle text-text-secondary border-border hover:bg-gray-100'
+                                                    : 'bg-muted text-text-secondary border-border hover:bg-muted'
                                                 }`}
                                         >
                                             {filter.icon && <Icon name={filter.icon as any} size={16} />}
@@ -209,7 +209,7 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
                                 <form onSubmit={handleSearchSubmit} className="relative">
                                     <Icon
                                         name="search"
-                                        className="absolute top-1/2 left-3 -translate-y-1/2 transform text-gray-400"
+                                        className="absolute top-1/2 left-3 -translate-y-1/2 transform text-muted-foreground"
                                         size={16}
                                     />
                                     <input
@@ -225,7 +225,7 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
                                 <div className="relative" ref={sortByRef}>
                                     <button
                                         onClick={() => setIsSortByOpen(!isSortByOpen)}
-                                        className="bg-bg-subtle text-text-secondary border-border flex items-center space-x-2 rounded-xl border px-4 py-2 font-medium transition-colors duration-200 hover:bg-gray-100"
+                                        className="bg-muted text-text-secondary border-border flex items-center space-x-2 rounded-xl border px-4 py-2 font-medium transition-colors duration-200 hover:bg-muted"
                                     >
                                         <span className="text-sm">Sort By</span>
                                         <Icon
@@ -237,9 +237,9 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
                                     </button>
 
                                     {isSortByOpen && (
-                                        <div className="border-border absolute top-full right-0 mt-2 w-72 rounded-2xl border bg-white shadow-lg">
-                                            <div className="border-b border-gray-100 p-4">
-                                                <h3 className="text-text-main font-bold">Sort By</h3>
+                                        <div className="border-border absolute top-full right-0 mt-2 w-72 rounded-2xl border bg-background shadow-lg">
+                                            <div className="border-b border-border p-4">
+                                                <h3 className="text-foreground font-bold">Sort By</h3>
                                             </div>
                                             <div className="max-h-64 overflow-y-auto p-2">
                                                 {sortOptions.map(option => (
@@ -249,7 +249,7 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
                                                         className="hover:bg-bg-subtle flex w-full items-center justify-between rounded-xl p-3 transition-colors"
                                                     >
                                                         <div className="text-left">
-                                                            <p className="text-text-main text-sm font-medium">
+                                                            <p className="text-foreground text-sm font-medium">
                                                                 {option.label}
                                                             </p>
                                                             <p className="text-text-secondary text-xs">
@@ -260,7 +260,7 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
                                                             <Icon
                                                                 name="check"
                                                                 size={16}
-                                                                className="text-yellow-400"
+                                                                className="text-primary"
                                                             />
                                                         )}
                                                     </button>
@@ -274,26 +274,26 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
                                 <div className="relative" ref={filterRef}>
                                     <button
                                         onClick={() => setIsFilterOpen(!isFilterOpen)}
-                                        className="bg-bg-subtle text-text-secondary border-border flex items-center space-x-2 rounded-xl border px-4 py-2 font-medium transition-colors duration-200 hover:bg-gray-100"
+                                        className="bg-muted text-text-secondary border-border flex items-center space-x-2 rounded-xl border px-4 py-2 font-medium transition-colors duration-200 hover:bg-muted"
                                     >
                                         <Icon name="filter" size={16} />
                                         <span className="text-sm">Filter</span>
                                         {getActiveFiltersCount() > 0 && (
-                                            <span className="bg-primary text-text-main rounded-full px-2 py-1 text-xs font-bold">
+                                            <span className="bg-primary text-foreground rounded-full px-2 py-1 text-xs font-bold">
                                                 {getActiveFiltersCount()}
                                             </span>
                                         )}
                                     </button>
 
                                     {isFilterOpen && (
-                                        <div className="border-border absolute top-full right-0 mt-2 w-80 rounded-2xl border bg-white shadow-lg">
-                                            <div className="flex items-center justify-between border-b border-gray-100 p-4">
-                                                <h3 className="text-text-main font-bold">
+                                        <div className="border-border absolute top-full right-0 mt-2 w-80 rounded-2xl border bg-background shadow-lg">
+                                            <div className="flex items-center justify-between border-b border-border p-4">
+                                                <h3 className="text-foreground font-bold">
                                                     All Filters
                                                 </h3>
                                                 <button
                                                     onClick={clearAllFilters}
-                                                    className="text-sm font-medium text-yellow-400 hover:text-yellow-500"
+                                                    className="text-sm font-medium text-primary hover:text-primary"
                                                 >
                                                     Clear All
                                                 </button>
@@ -302,7 +302,7 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
                                             <div className="max-h-80 overflow-y-auto p-4">
                                                 <div className="space-y-4">
                                                     <div>
-                                                        <h4 className="text-text-main mb-3 font-semibold">
+                                                        <h4 className="text-foreground mb-3 font-semibold">
                                                             Quick Filters
                                                         </h4>
                                                         <div className="grid grid-cols-2 gap-2">
@@ -317,7 +317,7 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
                                                                         }
                                                                         className={`flex items-center space-x-2 rounded-xl border p-3 text-sm transition-all duration-200 ${isActive
                                                                                 ? filter.activeColor
-                                                                                : 'bg-bg-subtle text-text-secondary border-border hover:bg-gray-100'
+                                                                                : 'bg-muted text-text-secondary border-border hover:bg-muted'
                                                                             }`}
                                                                     >
                                                                         {filter.icon && (
@@ -332,10 +332,10 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
                                                 </div>
                                             </div>
 
-                                            <div className="border-t border-gray-100 p-4">
+                                            <div className="border-t border-border p-4">
                                                 <button
                                                     onClick={() => setIsFilterOpen(false)}
-                                                    className="bg-primary hover:bg-primary-hover text-text-main w-full rounded-xl py-3 font-semibold transition-colors duration-200"
+                                                    className="bg-primary hover:bg-primary-hover text-foreground w-full rounded-xl py-3 font-semibold transition-colors duration-200"
                                                 >
                                                     Apply Filters
                                                 </button>
@@ -359,12 +359,12 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
                                         return (
                                             <span
                                                 key={key}
-                                                className="inline-flex items-center space-x-1 rounded-full bg-yellow-100 px-3 py-1 text-sm text-yellow-800"
+                                                className="inline-flex items-center space-x-1 rounded-full bg-warning-muted px-3 py-1 text-sm text-warning-foreground"
                                             >
                                                 <span>{filter?.label}</span>
                                                 <button
                                                     onClick={() => handleQuickFilterToggle(key as keyof ActiveFilters)}
-                                                    className="rounded-full p-0.5 hover:bg-yellow-200"
+                                                    className="rounded-full p-0.5 hover:bg-warning-muted"
                                                 >
                                                     <Icon name="x" size={12} />
                                                 </button>
@@ -373,7 +373,7 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
                                     })}
                                     <button
                                         onClick={clearAllFilters}
-                                        className="text-text-muted hover:text-text-secondary text-sm underline"
+                                        className="text-muted-foreground hover:text-text-secondary text-sm underline"
                                     >
                                         Clear all
                                     </button>
@@ -395,7 +395,7 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
                                         onClick={() => handleQuickFilterToggle(filter.id)}
                                         className={`flex items-center space-x-1.5 rounded-lg border px-3 py-2 text-xs font-medium whitespace-nowrap transition-all duration-200 ${isActive
                                                 ? filter.activeColor
-                                                : 'bg-bg-subtle text-text-secondary border-border hover:bg-gray-100'
+                                                : 'bg-muted text-text-secondary border-border hover:bg-muted'
                                             }`}
                                     >
                                         {filter.icon && <Icon name={filter.icon as any} size={14} />}
@@ -412,7 +412,7 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
                                 {!isSearchOpen ? (
                                     <button
                                         onClick={() => setIsSearchOpen(true)}
-                                        className="bg-bg-subtle text-text-secondary border-border flex w-full items-center justify-center space-x-2 rounded-lg border px-3 py-2 font-medium transition-colors duration-200 hover:bg-gray-100"
+                                        className="bg-muted text-text-secondary border-border flex w-full items-center justify-center space-x-2 rounded-lg border px-3 py-2 font-medium transition-colors duration-200 hover:bg-muted"
                                     >
                                         <Icon name="search" size={16} />
                                         <span className="text-sm">Search</span>
@@ -421,7 +421,7 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
                                     <form onSubmit={handleSearchSubmit} className="relative">
                                         <Icon
                                             name="search"
-                                            className="absolute top-1/2 left-3 -translate-y-1/2 transform text-gray-400"
+                                            className="absolute top-1/2 left-3 -translate-y-1/2 transform text-muted-foreground"
                                             size={16}
                                         />
                                         <input
@@ -435,7 +435,7 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
                                         <button
                                             type="button"
                                             onClick={() => setIsSearchOpen(false)}
-                                            className="hover:text-text-secondary absolute top-1/2 right-3 -translate-y-1/2 transform text-gray-400"
+                                            className="hover:text-text-secondary absolute top-1/2 right-3 -translate-y-1/2 transform text-muted-foreground"
                                         >
                                             <Icon name="x" size={16} />
                                         </button>
@@ -447,16 +447,16 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
                             <div className="relative" ref={sortByRef}>
                                 <button
                                     onClick={() => setIsSortByOpen(!isSortByOpen)}
-                                    className="bg-bg-subtle text-text-secondary border-border flex items-center space-x-1.5 rounded-lg border px-3 py-2 font-medium transition-colors duration-200 hover:bg-gray-100"
+                                    className="bg-muted text-text-secondary border-border flex items-center space-x-1.5 rounded-lg border px-3 py-2 font-medium transition-colors duration-200 hover:bg-muted"
                                 >
                                     <Icon name="arrow-up-down" size={16} />
                                     <span className="text-sm">Sort</span>
                                 </button>
 
                                 {isSortByOpen && (
-                                    <div className="border-border absolute top-full right-0 z-50 mt-2 w-72 rounded-2xl border bg-white shadow-lg">
-                                        <div className="border-b border-gray-100 p-4">
-                                            <h3 className="text-text-main font-bold">Sort By</h3>
+                                    <div className="border-border absolute top-full right-0 z-50 mt-2 w-72 rounded-2xl border bg-background shadow-lg">
+                                        <div className="border-b border-border p-4">
+                                            <h3 className="text-foreground font-bold">Sort By</h3>
                                         </div>
                                         <div className="max-h-64 overflow-y-auto p-2">
                                             {sortOptions.map(option => (
@@ -466,7 +466,7 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
                                                     className="hover:bg-bg-subtle flex w-full items-center justify-between rounded-xl p-3 transition-colors"
                                                 >
                                                     <div className="text-left">
-                                                        <p className="text-text-main text-sm font-medium">
+                                                        <p className="text-foreground text-sm font-medium">
                                                             {option.label}
                                                         </p>
                                                         <p className="text-text-secondary text-xs">
@@ -477,7 +477,7 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
                                                         <Icon
                                                             name="check"
                                                             size={16}
-                                                            className="text-yellow-400"
+                                                            className="text-primary"
                                                         />
                                                     )}
                                                 </button>
@@ -491,12 +491,12 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
                             <div className="relative" ref={filterRef}>
                                 <button
                                     onClick={() => setIsFilterOpen(!isFilterOpen)}
-                                    className="bg-bg-subtle text-text-secondary border-border flex items-center space-x-1.5 rounded-lg border px-3 py-2 font-medium transition-colors duration-200 hover:bg-gray-100"
+                                    className="bg-muted text-text-secondary border-border flex items-center space-x-1.5 rounded-lg border px-3 py-2 font-medium transition-colors duration-200 hover:bg-muted"
                                 >
                                     <Icon name="filter" size={16} />
                                     <span className="text-sm">Filter</span>
                                     {getActiveFiltersCount() > 0 && (
-                                        <span className="bg-primary text-text-main rounded-full px-1.5 py-0.5 text-xs font-bold">
+                                        <span className="bg-primary text-foreground rounded-full px-1.5 py-0.5 text-xs font-bold">
                                             {getActiveFiltersCount()}
                                         </span>
                                     )}
@@ -504,14 +504,14 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
 
                                 {isFilterOpen && (
                                     <div className="bg-opacity-50 fixed inset-0 z-50 flex items-end bg-black sm:items-center sm:justify-center">
-                                        <div className="flex max-h-[85vh] w-full flex-col rounded-t-2xl bg-white sm:w-96 sm:rounded-2xl">
-                                            <div className="flex items-center justify-between border-b border-gray-100 p-4">
-                                                <h3 className="text-text-main font-bold">
+                                        <div className="flex max-h-[85vh] w-full flex-col rounded-t-2xl bg-background sm:w-96 sm:rounded-2xl">
+                                            <div className="flex items-center justify-between border-b border-border p-4">
+                                                <h3 className="text-foreground font-bold">
                                                     All Filters
                                                 </h3>
                                                 <button
                                                     onClick={() => setIsFilterOpen(false)}
-                                                    className="hover:text-text-secondary text-gray-400"
+                                                    className="hover:text-text-secondary text-muted-foreground"
                                                 >
                                                     <Icon name="x" size={24} />
                                                 </button>
@@ -521,12 +521,12 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
                                                 <div className="space-y-4">
                                                     <div>
                                                         <div className="mb-3 flex items-center justify-between">
-                                                            <h4 className="text-text-main font-semibold">
+                                                            <h4 className="text-foreground font-semibold">
                                                                 Quick Filters
                                                             </h4>
                                                             <button
                                                                 onClick={clearAllFilters}
-                                                                className="text-sm font-medium text-yellow-400 hover:text-yellow-500"
+                                                                className="text-sm font-medium text-primary hover:text-primary"
                                                             >
                                                                 Clear All
                                                             </button>
@@ -543,7 +543,7 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
                                                                         }
                                                                         className={`flex items-center space-x-2 rounded-xl border p-3 text-sm transition-all duration-200 ${isActive
                                                                                 ? filter.activeColor
-                                                                                : 'bg-bg-subtle text-text-secondary border-border hover:bg-gray-100'
+                                                                                : 'bg-muted text-text-secondary border-border hover:bg-muted'
                                                                             }`}
                                                                     >
                                                                         {filter.icon && (
@@ -558,10 +558,10 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
                                                 </div>
                                             </div>
 
-                                            <div className="border-t border-gray-100 p-4">
+                                            <div className="border-t border-border p-4">
                                                 <button
                                                     onClick={() => setIsFilterOpen(false)}
-                                                    className="bg-primary hover:bg-primary-hover text-text-main w-full rounded-xl py-3 font-semibold transition-colors duration-200"
+                                                    className="bg-primary hover:bg-primary-hover text-foreground w-full rounded-xl py-3 font-semibold transition-colors duration-200"
                                                 >
                                                     Apply Filters
                                                 </button>
@@ -585,12 +585,12 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
                                         return (
                                             <span
                                                 key={key}
-                                                className="inline-flex items-center space-x-1 rounded-full bg-yellow-100 px-2 py-1 text-xs whitespace-nowrap text-yellow-800"
+                                                className="inline-flex items-center space-x-1 rounded-full bg-warning-muted px-2 py-1 text-xs whitespace-nowrap text-warning-foreground"
                                             >
                                                 <span>{filter?.label}</span>
                                                 <button
                                                     onClick={() => handleQuickFilterToggle(key as keyof ActiveFilters)}
-                                                    className="rounded-full p-0.5 hover:bg-yellow-200"
+                                                    className="rounded-full p-0.5 hover:bg-warning-muted"
                                                 >
                                                     <Icon name="x" size={10} />
                                                 </button>
@@ -599,7 +599,7 @@ const FiltersAndSerachBar: React.FC<FiltersAndSerachBarProps> = ({
                                     })}
                                     <button
                                         onClick={clearAllFilters}
-                                        className="text-text-muted hover:text-text-secondary text-xs whitespace-nowrap underline"
+                                        className="text-muted-foreground hover:text-text-secondary text-xs whitespace-nowrap underline"
                                     >
                                         Clear all
                                     </button>

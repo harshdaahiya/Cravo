@@ -31,18 +31,18 @@ const PaymentStatusModal: React.FC<PaymentStatusModalProps> = ({ isOpen, status,
 
     const content = {
         success: {
-            icon: <CheckCircle className="h-16 w-16 text-green-500" />,
+            icon: <CheckCircle className="h-16 w-16 text-success" />,
             title: 'Order Placed Successfully!',
             description: 'Your payment was successful and your order is being prepared.',
             buttonText: 'Track Order',
-            buttonClass: 'bg-green-600 hover:bg-green-700',
+            buttonClass: 'bg-success hover:bg-green-700',
         },
         failed: {
-            icon: <XCircle className="h-16 w-16 text-red-500" />,
+            icon: <XCircle className="h-16 w-16 text-destructive" />,
             title: 'Payment Failed',
             description: orderDetails?.errorMessage || 'Something went wrong with your payment. Please try again or use another payment method.',
             buttonText: 'Try Again',
-            buttonClass: 'bg-red-600 hover:bg-red-700',
+            buttonClass: 'bg-destructive hover:bg-destructive',
         },
         cancelled: {
             icon: <AlertCircle className="h-16 w-16 text-amber-500" />,
@@ -70,7 +70,7 @@ const PaymentStatusModal: React.FC<PaymentStatusModalProps> = ({ isOpen, status,
                     initial={{ scale: 0.9, opacity: 0, y: 20 }}
                     animate={{ scale: 1, opacity: 1, y: 0 }}
                     exit={{ scale: 0.9, opacity: 0, y: 20 }}
-                    className="relative w-full max-w-lg overflow-hidden rounded-3xl bg-white shadow-2xl"
+                    className="relative w-full max-w-lg overflow-hidden rounded-3xl bg-background shadow-2xl"
                 >
                     <div className="p-8 text-center sm:p-10">
                         <motion.div
@@ -82,34 +82,34 @@ const PaymentStatusModal: React.FC<PaymentStatusModalProps> = ({ isOpen, status,
                             {currentContent.icon}
                         </motion.div>
 
-                        <h3 className="mb-2 text-2xl font-bold text-gray-900 sm:text-3xl">
+                        <h3 className="mb-2 text-2xl font-bold text-foreground sm:text-3xl">
                             {currentContent.title}
                         </h3>
-                        <p className="mb-8 text-gray-600">
+                        <p className="mb-8 text-muted-foreground">
                             {currentContent.description}
                         </p>
 
                         {status === 'success' && orderDetails && (
-                            <div className="mb-8 space-y-4 rounded-2xl bg-gray-50 p-6 text-left">
+                            <div className="mb-8 space-y-4 rounded-2xl bg-muted p-6 text-left">
                                 <div className="flex items-center gap-3">
-                                    <ShoppingBag className="h-5 w-5 text-gray-400" />
+                                    <ShoppingBag className="h-5 w-5 text-muted-foreground" />
                                     <div>
-                                        <p className="text-xs font-medium uppercase tracking-wider text-gray-400">Order ID</p>
-                                        <p className="font-semibold text-gray-900">{orderDetails.orderId}</p>
+                                        <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Order ID</p>
+                                        <p className="font-semibold text-foreground">{orderDetails.orderId}</p>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-3">
-                                    <Clock className="h-5 w-5 text-gray-400" />
+                                    <Clock className="h-5 w-5 text-muted-foreground" />
                                     <div>
-                                        <p className="text-xs font-medium uppercase tracking-wider text-gray-400">Estimated Delivery</p>
-                                        <p className="font-semibold text-gray-900">{orderDetails.estimatedTime}</p>
+                                        <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Estimated Delivery</p>
+                                        <p className="font-semibold text-foreground">{orderDetails.estimatedTime}</p>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-3">
-                                    <MapPin className="h-5 w-5 text-gray-400" />
+                                    <MapPin className="h-5 w-5 text-muted-foreground" />
                                     <div>
-                                        <p className="text-xs font-medium uppercase tracking-wider text-gray-400">Delivery Address</p>
-                                        <p className="text-sm font-semibold text-gray-900">{orderDetails.address}</p>
+                                        <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground">Delivery Address</p>
+                                        <p className="text-sm font-semibold text-foreground">{orderDetails.address}</p>
                                     </div>
                                 </div>
                             </div>
@@ -125,7 +125,7 @@ const PaymentStatusModal: React.FC<PaymentStatusModalProps> = ({ isOpen, status,
                             {status !== 'success' && (
                                 <button
                                     onClick={onClose}
-                                    className="w-full cursor-pointer rounded-xl bg-gray-100 py-4 font-bold text-gray-700 transition-all hover:bg-gray-200"
+                                    className="w-full cursor-pointer rounded-xl bg-muted py-4 font-bold text-muted-foreground transition-all hover:bg-muted"
                                 >
                                     Dismiss
                                 </button>

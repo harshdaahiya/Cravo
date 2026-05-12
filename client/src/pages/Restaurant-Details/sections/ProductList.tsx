@@ -24,7 +24,7 @@ const ProductList: React.FC<ProductListProps> = ({ menuItems, activeFilter }) =>
             <div className="mt-8">
                 {filteredMenuItems.length > 0 ? (
                     <div id="bestsellers-section" className="mb-10">
-                        <h2 className="text-text-main mb-4 flex items-center text-2xl font-bold">
+                        <h2 className="text-foreground mb-4 flex items-center text-2xl font-bold">
                             <Icon
                                 name="star"
                                 className="mr-2 h-6 w-6 fill-current text-amber-500"
@@ -65,7 +65,7 @@ const ProductList: React.FC<ProductListProps> = ({ menuItems, activeFilter }) =>
                         id={category.toLowerCase().replace(/\s/g, '-')}
                         className="mb-10"
                     >
-                        <h2 className="text-text-main mb-4 text-2xl font-bold">
+                        <h2 className="text-foreground mb-4 text-2xl font-bold">
                             {category}
                         </h2>
                         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

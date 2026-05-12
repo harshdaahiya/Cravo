@@ -34,16 +34,16 @@ const CartItemDeleteModal: React.FC = () => {
                         animate={{ y: 0, scale: 1, opacity: 1 }}
                         exit={{ y: 20, scale: 0.95, opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="relative w-full max-w-sm rounded-xl bg-white p-8 shadow-2xl"
+                        className="relative w-full max-w-sm rounded-xl bg-background p-8 shadow-2xl"
                     >
                         {/* Modal content */}
                         <div className="text-center">
-                            <h3 className="text-text-main text-2xl font-bold">
+                            <h3 className="text-foreground text-2xl font-bold">
                                 Confirm Deletion
                             </h3>
                             <p className="text-text-secondary mt-4 text-sm">
                                 Are you sure you want to delete{' '}
-                                <span className="text-text-main font-semibold">{itemName}</span>{' '}
+                                <span className="text-foreground font-semibold">{itemName}</span>{' '}
                                 from your cart?
                             </p>
                         </div>
@@ -52,13 +52,13 @@ const CartItemDeleteModal: React.FC = () => {
                         <div className="mt-8 flex justify-end space-x-3">
                             <button
                                 onClick={handleCloseDeleteModal}
-                                className="text-text-secondary cursor-pointer rounded-lg bg-gray-100 px-5 py-2 text-sm font-medium transition-colors hover:bg-gray-200"
+                                className="text-text-secondary cursor-pointer rounded-lg bg-muted px-5 py-2 text-sm font-medium transition-colors hover:bg-muted"
                             >
                                 Cancel
                             </button>
                             <button
                                 onClick={() => itemId && itemName && handleDeleteItemFromCart({ itemId, itemName })}
-                                className="bg-primary hover:bg-yellow-600 cursor-pointer rounded-lg px-5 py-2 text-sm font-medium text-black transition-colors"
+                                className="bg-primary hover:bg-primary-hover cursor-pointer rounded-lg px-5 py-2 text-sm font-medium text-black transition-colors"
                             >
                                 Delete
                             </button>

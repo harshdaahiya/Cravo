@@ -1,42 +1,90 @@
 @import 'tailwindcss';
 
-@theme {
-  --color-primary: #facc15; /* yellow-400 */
-  --color-primary-hover: #eab308; /* yellow-500 */
-  --color-secondary: #4ade80; /* green-400 */
+:root {
+  --background: #ffffff;
+  --foreground: #111827;
+  --primary: #facc15;
+  --primary-hover: #eab308;
+  --secondary: #4ade80;
+  --muted: #f9fafb;
+  --muted-foreground: #6b7280;
+  --text-secondary: #374151;
+  --border: #e5e7eb;
+  --ring: #facc15;
+  --destructive: #dc2626;
+  --destructive-muted: #fef2f2;
+  --destructive-foreground: #991b1b;
+  --success: #16a34a;
+  --success-muted: #f0fdf4;
+  --success-foreground: #166534;
+  --warning: #ca8a04;
+  --warning-muted: #fefce8;
+  --warning-foreground: #854d0e;
+  --info: #2563eb;
+  --info-muted: #eff6ff;
+  --info-foreground: #1e40af;
 
-  --color-bg-base: #ffffff;
-  --color-bg-subtle: #f9fafb; /* gray-50 */
+  --radius: 0.5rem;
+}
 
-  --color-text-main: #111827; /* gray-900 */
-  --color-text-secondary: #374151; /* gray-700 */
-  --color-text-muted: #6b7280; /* gray-500 */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-text-secondary: var(--text-secondary);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-destructive: var(--destructive);
+  --color-destructive-muted: var(--destructive-muted);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-muted: var(--success-muted);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-muted: var(--warning-muted);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-muted: var(--info-muted);
+  --color-info-foreground: var(--info-foreground);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+}
 
-  --color-border: #e5e7eb; /* gray-200 */
-  --color-border-focus: #facc15; /* yellow-400 */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
 /* For WebKit browsers (Chrome, Safari) */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 6px; /* Adjust the width of the scrollbar */
+  width: 6px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Color of the track */
-  border-radius: 10px; /* Rounded corners for the track */
+  background: #f1f1f1;
+  border-radius: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #888; /* Color of the scrollbar thumb */
-  border-radius: 10px; /* Rounded corners for the thumb */
+  background: #888;
+  border-radius: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Color when the mouse hovers over the thumb */
+  background: #555;
 }
 
 /* For Firefox */
 .custom-scrollbar {
-  scrollbar-width: thin; /* 'thin' or 'auto' */
-  scrollbar-color: #888 #f1f1f1; /* thumb color track color */
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
 }

@@ -30,15 +30,15 @@ const LoginForm: React.FC<LoginFormProps> = ({
             <div>
                 {/* Header */}
                 <div className="mb-6">
-                    <h2 className="text-text-main text-3xl font-bold">Welcome Back</h2>
-                    <p className="text-text-muted mt-2 text-sm">
+                    <h2 className="text-foreground text-3xl font-bold">Welcome Back</h2>
+                    <p className="text-muted-foreground mt-2 text-sm">
                         Sign in to continue your journey.
                     </p>
                 </div>
 
                 {/* Error Message */}
                 {error && (
-                    <div className="mb-4 rounded-lg border border-red-200 bg-red-50 p-3 text-center text-red-500">
+                    <div className="mb-4 rounded-lg border border-destructive-muted bg-destructive-muted p-3 text-center text-destructive">
                         <p className="text-sm font-medium">{error}</p>
                     </div>
                 )}
@@ -52,7 +52,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
                         required
                         value={formData.email}
                         onChange={onChange}
-                        className="w-full rounded-xl border border-gray-300 px-4 py-3 placeholder-gray-400 transition-all duration-200 focus:ring-2 focus:ring-yellow-500 focus:outline-none"
+                        className="w-full rounded-xl border border-border px-4 py-3 placeholder-gray-400 transition-all duration-200 focus:ring-2 focus:ring-ring focus:outline-none"
                     />
 
                     <div className="relative">
@@ -63,12 +63,12 @@ const LoginForm: React.FC<LoginFormProps> = ({
                             required
                             value={formData.password}
                             onChange={onChange}
-                            className="w-full rounded-xl border border-gray-300 px-4 py-3 placeholder-gray-400 transition-all duration-200 focus:ring-2 focus:ring-yellow-500 focus:outline-none"
+                            className="w-full rounded-xl border border-border px-4 py-3 placeholder-gray-400 transition-all duration-200 focus:ring-2 focus:ring-ring focus:outline-none"
                         />
                         <button
                             type="button"
                             onClick={() => setShowPassword(!showPassword)}
-                            className="text-text-muted hover:text-text-secondary absolute top-1/2 right-4 -translate-y-1/2 cursor-pointer transition-colors"
+                            className="text-muted-foreground hover:text-text-secondary absolute top-1/2 right-4 -translate-y-1/2 cursor-pointer transition-colors"
                         >
                             <Icon
                                 name={showPassword ? 'eye-off' : 'eye'}
@@ -79,7 +79,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
 
                     <button
                         type="submit"
-                        className="bg-primary-hover flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl py-3 font-semibold text-white shadow-lg transition-colors duration-200 hover:bg-yellow-600 disabled:cursor-not-allowed disabled:bg-gray-400"
+                        className="bg-primary-hover flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl py-3 font-semibold text-white shadow-lg transition-colors duration-200 hover:bg-primary-hover disabled:cursor-not-allowed disabled:bg-muted"
                         disabled={isLoading}
                     >
                         {isLoading ? <LoadingSpinner /> : 'Sign In'}
@@ -91,17 +91,17 @@ const LoginForm: React.FC<LoginFormProps> = ({
             <div className="mt-auto pt-6 text-center">
                 <div className="my-6 flex items-center">
                     <hr className="border-border flex-grow" />
-                    <span className="mx-4 text-sm text-gray-400">or</span>
+                    <span className="mx-4 text-sm text-muted-foreground">or</span>
                     <hr className="border-border flex-grow" />
                 </div>
 
                 <SocialLoginButton onClick={onGoogleLogin} />
 
-                <p className="text-text-muted mt-4 text-sm">
+                <p className="text-muted-foreground mt-4 text-sm">
                     Don't have an account?
                     <button
                         onClick={onSwitchMode}
-                        className="ml-1 font-semibold text-yellow-600 hover:underline cursor-pointer"
+                        className="ml-1 font-semibold text-primary-hover hover:underline cursor-pointer"
                     >
                         Sign up
                     </button>

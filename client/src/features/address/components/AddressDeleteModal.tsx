@@ -9,8 +9,8 @@ const AddressDeleteModal: React.FC = () => {
 
     return (
         <div className="bg-opacity-50 fixed inset-0 z-50 flex items-center justify-center p-4">
-            <div className="w-full max-w-sm rounded-xl bg-white p-6 text-center shadow-2xl">
-                <h2 className="text-text-main mb-4 text-2xl font-bold">
+            <div className="w-full max-w-sm rounded-xl bg-background p-6 text-center shadow-2xl">
+                <h2 className="text-foreground mb-4 text-2xl font-bold">
                     Confirm Deletion
                 </h2>
                 <p className="text-text-secondary mb-6">
@@ -20,13 +20,13 @@ const AddressDeleteModal: React.FC = () => {
                 <div className="flex justify-center gap-4">
                     <button
                         onClick={handleCloseDeleteAddressModal}
-                        className="text-text-main cursor-pointer rounded-lg bg-gray-200 px-6 py-3 transition-colors hover:bg-gray-300"
+                        className="text-foreground cursor-pointer rounded-lg bg-muted px-6 py-3 transition-colors hover:bg-muted"
                     >
                         Cancel
                     </button>
                     <button
                         onClick={() => deleteAddressID && handleDeleteAddress(deleteAddressID)}
-                        className="cursor-pointer rounded-lg bg-red-500 px-6 py-3 text-white transition-colors hover:bg-red-600"
+                        className="cursor-pointer rounded-lg bg-destructive px-6 py-3 text-white transition-colors hover:bg-destructive"
                     >
                         Delete
                     </button>

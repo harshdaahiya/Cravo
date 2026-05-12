@@ -17,7 +17,7 @@ interface ProfileInfoTabProps {
 const ProfileInfoTab: React.FC<ProfileInfoTabProps> = ({ profileData }) => {
     return (
         <div>
-            <h2 className="text-gray-900 mb-4 text-lg font-semibold">Profile Info</h2>
+            <h2 className="text-foreground mb-4 text-lg font-semibold">Profile Info</h2>
             <div className="grid grid-cols-2 gap-4 text-sm">
                 <ProfileField label="First Name" value={profileData.firstName} />
                 <ProfileField label="Last Name" value={profileData.lastName} />

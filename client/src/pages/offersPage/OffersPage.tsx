@@ -277,7 +277,7 @@ const OffersPage: React.FC = () => {
                 <div className="relative mx-auto flex h-full max-w-7xl items-center px-4">
                     <div className="max-w-3xl">
                         {/* Badge */}
-                        <div className="bg-primary/20 border-gray-700 mb-6 inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-bold text-yellow-400 shadow-lg backdrop-blur-xl">
+                        <div className="bg-primary/20 border-border mb-6 inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-bold text-primary shadow-lg backdrop-blur-xl">
                             <Sparkles className="h-4 w-4" />
                             Limited Time Offers
                         </div>
@@ -286,11 +286,11 @@ const OffersPage: React.FC = () => {
                         <h1 className="mb-6 text-5xl leading-tight font-bold md:text-6xl lg:text-7xl">
                             <span className="text-white">Grab Amazing</span>
                             <br />
-                            <span className="text-yellow-400">Deals & Save Big! 🍛</span>
+                            <span className="text-primary">Deals & Save Big! 🍛</span>
                         </h1>
 
                         {/* Description */}
-                        <p className="mb-8 text-xl leading-relaxed text-gray-200 md:text-2xl">
+                        <p className="mb-8 text-xl leading-relaxed text-muted-foreground md:text-2xl">
                             Discover exclusive offers from your favorite restaurants. More
                             savings, more happiness!
                         </p>
@@ -299,13 +299,13 @@ const OffersPage: React.FC = () => {
                         <div className="flex flex-wrap gap-4">
                             <div className="flex items-center gap-3 rounded-2xl border border-white/20 bg-white/10 px-3 py-2 backdrop-blur-xl">
                                 <div className="bg-primary flex h-10 w-10 items-center justify-center rounded-xl">
-                                    <Tag className="text-gray-900 h-6 w-6" />
+                                    <Tag className="text-foreground h-6 w-6" />
                                 </div>
                                 <div>
                                     <p className="text-sm font-bold text-white">
                                         {allOffers.length}+
                                     </p>
-                                    <p className="text-xs font-medium text-gray-300">
+                                    <p className="text-xs font-medium text-muted-foreground">
                                         Active Offers
                                     </p>
                                 </div>
@@ -313,11 +313,11 @@ const OffersPage: React.FC = () => {
 
                             <div className="flex items-center gap-3 rounded-2xl border border-white/20 bg-white/10 px-3 py-2 backdrop-blur-xl">
                                 <div className="bg-primary flex h-10 w-10 items-center justify-center rounded-xl">
-                                    <TrendingUp className="text-gray-900 h-6 w-6" />
+                                    <TrendingUp className="text-foreground h-6 w-6" />
                                 </div>
                                 <div>
                                     <p className="text-sm font-bold text-white">50%</p>
-                                    <p className="text-xs font-medium text-gray-300">
+                                    <p className="text-xs font-medium text-muted-foreground">
                                         Max Discount
                                     </p>
                                 </div>
@@ -325,11 +325,11 @@ const OffersPage: React.FC = () => {
 
                             <div className="flex items-center gap-3 rounded-2xl border border-white/20 bg-white/10 px-3 py-2 backdrop-blur-xl">
                                 <div className="bg-primary flex h-10 w-10 items-center justify-center rounded-xl">
-                                    <Gift className="text-gray-900 h-6 w-6" />
+                                    <Gift className="text-foreground h-6 w-6" />
                                 </div>
                                 <div>
                                     <p className="text-sm font-bold text-white">BOGO</p>
-                                    <p className="text-xs font-medium text-gray-300">
+                                    <p className="text-xs font-medium text-muted-foreground">
                                         Free Deals
                                     </p>
                                 </div>
@@ -341,17 +341,17 @@ const OffersPage: React.FC = () => {
 
             {/* Search & Filter Section */}
             <div className="relative z-10 mx-auto -mt-8 max-w-7xl px-4">
-                <div className="rounded-2xl border border-gray-100 bg-white p-6 shadow-xl">
+                <div className="rounded-2xl border border-border bg-background p-6 shadow-xl">
                     <div className="flex flex-col gap-4 lg:flex-row">
                         {/* Search Bar */}
                         <div className="relative flex-1">
-                            <Search className="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-gray-400" />
+                            <Search className="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
                             <input
                                 type="text"
                                 placeholder="Search for offers, restaurants, or cuisines..."
                                 value={searchTerm}
                                 onChange={e => setSearchTerm(e.target.value)}
-                                className="w-full rounded-xl border border-gray-200 py-3 pr-4 pl-12 focus:border-transparent focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+                                className="w-full rounded-xl border border-border py-3 pr-4 pl-12 focus:border-transparent focus:ring-2 focus:ring-ring focus:outline-none"
                             />
                         </div>
 
@@ -362,8 +362,8 @@ const OffersPage: React.FC = () => {
                                     key={cat.key}
                                     onClick={() => setSelectedCategory(cat.key)}
                                     className={`rounded-xl px-4 py-2.5 font-semibold transition-all ${selectedCategory === cat.key
-                                            ? 'bg-primary text-gray-900 shadow-lg shadow-yellow-200'
-                                            : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
+                                            ? 'bg-primary text-foreground shadow-lg shadow-yellow-200'
+                                            : 'bg-muted text-muted-foreground hover:bg-muted'
                                         }`}
                                 >
                                     {cat.label}
@@ -379,13 +379,13 @@ const OffersPage: React.FC = () => {
                 <div className="mb-6 flex items-center justify-between">
                     <div className="flex items-center gap-3">
                         <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-yellow-400 to-amber-300 shadow-lg">
-                            <Sparkles className="text-gray-900 h-5 w-5" />
+                            <Sparkles className="text-foreground h-5 w-5" />
                         </div>
                         <div>
-                            <h2 className="text-gray-900 text-2xl font-bold">
+                            <h2 className="text-foreground text-2xl font-bold">
                                 Featured Offers
                             </h2>
-                            <p className="text-gray-500 text-sm">
+                            <p className="text-muted-foreground text-sm">
                                 Hot deals you don't want to miss
                             </p>
                         </div>
@@ -396,7 +396,7 @@ const OffersPage: React.FC = () => {
                     {filterOffers(featuredOffers).map(offer => (
                         <div
                             key={offer.id}
-                            className="group overflow-hidden rounded-2xl border border-gray-100 bg-white transition-all duration-300 hover:shadow-2xl"
+                            className="group overflow-hidden rounded-2xl border border-border bg-background transition-all duration-300 hover:shadow-2xl"
                         >
                             {/* Image */}
                             <div className="relative h-48 overflow-hidden">
@@ -410,12 +410,12 @@ const OffersPage: React.FC = () => {
                                 {/* Badges */}
                                 <div className="absolute top-3 left-3 flex gap-2">
                                     {offer.isNew && (
-                                        <span className="rounded-full bg-green-500 px-3 py-1 text-xs font-bold text-white">
+                                        <span className="rounded-full bg-success px-3 py-1 text-xs font-bold text-white">
                                             NEW
                                         </span>
                                     )}
                                     {offer.isTrending && (
-                                        <span className="flex items-center gap-1 rounded-full bg-red-500 px-3 py-1 text-xs font-bold text-white">
+                                        <span className="flex items-center gap-1 rounded-full bg-destructive px-3 py-1 text-xs font-bold text-white">
                                             <TrendingUp className="h-3 w-3" />
                                             HOT
                                         </span>
@@ -424,7 +424,7 @@ const OffersPage: React.FC = () => {
 
                                 {/* Discount Badge */}
                                 <div className="bg-primary absolute top-3 right-3 flex h-16 w-16 items-center justify-center rounded-full shadow-xl">
-                                    <span className="text-gray-900 text-lg font-bold">
+                                    <span className="text-foreground text-lg font-bold">
                                         {offer.discount}
                                     </span>
                                 </div>
@@ -434,30 +434,30 @@ const OffersPage: React.FC = () => {
                             <div className="p-5">
                                 {/* Type Badge */}
                                 <div className="mb-3 flex items-center gap-2">
-                                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-yellow-100 text-yellow-600">
+                                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-warning-muted text-primary-hover">
                                         {getOfferIcon(offer.type)}
                                     </div>
-                                    <span className="text-sm font-semibold text-yellow-600 capitalize">
+                                    <span className="text-sm font-semibold text-primary-hover capitalize">
                                         {offer.type.replace('_', ' ')}
                                     </span>
                                 </div>
 
-                                <h3 className="text-gray-900 mb-2 line-clamp-2 text-lg font-bold">
+                                <h3 className="text-foreground mb-2 line-clamp-2 text-lg font-bold">
                                     {offer.title}
                                 </h3>
-                                <p className="text-gray-500 mb-4 line-clamp-2 text-sm">
+                                <p className="text-muted-foreground mb-4 line-clamp-2 text-sm">
                                     {offer.description}
                                 </p>
 
                                 {/* Restaurant Info */}
-                                <div className="mb-4 flex items-center justify-between border-b border-gray-100 pb-4">
+                                <div className="mb-4 flex items-center justify-between border-b border-border pb-4">
                                     <div>
-                                        <p className="text-gray-900 text-sm font-semibold">
+                                        <p className="text-foreground text-sm font-semibold">
                                             {offer.restaurant.name}
                                         </p>
-                                        <div className="text-gray-500 mt-1 flex items-center gap-3 text-xs">
+                                        <div className="text-muted-foreground mt-1 flex items-center gap-3 text-xs">
                                             <div className="flex items-center gap-1">
-                                                <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                                                <Star className="h-3 w-3 fill-yellow-400 text-primary" />
                                                 {offer.restaurant.rating}
                                             </div>
                                             <div className="flex items-center gap-1">
@@ -470,7 +470,7 @@ const OffersPage: React.FC = () => {
 
                                 {/* Footer */}
                                 <div className="flex items-center justify-between">
-                                    <div className="text-gray-500 text-xs">
+                                    <div className="text-muted-foreground text-xs">
                                         <p>Min: ${offer.minOrder}</p>
                                         <p>
                                             Valid till{' '}
@@ -482,7 +482,7 @@ const OffersPage: React.FC = () => {
                                     </div>
                                     <button
                                         onClick={() => handleCopyCode(offer)}
-                                        className="bg-primary hover:bg-yellow-600 text-gray-900 flex items-center gap-2 rounded-xl px-4 py-2 font-semibold transition-colors"
+                                        className="bg-primary hover:bg-primary-hover text-foreground flex items-center gap-2 rounded-xl px-4 py-2 font-semibold transition-colors"
                                     >
                                         {copiedId === offer.id ? (
                                             <>
@@ -506,14 +506,14 @@ const OffersPage: React.FC = () => {
             {/* More Offers Section */}
             <div className="mx-auto max-w-7xl px-4 pb-16">
                 <div className="mb-6 flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-900">
-                        <Tag className="h-5 w-5 text-yellow-400" />
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-foreground">
+                        <Tag className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                        <h2 className="text-gray-900 text-2xl font-bold">
+                        <h2 className="text-foreground text-2xl font-bold">
                             More Great Deals
                         </h2>
-                        <p className="text-gray-500 text-sm">
+                        <p className="text-muted-foreground text-sm">
                             Additional offers just for you
                         </p>
                     </div>
@@ -523,7 +523,7 @@ const OffersPage: React.FC = () => {
                     {filterOffers(regularOffers).map(offer => (
                         <div
                             key={offer.id}
-                            className="overflow-hidden rounded-2xl border border-gray-100 bg-white transition-all hover:shadow-xl"
+                            className="overflow-hidden rounded-2xl border border-border bg-background transition-all hover:shadow-xl"
                         >
                             <div className="relative h-40">
                                 <img
@@ -533,25 +533,25 @@ const OffersPage: React.FC = () => {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                                 <div className="bg-primary absolute top-3 right-3 flex h-14 w-14 items-center justify-center rounded-full shadow-lg">
-                                    <span className="text-gray-900 font-bold">
+                                    <span className="text-foreground font-bold">
                                         {offer.discount}
                                     </span>
                                 </div>
                             </div>
 
                             <div className="p-4">
-                                <h3 className="text-gray-900 mb-2 font-bold">{offer.title}</h3>
-                                <p className="text-gray-500 mb-4 text-sm">
+                                <h3 className="text-foreground mb-2 font-bold">{offer.title}</h3>
+                                <p className="text-muted-foreground mb-4 text-sm">
                                     {offer.description}
                                 </p>
 
-                                <div className="mb-3 flex items-center justify-between border-b border-gray-100 pb-3">
-                                    <div className="text-gray-500 text-xs">
-                                        <p className="text-gray-900 font-semibold">
+                                <div className="mb-3 flex items-center justify-between border-b border-border pb-3">
+                                    <div className="text-muted-foreground text-xs">
+                                        <p className="text-foreground font-semibold">
                                             {offer.restaurant.name}
                                         </p>
                                         <p className="mt-1 flex items-center gap-1">
-                                            <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                                            <Star className="h-3 w-3 fill-yellow-400 text-primary" />
                                             {offer.restaurant.rating}
                                         </p>
                                     </div>
@@ -559,7 +559,7 @@ const OffersPage: React.FC = () => {
 
                                 <button
                                     onClick={() => handleCopyCode(offer)}
-                                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-gray-900 px-4 py-2.5 font-semibold text-white transition-colors hover:bg-gray-800"
+                                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-foreground px-4 py-2.5 font-semibold text-white transition-colors hover:bg-foreground"
                                 >
                                     {copiedId === offer.id ? (
                                         <>
@@ -586,16 +586,16 @@ const OffersPage: React.FC = () => {
                     <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-white/10 blur-3xl"></div>
 
                     <div className="relative">
-                        <h2 className="text-gray-900 mb-4 text-3xl font-bold md:text-4xl">
+                        <h2 className="text-foreground mb-4 text-3xl font-bold md:text-4xl">
                             Don't Miss Out on These Deals!
                         </h2>
-                        <p className="text-gray-900 mb-6 text-lg">
+                        <p className="text-foreground mb-6 text-lg">
                             Start ordering now and enjoy incredible savings on your favorite
                             meals
                         </p>
 
                         <Link to={'/restaurants'}>
-                            <button className="inline-flex items-center gap-2 rounded-2xl bg-gray-900 px-8 py-4 font-bold text-white shadow-xl transition-all hover:bg-gray-800">
+                            <button className="inline-flex items-center gap-2 rounded-2xl bg-foreground px-8 py-4 font-bold text-white shadow-xl transition-all hover:bg-foreground">
                                 Browse All Restaurants
                                 <ChevronRight className="h-5 w-5" />
                             </button>

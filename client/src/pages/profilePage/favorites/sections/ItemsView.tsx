@@ -25,7 +25,7 @@ const ItemsView: React.FC<ItemsViewProps> = ({ selectedList, viewMode, setViewMo
 
     if (!activeItems || activeItems.length === 0) {
         return (
-            <div className="text-text-muted p-8 text-center font-medium">
+            <div className="text-muted-foreground p-8 text-center font-medium">
                 This list is currently empty.
             </div>
         );
@@ -52,7 +52,7 @@ const ItemsView: React.FC<ItemsViewProps> = ({ selectedList, viewMode, setViewMo
 
     return (
         <>
-            <div className="border-cream flex items-center justify-between rounded-2xl border bg-white p-4 shadow-lg">
+            <div className="border-cream flex items-center justify-between rounded-2xl border bg-background p-4 shadow-lg">
                 <p className="text-medium-gray text-sm">
                     {selectedList.list_type === 'productList'
                         ? `Showing ${(selectedList.products?.length || 0)} items`
@@ -61,13 +61,13 @@ const ItemsView: React.FC<ItemsViewProps> = ({ selectedList, viewMode, setViewMo
                 <div className="flex gap-2">
                     <button
                         onClick={() => setViewMode('grid')}
-                        className={`rounded-lg p-2 transition-colors ${viewMode === 'grid' ? 'bg-mint-green text-white' : 'text-charcoal bg-gray-100 hover:bg-gray-200'}`}
+                        className={`rounded-lg p-2 transition-colors ${viewMode === 'grid' ? 'bg-mint-green text-white' : 'text-charcoal bg-muted hover:bg-muted'}`}
                     >
                         <Icon name="grid" className="h-5 w-5" />
                     </button>
                     <button
                         onClick={() => setViewMode('list')}
-                        className={`rounded-lg p-2 transition-colors ${viewMode === 'list' ? 'bg-mint-green text-white' : 'text-charcoal bg-gray-100 hover:bg-gray-200'}`}
+                        className={`rounded-lg p-2 transition-colors ${viewMode === 'list' ? 'bg-mint-green text-white' : 'text-charcoal bg-muted hover:bg-muted'}`}
                     >
                         <Icon name="list" className="h-5 w-5" />
                     </button>

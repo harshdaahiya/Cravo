@@ -13,8 +13,8 @@ const TabButton: React.FC<TabButtonProps> = ({ id, label, icon, active, onClick 
     <button
         onClick={() => onClick(id)}
         className={`flex w-full items-center gap-3 rounded-xl px-4 py-3 font-medium transition-all ${active
-            ? 'bg-primary text-gray-900 shadow-md'
-            : 'text-gray-500 hover:bg-gray-50'
+            ? 'bg-primary text-foreground shadow-md'
+            : 'text-muted-foreground hover:bg-muted'
             }`}
     >
         <Icon name={icon} className="h-5 w-5" />

@@ -23,7 +23,7 @@ const FavoritesPage: React.FC = () => {
                             <Icon name="heart" className="text-mint-green h-8 w-8" />
                         </div>
                         <div>
-                            <h1 className="text-text-main mb-2 text-4xl font-bold">
+                            <h1 className="text-foreground mb-2 text-4xl font-bold">
                                 {selectedList ? `Items in "${selectedList.name}"` : 'My Favorites'}
                             </h1>
                         </div>
@@ -31,7 +31,7 @@ const FavoritesPage: React.FC = () => {
                     {selectedListId && (
                         <button
                             onClick={() => setSelectedListId(null)}
-                            className="text-charcoal flex cursor-pointer items-center gap-2 font-medium transition-colors hover:text-yellow-400"
+                            className="text-charcoal flex cursor-pointer items-center gap-2 font-medium transition-colors hover:text-primary"
                         >
                             <Icon name="arrow-left" className="h-5 w-5" /> Back to lists
                         </button>

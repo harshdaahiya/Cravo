@@ -12,14 +12,14 @@ const ExploreMore: React.FC = () => {
 
     return (
         <div className="mt-12">
-            <h2 className="text-text-main mb-4 text-2xl font-bold">
+            <h2 className="text-foreground mb-4 text-2xl font-bold">
                 Explore More Categories
             </h2>
             <div className="flex flex-wrap gap-4">
                 {categories.map(item => (
                     <button
                         key={item}
-                        className="text-text-secondary rounded-xl bg-gray-100 px-5 py-2 font-medium transition-all hover:bg-yellow-100"
+                        className="text-text-secondary rounded-xl bg-muted px-5 py-2 font-medium transition-all hover:bg-warning-muted"
                     >
                         {item}
                     </button>

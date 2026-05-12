@@ -12,23 +12,23 @@ interface DeliveryInfoProps {
 
 const DeliveryInfo: React.FC<DeliveryInfoProps> = ({ address, instructions, driver }) => {
     return (
-        <div className="space-y-3 rounded-lg bg-white p-4">
-            <h4 className="text-text-main mb-3 font-semibold">
+        <div className="space-y-3 rounded-lg bg-background p-4">
+            <h4 className="text-foreground mb-3 font-semibold">
                 Delivery Information
             </h4>
             <div className="text-text-secondary flex items-start gap-3 text-sm">
-                <MapPin className="mt-0.5 h-5 w-5 flex-shrink-0 text-gray-400" />
+                <MapPin className="mt-0.5 h-5 w-5 flex-shrink-0 text-muted-foreground" />
                 <span>{address}</span>
             </div>
             {instructions && (
                 <div className="text-text-secondary flex items-start gap-3 text-sm">
-                    <Clock className="mt-0.5 h-5 w-5 flex-shrink-0 text-gray-400" />
+                    <Clock className="mt-0.5 h-5 w-5 flex-shrink-0 text-muted-foreground" />
                     <span>{instructions}</span>
                 </div>
             )}
             {driver && (
                 <div className="text-text-secondary flex items-start gap-3 text-sm">
-                    <Phone className="mt-0.5 h-5 w-5 flex-shrink-0 text-gray-400" />
+                    <Phone className="mt-0.5 h-5 w-5 flex-shrink-0 text-muted-foreground" />
                     <span>
                         {driver.name} • {driver.phone}
                     </span>

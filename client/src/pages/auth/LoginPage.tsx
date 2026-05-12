@@ -76,10 +76,10 @@ const LoginPage: React.FC = () => {
                     <div className="bg-opacity-40 absolute inset-0 bg-black" />
                     <div className="relative z-10 flex flex-col items-start justify-center p-12 text-white">
                         <h1 className="mb-4 text-4xl font-bold">Welcome Back to</h1>
-                        <h2 className="mb-6 text-5xl font-bold text-yellow-400">
+                        <h2 className="mb-6 text-5xl font-bold text-primary">
                             FoodieHub
                         </h2>
-                        <p className="max-w-md text-xl leading-relaxed text-gray-200">
+                        <p className="max-w-md text-xl leading-relaxed text-muted-foreground">
                             Discover amazing recipes, connect with fellow food lovers, and
                             embark on your culinary journey.
                         </p>
@@ -113,9 +113,9 @@ const LoginPage: React.FC = () => {
                     </div>
 
                     {/* Card */}
-                    <div className="border-cream rounded-2xl border bg-white p-8 shadow-xl backdrop-blur-sm">
+                    <div className="border-cream rounded-2xl border bg-background p-8 shadow-xl backdrop-blur-sm">
                         {error && (
-                            <p className="mb-4 text-center text-sm font-medium text-red-500">
+                            <p className="mb-4 text-center text-sm font-medium text-destructive">
                                 {error}
                             </p>
                         )}
@@ -140,7 +140,7 @@ const LoginPage: React.FC = () => {
                                         required
                                         value={formData.email}
                                         onChange={handleInputChange}
-                                        className="border-cream text-charcoal placeholder-medium-gray block w-full rounded-lg border py-3 pr-3 pl-10 transition-all duration-200 focus:ring-yellow-400 focus:outline-none"
+                                        className="border-cream text-charcoal placeholder-medium-gray block w-full rounded-lg border py-3 pr-3 pl-10 transition-all duration-200 focus:ring-ring focus:outline-none"
                                         placeholder="Enter your email"
                                     />
                                 </div>
@@ -165,7 +165,7 @@ const LoginPage: React.FC = () => {
                                         required
                                         value={formData.password}
                                         onChange={handleInputChange}
-                                        className="border-cream text-charcoal placeholder-medium-gray block w-full rounded-lg border py-3 pr-10 pl-10 transition-all duration-200 focus:ring-yellow-400 focus:outline-none"
+                                        className="border-cream text-charcoal placeholder-medium-gray block w-full rounded-lg border py-3 pr-10 pl-10 transition-all duration-200 focus:ring-ring focus:outline-none"
                                         placeholder="Enter your password"
                                     />
                                     <button
@@ -191,7 +191,7 @@ const LoginPage: React.FC = () => {
                                         type="checkbox"
                                         checked={rememberMe}
                                         onChange={e => setRememberMe(e.target.checked)}
-                                        className="border-cream h-4 w-4 rounded-2xl text-yellow-400"
+                                        className="border-cream h-4 w-4 rounded-2xl text-primary"
                                     />
                                     <span className="text-medium-gray ml-2 text-sm">
                                         Remember me
@@ -199,7 +199,7 @@ const LoginPage: React.FC = () => {
                                 </label>
                                 <a
                                     href="#"
-                                    className="text-sm font-medium text-yellow-600 transition-colors duration-200 hover:text-yellow-700"
+                                    className="text-sm font-medium text-primary-hover transition-colors duration-200 hover:text-warning-foreground"
                                 >
                                     Forgot password?
                                 </a>
@@ -209,7 +209,7 @@ const LoginPage: React.FC = () => {
                             <button
                                 type="submit"
                                 disabled={isLoading}
-                                className="group bg-primary hover:bg-primary-hover relative flex w-full transform cursor-pointer justify-center rounded-lg px-4 py-3 text-sm font-medium text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl focus:ring-yellow-400 focus:ring-offset-2 focus:outline-none disabled:opacity-50"
+                                className="group bg-primary hover:bg-primary-hover relative flex w-full transform cursor-pointer justify-center rounded-lg px-4 py-3 text-sm font-medium text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl focus:ring-ring focus:ring-offset-2 focus:outline-none disabled:opacity-50"
                             >
                                 {isLoading ? (
                                     <div className="h-5 w-5 animate-spin rounded-full border-b-2 border-white" />
@@ -230,7 +230,7 @@ const LoginPage: React.FC = () => {
                                 <div className="border-cream w-full border-t" />
                             </div>
                             <div className="relative flex justify-center text-sm">
-                                <span className="text-medium-gray bg-white px-2 font-semibold">
+                                <span className="text-medium-gray bg-background px-2 font-semibold">
                                     Or continue with
                                 </span>
                             </div>
@@ -241,7 +241,7 @@ const LoginPage: React.FC = () => {
                             <button
                                 type="button"
                                 onClick={handleGoogleLogin}
-                                className="border-coffee text-coffee hover:bg-cream inline-flex transform items-center justify-center rounded-lg border bg-white px-4 py-3 text-sm font-medium shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg focus:ring-offset-2 focus:outline-none"
+                                className="border-coffee text-coffee hover:bg-cream inline-flex transform items-center justify-center rounded-lg border bg-background px-4 py-3 text-sm font-medium shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg focus:ring-offset-2 focus:outline-none"
                             >
                                 <img
                                     src="https://img.icons8.com/color/48/000000/google-logo.png"
@@ -254,13 +254,13 @@ const LoginPage: React.FC = () => {
 
                         <div className="mt-6 text-center">
                             <div className="relative flex justify-center text-sm">
-                                <span className="text-medium-gray bg-white px-2">
+                                <span className="text-medium-gray bg-background px-2">
                                     New to our community?
                                 </span>
                             </div>
                             <Link
                                 to="/signup"
-                                className="border-border-focus inline-flex justify-center rounded-lg border bg-yellow-50 px-4 py-3 text-sm font-medium text-yellow-600 transition-all duration-200 hover:bg-yellow-100 focus:ring-offset-2 focus:outline-none"
+                                className="border-border-focus inline-flex justify-center rounded-lg border bg-warning-muted px-4 py-3 text-sm font-medium text-primary-hover transition-all duration-200 hover:bg-warning-muted focus:ring-offset-2 focus:outline-none"
                             >
                                 Create New Account
                             </Link>

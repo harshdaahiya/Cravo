@@ -262,7 +262,7 @@ const CorporatePage: React.FC = () => {
 
                 <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 md:py-28">
                     <div className="mx-auto max-w-4xl text-center">
-                        <div className="bg-primary/20 border-gray-700 mb-8 inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-bold text-yellow-400 shadow-lg backdrop-blur-xl">
+                        <div className="bg-primary/20 border-border mb-8 inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-bold text-primary shadow-lg backdrop-blur-xl">
                             <Building2 className="h-4 w-4" />
                             Corporate Solutions
                         </div>
@@ -275,7 +275,7 @@ const CorporatePage: React.FC = () => {
                             </span>
                         </h1>
 
-                        <p className="mx-auto mb-10 max-w-3xl text-xl leading-relaxed text-gray-300 md:text-2xl">
+                        <p className="mx-auto mb-10 max-w-3xl text-xl leading-relaxed text-muted-foreground md:text-2xl">
                             Streamline your corporate food ordering with our comprehensive
                             platform. Manage employees, track spending, and boost
                             productivity.
@@ -284,12 +284,12 @@ const CorporatePage: React.FC = () => {
                         <div className="mb-16 flex flex-col justify-center gap-4 sm:flex-row">
                             <button
                                 onClick={() => setShowContactForm(true)}
-                                className="group bg-primary hover:bg-primary-hover text-gray-900 flex items-center justify-center gap-2 rounded-2xl px-8 py-4 font-bold shadow-xl transition-all hover:shadow-2xl"
+                                className="group bg-primary hover:bg-primary-hover text-foreground flex items-center justify-center gap-2 rounded-2xl px-8 py-4 font-bold shadow-xl transition-all hover:shadow-2xl"
                             >
                                 Get Started
                                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                             </button>
-                            <button className="group hover:text-gray-900 flex items-center justify-center gap-2 rounded-2xl border-2 border-white/30 px-8 py-4 font-bold text-white backdrop-blur-xl transition-all hover:bg-white">
+                            <button className="group hover:text-foreground flex items-center justify-center gap-2 rounded-2xl border-2 border-white/30 px-8 py-4 font-bold text-white backdrop-blur-xl transition-all hover:bg-white">
                                 <Play className="h-5 w-5" />
                                 Watch Demo
                             </button>
@@ -304,12 +304,12 @@ const CorporatePage: React.FC = () => {
                                         className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl"
                                     >
                                         <div className="bg-primary mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl">
-                                            <Icon className="text-gray-900 h-6 w-6" />
+                                            <Icon className="text-foreground h-6 w-6" />
                                         </div>
                                         <div className="mb-1 text-3xl font-bold text-white">
                                             {stat.value}
                                         </div>
-                                        <div className="text-sm font-medium text-gray-400">
+                                        <div className="text-sm font-medium text-muted-foreground">
                                             {stat.label}
                                         </div>
                                     </div>
@@ -323,14 +323,14 @@ const CorporatePage: React.FC = () => {
             {/* Features Section */}
             <div className="mx-auto max-w-7xl px-4 py-20">
                 <div className="mb-16 text-center">
-                    <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-yellow-100 px-4 py-2 text-sm font-bold text-yellow-800">
+                    <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-warning-muted px-4 py-2 text-sm font-bold text-warning-foreground">
                         <Sparkles className="h-4 w-4" />
                         Powerful Features
                     </div>
-                    <h2 className="text-gray-900 mb-4 text-4xl font-bold md:text-5xl">
+                    <h2 className="text-foreground mb-4 text-4xl font-bold md:text-5xl">
                         Everything You Need for Corporate Food Management
                     </h2>
-                    <p className="text-gray-500 mx-auto max-w-3xl text-xl">
+                    <p className="text-muted-foreground mx-auto max-w-3xl text-xl">
                         Our platform is designed specifically for businesses to manage
                         employee meals efficiently and cost-effectively.
                     </p>
@@ -342,15 +342,15 @@ const CorporatePage: React.FC = () => {
                         return (
                             <div
                                 key={i}
-                                className="group border-gray-200 hover:border-yellow-400 rounded-2xl border bg-white p-8 transition-all duration-300 hover:shadow-2xl"
+                                className="group border-border hover:border-ring rounded-2xl border bg-background p-8 transition-all duration-300 hover:shadow-2xl"
                             >
                                 <div className="to-primary-hover mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-yellow-400 shadow-lg transition-transform group-hover:scale-110">
-                                    <Icon className="text-gray-900 h-8 w-8" />
+                                    <Icon className="text-foreground h-8 w-8" />
                                 </div>
-                                <h3 className="text-gray-900 mb-3 text-xl font-bold">
+                                <h3 className="text-foreground mb-3 text-xl font-bold">
                                     {feature.title}
                                 </h3>
-                                <p className="text-gray-500 leading-relaxed">
+                                <p className="text-muted-foreground leading-relaxed">
                                     {feature.description}
                                 </p>
                             </div>
@@ -360,13 +360,13 @@ const CorporatePage: React.FC = () => {
             </div>
 
             {/* Use Cases */}
-            <div className="bg-gray-50 py-20">
+            <div className="bg-muted py-20">
                 <div className="mx-auto max-w-7xl px-4">
                     <div className="mb-16 text-center">
-                        <h2 className="text-gray-900 mb-4 text-4xl font-bold md:text-5xl">
+                        <h2 className="text-foreground mb-4 text-4xl font-bold md:text-5xl">
                             Perfect for Every Occasion
                         </h2>
-                        <p className="text-gray-500 mx-auto max-w-3xl text-xl">
+                        <p className="text-muted-foreground mx-auto max-w-3xl text-xl">
                             From daily meals to special events, we've got your corporate food
                             needs covered.
                         </p>
@@ -378,15 +378,15 @@ const CorporatePage: React.FC = () => {
                             return (
                                 <div
                                     key={i}
-                                    className="border-gray-200 rounded-2xl border bg-white p-6 text-center transition-all hover:shadow-xl"
+                                    className="border-border rounded-2xl border bg-background p-6 text-center transition-all hover:shadow-xl"
                                 >
-                                    <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-yellow-100">
-                                        <Icon className="h-8 w-8 text-yellow-600" />
+                                    <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-warning-muted">
+                                        <Icon className="h-8 w-8 text-primary-hover" />
                                     </div>
-                                    <h3 className="text-gray-900 mb-2 text-lg font-bold">
+                                    <h3 className="text-foreground mb-2 text-lg font-bold">
                                         {useCase.title}
                                     </h3>
-                                    <p className="text-gray-500 text-sm leading-relaxed">
+                                    <p className="text-muted-foreground text-sm leading-relaxed">
                                         {useCase.description}
                                     </p>
                                 </div>
@@ -399,10 +399,10 @@ const CorporatePage: React.FC = () => {
             {/* Pricing */}
             <div className="mx-auto max-w-7xl px-4 py-20">
                 <div className="mb-16 text-center">
-                    <h2 className="text-gray-900 mb-4 text-4xl font-bold md:text-5xl">
+                    <h2 className="text-foreground mb-4 text-4xl font-bold md:text-5xl">
                         Choose Your Plan
                     </h2>
-                    <p className="text-gray-500 mx-auto max-w-3xl text-xl">
+                    <p className="text-muted-foreground mx-auto max-w-3xl text-xl">
                         Flexible pricing options to fit your company size and needs.
                     </p>
                 </div>
@@ -411,33 +411,33 @@ const CorporatePage: React.FC = () => {
                     {pricingPlans.map(plan => (
                         <div
                             key={plan.id}
-                            className={`relative rounded-3xl border-2 bg-white p-8 transition-all hover:shadow-2xl ${plan.popular
-                                    ? 'border-yellow-400 scale-105 shadow-xl'
-                                    : 'border-gray-200'
+                            className={`relative rounded-3xl border-2 bg-background p-8 transition-all hover:shadow-2xl ${plan.popular
+                                    ? 'border-ring scale-105 shadow-xl'
+                                    : 'border-border'
                                 }`}
                         >
                             {plan.popular && (
                                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                                    <span className="to-primary-hover text-gray-900 rounded-full bg-gradient-to-r from-yellow-400 px-5 py-2 text-sm font-bold shadow-lg">
+                                    <span className="to-primary-hover text-foreground rounded-full bg-gradient-to-r from-yellow-400 px-5 py-2 text-sm font-bold shadow-lg">
                                         Most Popular
                                     </span>
                                 </div>
                             )}
 
                             <div className="mb-8 text-center">
-                                <h3 className="text-gray-900 mb-2 text-2xl font-bold">
+                                <h3 className="text-foreground mb-2 text-2xl font-bold">
                                     {plan.name}
                                 </h3>
-                                <p className="text-gray-500 mb-6">{plan.description}</p>
+                                <p className="text-muted-foreground mb-6">{plan.description}</p>
                                 <div className="mb-4">
-                                    <span className="text-gray-900 text-5xl font-bold">
+                                    <span className="text-foreground text-5xl font-bold">
                                         {plan.price}
                                     </span>
                                     {plan.price !== 'Free' && plan.price !== 'Custom' && (
-                                        <span className="text-gray-500">/month</span>
+                                        <span className="text-muted-foreground">/month</span>
                                     )}
                                 </div>
-                                <p className="text-gray-500 text-sm font-semibold">
+                                <p className="text-muted-foreground text-sm font-semibold">
                                     {plan.employees}
                                 </p>
                             </div>
@@ -445,8 +445,8 @@ const CorporatePage: React.FC = () => {
                             <ul className="mb-8 space-y-4">
                                 {plan.features.map((feature, i) => (
                                     <li key={i} className="flex items-start gap-3">
-                                        <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-green-500" />
-                                        <span className="text-gray-500">{feature}</span>
+                                        <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-success" />
+                                        <span className="text-muted-foreground">{feature}</span>
                                     </li>
                                 ))}
                             </ul>
@@ -454,8 +454,8 @@ const CorporatePage: React.FC = () => {
                             <button
                                 onClick={() => setShowContactForm(true)}
                                 className={`w-full rounded-2xl py-4 font-bold transition-all ${plan.popular
-                                        ? 'bg-primary hover:bg-primary-hover text-gray-900 shadow-lg hover:shadow-xl'
-                                        : 'text-gray-900 bg-gray-100 hover:bg-gray-200'
+                                        ? 'bg-primary hover:bg-primary-hover text-foreground shadow-lg hover:shadow-xl'
+                                        : 'text-foreground bg-muted hover:bg-muted'
                                     }`}
                             >
                                 {plan.price === 'Custom' ? 'Contact Sales' : 'Get Started'}
@@ -466,13 +466,13 @@ const CorporatePage: React.FC = () => {
             </div>
 
             {/* Testimonials */}
-            <div className="bg-gray-50 py-20">
+            <div className="bg-muted py-20">
                 <div className="mx-auto max-w-7xl px-4">
                     <div className="mb-16 text-center">
-                        <h2 className="text-gray-900 mb-4 text-4xl font-bold md:text-5xl">
+                        <h2 className="text-foreground mb-4 text-4xl font-bold md:text-5xl">
                             Trusted by Leading Companies
                         </h2>
-                        <p className="text-gray-500 mx-auto max-w-3xl text-xl">
+                        <p className="text-muted-foreground mx-auto max-w-3xl text-xl">
                             Join hundreds of satisfied HR and operations teams who rely on us
                             every day.
                         </p>
@@ -482,7 +482,7 @@ const CorporatePage: React.FC = () => {
                         {testimonials.map((testimonial, i) => (
                             <div
                                 key={i}
-                                className="border-gray-200 rounded-2xl border bg-white p-8 transition-all hover:shadow-xl"
+                                className="border-border rounded-2xl border bg-background p-8 transition-all hover:shadow-xl"
                             >
                                 <div className="mb-6">
                                     <div className="mb-4 flex gap-1">
@@ -493,26 +493,26 @@ const CorporatePage: React.FC = () => {
                                             ></div>
                                         ))}
                                     </div>
-                                    <p className="text-gray-500 mb-6 leading-relaxed">
+                                    <p className="text-muted-foreground mb-6 leading-relaxed">
                                         "{testimonial.testimonial}"
                                     </p>
                                 </div>
 
-                                <div className="border-gray-200 border-t pt-6">
-                                    <p className="text-gray-900 mb-1 font-bold">
+                                <div className="border-border border-t pt-6">
+                                    <p className="text-foreground mb-1 font-bold">
                                         {testimonial.author}
                                     </p>
-                                    <p className="text-gray-500 mb-1 text-sm">
+                                    <p className="text-muted-foreground mb-1 text-sm">
                                         {testimonial.position}
                                     </p>
-                                    <p className="text-gray-900 text-sm font-semibold">
+                                    <p className="text-foreground text-sm font-semibold">
                                         {testimonial.company}
                                     </p>
                                     <div className="mt-4 flex items-center justify-between text-sm">
-                                        <span className="text-gray-500">
+                                        <span className="text-muted-foreground">
                                             {testimonial.employees}
                                         </span>
-                                        <span className="font-semibold text-green-600">
+                                        <span className="font-semibold text-success">
                                             {testimonial.savings}
                                         </span>
                                     </div>
@@ -530,15 +530,15 @@ const CorporatePage: React.FC = () => {
                     <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-white/10 blur-3xl"></div>
 
                     <div className="relative">
-                        <h2 className="text-gray-900 mb-6 text-4xl font-bold md:text-5xl">
+                        <h2 className="text-foreground mb-6 text-4xl font-bold md:text-5xl">
                             Ready to Supercharge Your Team Meals?
                         </h2>
-                        <p className="text-gray-900 mx-auto mb-8 max-w-2xl text-xl">
+                        <p className="text-foreground mx-auto mb-8 max-w-2xl text-xl">
                             Get a personalized demo or start for free in minutes.
                         </p>
                         <button
                             onClick={() => setShowContactForm(true)}
-                            className="inline-flex items-center gap-2 rounded-2xl bg-gray-900 px-10 py-5 font-bold text-white shadow-xl transition-all hover:bg-gray-800 hover:shadow-2xl"
+                            className="inline-flex items-center gap-2 rounded-2xl bg-foreground px-10 py-5 font-bold text-white shadow-xl transition-all hover:bg-foreground hover:shadow-2xl"
                         >
                             Contact Sales
                             <ArrowRight className="h-5 w-5" />
@@ -550,25 +550,25 @@ const CorporatePage: React.FC = () => {
             {/* Contact Modal */}
             {showContactForm && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4 backdrop-blur-sm">
-                    <div className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white p-8 shadow-2xl">
+                    <div className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-background p-8 shadow-2xl">
                         <button
                             onClick={() => setShowContactForm(false)}
-                            className="text-gray-500 hover:text-gray-900 absolute top-6 right-6 flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 transition-colors hover:bg-gray-200"
+                            className="text-muted-foreground hover:text-foreground absolute top-6 right-6 flex h-10 w-10 items-center justify-center rounded-full bg-muted transition-colors hover:bg-muted"
                         >
                             <X className="h-5 w-5" />
                         </button>
 
-                        <h3 className="text-gray-900 mb-2 text-3xl font-bold">
+                        <h3 className="text-foreground mb-2 text-3xl font-bold">
                             Let's Talk
                         </h3>
-                        <p className="text-gray-500 mb-8">
+                        <p className="text-muted-foreground mb-8">
                             Fill out the form and our team will get back to you within 24
                             hours.
                         </p>
 
                         <div className="space-y-5">
                             <input
-                                className="w-full rounded-xl border border-gray-300 px-5 py-4 transition-all focus:border-transparent focus:ring-2 focus:ring-yellow-400"
+                                className="w-full rounded-xl border border-border px-5 py-4 transition-all focus:border-transparent focus:ring-2 focus:ring-ring"
                                 placeholder="Company Name"
                                 value={contactForm.companyName}
                                 onChange={e =>
@@ -581,7 +581,7 @@ const CorporatePage: React.FC = () => {
 
                             <div className="grid gap-5 md:grid-cols-2">
                                 <input
-                                    className="w-full rounded-xl border border-gray-300 px-5 py-4 transition-all focus:border-transparent focus:ring-2 focus:ring-yellow-400"
+                                    className="w-full rounded-xl border border-border px-5 py-4 transition-all focus:border-transparent focus:ring-2 focus:ring-ring"
                                     placeholder="Contact Name"
                                     value={contactForm.contactName}
                                     onChange={e =>
@@ -593,7 +593,7 @@ const CorporatePage: React.FC = () => {
                                 />
                                 <input
                                     type="email"
-                                    className="w-full rounded-xl border border-gray-300 px-5 py-4 transition-all focus:border-transparent focus:ring-2 focus:ring-yellow-400"
+                                    className="w-full rounded-xl border border-border px-5 py-4 transition-all focus:border-transparent focus:ring-2 focus:ring-ring"
                                     placeholder="Email"
                                     value={contactForm.email}
                                     onChange={e =>
@@ -604,7 +604,7 @@ const CorporatePage: React.FC = () => {
 
                             <div className="grid gap-5 md:grid-cols-2">
                                 <input
-                                    className="w-full rounded-xl border border-gray-300 px-5 py-4 transition-all focus:border-transparent focus:ring-2 focus:ring-yellow-400"
+                                    className="w-full rounded-xl border border-border px-5 py-4 transition-all focus:border-transparent focus:ring-2 focus:ring-ring"
                                     placeholder="Phone Number"
                                     value={contactForm.phone}
                                     onChange={e =>
@@ -613,7 +613,7 @@ const CorporatePage: React.FC = () => {
                                 />
                                 <input
                                     type="number"
-                                    className="w-full rounded-xl border border-gray-300 px-5 py-4 transition-all focus:border-transparent focus:ring-2 focus:ring-yellow-400"
+                                    className="w-full rounded-xl border border-border px-5 py-4 transition-all focus:border-transparent focus:ring-2 focus:ring-ring"
                                     placeholder="Number of Employees"
                                     value={contactForm.employeeCount}
                                     onChange={e =>
@@ -627,7 +627,7 @@ const CorporatePage: React.FC = () => {
 
                             <textarea
                                 rows={4}
-                                className="w-full resize-none rounded-xl border border-gray-300 px-5 py-4 transition-all focus:border-transparent focus:ring-2 focus:ring-yellow-400"
+                                className="w-full resize-none rounded-xl border border-border px-5 py-4 transition-all focus:border-transparent focus:ring-2 focus:ring-ring"
                                 placeholder="How can we help your organization?"
                                 value={contactForm.message}
                                 onChange={e =>
@@ -637,7 +637,7 @@ const CorporatePage: React.FC = () => {
 
                             <button
                                 onClick={handleContactSubmit}
-                                className="bg-primary hover:bg-primary-hover text-gray-900 flex w-full items-center justify-center gap-2 rounded-xl py-4 font-bold shadow-lg transition-all hover:shadow-xl"
+                                className="bg-primary hover:bg-primary-hover text-foreground flex w-full items-center justify-center gap-2 rounded-xl py-4 font-bold shadow-lg transition-all hover:shadow-xl"
                             >
                                 Submit Request
                                 <ArrowRight className="h-5 w-5" />

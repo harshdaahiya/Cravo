@@ -33,7 +33,7 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
     };
 
     return (
-        <div className="flex items-center space-x-4 border-b border-gray-100 px-1 py-2 last:border-b-0 last:pb-0">
+        <div className="flex items-center space-x-4 border-b border-border px-1 py-2 last:border-b-0 last:pb-0">
             {/* Thumbnail */}
             <div className="h-16 w-16 flex-shrink-0 overflow-hidden rounded-xl shadow-sm">
                 <img
@@ -50,18 +50,18 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
             {/* Info & Quantity Controls */}
             <div className="flex min-w-0 flex-grow items-center justify-between">
                 <div className="flex flex-grow flex-col">
-                    <h3 className="text-text-main truncate text-base font-semibold">
+                    <h3 className="text-foreground truncate text-base font-semibold">
                         {product.name}
                     </h3>
                     {product.restaurant && typeof product.restaurant !== 'string' && (
-                        <p className="text-text-muted mt-0.5 truncate text-sm">
+                        <p className="text-muted-foreground mt-0.5 truncate text-sm">
                             Restaurant: {product.restaurant.name}
                         </p>
                     )}
 
                     {Array.isArray(item.customizations) &&
                         item.customizations.length > 0 && (
-                            <p className="truncate text-xs text-gray-400">
+                            <p className="truncate text-xs text-muted-foreground">
                                 {item.customizations.join(', ')}
                             </p>
                         )}
@@ -74,7 +74,7 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
                             </span>
                             {/* Check if a promotional discount exists */}
                             {product.promotionalDiscount && product.promotionalDiscount.value > 0 && (
-                                <span className="ml-1 text-xs text-gray-400 line-through">
+                                <span className="ml-1 text-xs text-muted-foreground line-through">
                                     ₹{originalPrice.toFixed(2)}
                                 </span>
                             )}
@@ -84,11 +84,11 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
                             <span className="text-text-secondary text-sm font-normal">
                                 Total:
                             </span>
-                            <span className="text-text-main ml-1 flex items-center text-sm font-semibold">
+                            <span className="text-foreground ml-1 flex items-center text-sm font-semibold">
                                 <Icon name="indian-rupee" className="h-3 w-3" />
                                 <div className="flex items-center">
                                     {(item.quantity * product.price).toFixed(2)}{' '}
-                                    <span className="ml-1 text-text-muted"> | Qty {item.quantity}</span>
+                                    <span className="ml-1 text-muted-foreground"> | Qty {item.quantity}</span>
                                 </div>
                             </span>
                         </div>
@@ -99,12 +99,12 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
                 <div className="flex flex-shrink-0 items-center space-x-1">
                     <button
                         onClick={handleDecrement}
-                        className="flex h-7 w-7 cursor-pointer items-center justify-center rounded-full bg-gray-200 transition-colors hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="flex h-7 w-7 cursor-pointer items-center justify-center rounded-full bg-muted transition-colors hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed"
                         disabled={item.quantity <= 1}
                     >
                         <Icon name="minus" size={14} className="text-text-secondary" />
                     </button>
-                    <span className="text-text-main w-5 text-center text-sm font-semibold">
+                    <span className="text-foreground w-5 text-center text-sm font-semibold">
                         {item.quantity}
                     </span>
                     <button
@@ -119,7 +119,7 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
             {/* Remove */}
             <button
                 onClick={() => handleOpenDeleteModal(product.name, item._id)}
-                className="ml-1 flex-shrink-0 cursor-pointer text-gray-400 transition-colors hover:text-red-500"
+                className="ml-1 flex-shrink-0 cursor-pointer text-muted-foreground transition-colors hover:text-destructive"
             >
                 <Icon name="trash-2" size={18} />
             </button>

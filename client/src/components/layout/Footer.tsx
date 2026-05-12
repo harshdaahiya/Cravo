@@ -18,7 +18,7 @@ interface LinkItemProps {
 const InternalLinkItem: React.FC<LinkItemProps> = ({ to, children }) => (
     <a
         href={to}
-        className="text-sm font-medium text-gray-400 transition-colors duration-200 hover:text-yellow-500"
+        className="text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-primary"
     >
         {children}
     </a>
@@ -29,7 +29,7 @@ const ExternalLinkItem: React.FC<LinkItemProps> = ({ href, children }) => (
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-sm font-medium text-gray-400 transition-colors duration-200 hover:text-yellow-500"
+        className="text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-primary"
     >
         {children}
     </a>
@@ -46,7 +46,7 @@ const SocialIcon: React.FC<SocialIconProps> = ({ Icon, href, label }) => (
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="border-gray-700 flex h-10 w-10 items-center justify-center rounded-full border text-gray-300 transition-all duration-200 hover:border-yellow-500 hover:text-yellow-500 hover:shadow-md"
+        className="border-border flex h-10 w-10 items-center justify-center rounded-full border text-muted-foreground transition-all duration-200 hover:border-ring hover:text-primary hover:shadow-md"
         aria-label={label}
     >
         <Icon size={18} />
@@ -54,7 +54,7 @@ const SocialIcon: React.FC<SocialIconProps> = ({ Icon, href, label }) => (
 );
 
 const Footer: React.FC = () => (
-    <footer className="border-gray-700 border-t bg-gray-800">
+    <footer className="border-border border-t bg-foreground">
         {/* Main Footer Content */}
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
             <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-6">
@@ -72,19 +72,19 @@ const Footer: React.FC = () => (
                             />
                         </div>
                     </div>
-                    <p className="mb-4 max-w-sm text-sm leading-relaxed text-gray-300">
+                    <p className="mb-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
                         Bringing your favourite dishes from the best restaurants straight to
                         your doorstep.
                     </p>
 
                     {/* Contact Info */}
-                    <div className="space-y-2 text-sm text-gray-300">
+                    <div className="space-y-2 text-sm text-muted">
                         <div className="flex items-center space-x-2">
-                            <Phone size={14} className="text-yellow-500" />
+                            <Phone size={14} className="text-primary" />
                             <span>+1 (555) 123-4567</span>
                         </div>
                         <div className="flex items-center space-x-2">
-                            <Mail size={14} className="text-yellow-500" />
+                            <Mail size={14} className="text-primary" />
                             <span>my@cravoindia.com</span>
                         </div>
                     </div>
@@ -92,7 +92,7 @@ const Footer: React.FC = () => (
 
                 {/* Company Links */}
                 <div className="space-y-3">
-                    <h4 className="text-md font-semibold tracking-wide text-gray-200">
+                    <h4 className="text-md font-semibold tracking-wide text-muted">
                         Company
                     </h4>
                     <div className="flex flex-col space-y-2">
@@ -105,7 +105,7 @@ const Footer: React.FC = () => (
 
                 {/* Services Links */}
                 <div className="space-y-3">
-                    <h4 className="text-md font-semibold tracking-wide text-gray-200">
+                    <h4 className="text-md font-semibold tracking-wide text-muted">
                         Services
                     </h4>
                     <div className="flex flex-col space-y-2">
@@ -118,7 +118,7 @@ const Footer: React.FC = () => (
 
                 {/* Partners Links */}
                 <div className="space-y-3">
-                    <h4 className="text-md font-semibold tracking-wide text-gray-200">
+                    <h4 className="text-md font-semibold tracking-wide text-muted">
                         Partners
                     </h4>
                     <div className="flex flex-col space-y-2">
@@ -135,7 +135,7 @@ const Footer: React.FC = () => (
 
                 {/* Support & Apps */}
                 <div className="space-y-3">
-                    <h4 className="text-md font-semibold tracking-wide text-gray-200">
+                    <h4 className="text-md font-semibold tracking-wide text-muted">
                         Support
                     </h4>
                     <div className="flex flex-col space-y-2">
@@ -154,12 +154,12 @@ const Footer: React.FC = () => (
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-gray-700 border-t">
+        <div className="border-border border-t">
             <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
                 <div className="flex flex-col items-center justify-between space-y-4 sm:flex-row sm:space-y-0">
                     {/* Social Icons */}
                     <div className="flex items-center space-x-3">
-                        <span className="mr-2 text-sm text-gray-300">Follow us:</span>
+                        <span className="mr-2 text-sm text-muted-foreground">Follow us:</span>
                         <SocialIcon
                             Icon={Github}
                             href="https://github.com/believeharsh"
@@ -183,11 +183,11 @@ const Footer: React.FC = () => (
                     </div>
 
                     {/* Copyright */}
-                    <div className="flex items-center space-x-4 text-sm text-gray-300">
+                    <div className="flex items-center space-x-4 text-sm text-muted-foreground">
                         <span>© {new Date().getFullYear()} Cravo Limited</span>
                         <span className="hidden sm:inline">•</span>
                         <span className="hidden sm:inline">
-                            Made with ❤️ for food lovers
+                            Made By Harsh Dahiya
                         </span>
                     </div>
                 </div>

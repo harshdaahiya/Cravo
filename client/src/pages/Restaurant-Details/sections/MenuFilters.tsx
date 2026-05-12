@@ -10,15 +10,15 @@ interface MenuFiltersProps {
 const MenuFilters: React.FC<MenuFiltersProps> = ({ activeFilter, setActiveFilter }) => {
     const allCategories = ['All', 'Bestseller', 'Veg', 'Non-Veg'];
     return (
-        <div className="bg-bg-subtle sticky top-0 z-20 -mt-2 pt-1">
-            <div className="scrollbar-hide -mx-4 flex gap-4 overflow-x-auto rounded-3xl bg-white p-4 shadow-sm">
+        <div className="bg-muted sticky top-0 z-20 -mt-2 pt-1">
+            <div className="scrollbar-hide -mx-4 flex gap-4 overflow-x-auto rounded-3xl bg-background p-4 shadow-sm">
                 {allCategories.map(filter => (
                     <button
                         key={filter}
                         onClick={() => setActiveFilter(filter)}
                         className={`flex min-w-[100px] items-center justify-center rounded-full px-4 py-2 text-sm font-semibold whitespace-nowrap transition-all duration-200 ease-in-out ${activeFilter === filter
-                                ? 'bg-primary text-text-main shadow-md'
-                                : 'text-text-secondary bg-gray-100 hover:bg-gray-200'
+                                ? 'bg-primary text-foreground shadow-md'
+                                : 'text-text-secondary bg-muted hover:bg-muted'
                             }`}
                     >
                         {filter === 'All' && 'All Items'}

@@ -13,7 +13,7 @@ import RestaurantsSection from './sections/RestaurantsSection';
 const LandingPage: React.FC = () => {
     return (
         <div className="">
-            <div className="font-helvetica bg-white">
+            <div className="font-helvetica bg-background">
                 {/* Hero Section */}
                 <section className="bg-primary">
                     <LandingNavigation />

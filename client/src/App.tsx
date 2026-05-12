@@ -112,7 +112,7 @@ const App: React.FC = () => {
     return (
       <div className="error-container p-8 text-center">
         <h2 className="text-2xl font-bold mb-4">Something went wrong</h2>
-        <p className="text-gray-600 mb-6">{appInitError}</p>
+        <p className="text-muted-foreground mb-6">{appInitError}</p>
         <button
           onClick={() => window.location.reload()}
           className="bg-primary px-6 py-2 rounded-lg font-bold"

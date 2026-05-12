@@ -14,8 +14,8 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({ allowedRoles = [] }) => {
 
     if (isAuthChecking || !isInitialized) {
         return (
-            <div className="flex min-h-screen items-center justify-center bg-gray-100">
-                <div className="text-gray-500 text-xl font-semibold animate-pulse">
+            <div className="flex min-h-screen items-center justify-center bg-muted">
+                <div className="text-muted-foreground text-xl font-semibold animate-pulse">
                     Checking authentication...
                 </div>
             </div>

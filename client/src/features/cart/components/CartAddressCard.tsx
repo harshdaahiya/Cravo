@@ -21,13 +21,13 @@ const CartAddressCard: React.FC<CartAddressCardProps> = ({ address, isSelected, 
         <div
             onClick={onClick}
             className={`cursor-pointer rounded-xl border p-4 transition-all ${isSelected
-                ? 'border-border-focus bg-yellow-50'
-                : 'border-cream hover:border-gray-300'
+                ? 'border-border-focus bg-warning-muted'
+                : 'border-cream hover:border-border'
                 }`}
         >
             <div className="flex items-start gap-3">
                 <div
-                    className={`flex h-8 w-8 items-center justify-center rounded-lg ${isSelected ? 'bg-primary' : 'bg-gray-100'
+                    className={`flex h-8 w-8 items-center justify-center rounded-lg ${isSelected ? 'bg-primary' : 'bg-muted'
                         }`}
                 >
                     <Icon

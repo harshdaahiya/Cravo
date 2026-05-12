@@ -43,9 +43,9 @@ const ProfileDropdown: React.FC<ProfileDropdownProps> = ({ isOpen, onClose, onTo
         <div className="relative" ref={profileDropdownRef}>
             <button
                 onClick={onToggle}
-                className={`hover:bg-gray-50 relative flex cursor-pointer items-center space-x-2 rounded-xl px-4 py-2 font-medium transition-all duration-200 hover:scale-105 ${isOpen
-                        ? 'bg-yellow-50 text-yellow-600'
-                        : 'text-gray-600 hover:text-gray-900'
+                className={`hover:bg-muted relative flex cursor-pointer items-center space-x-2 rounded-xl px-4 py-2 font-medium transition-all duration-200 hover:scale-105 ${isOpen
+                        ? 'bg-warning-muted text-primary-hover'
+                        : 'text-muted-foreground hover:text-foreground'
                     }`}
             >
                 <Icon name="user" size={18} />
@@ -58,12 +58,12 @@ const ProfileDropdown: React.FC<ProfileDropdownProps> = ({ isOpen, onClose, onTo
                 />
             </button>
             {isOpen && (
-                <div className="absolute top-full right-0 z-50 mt-2 w-56 rounded-sm bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+                <div className="absolute top-full right-0 z-50 mt-2 w-56 rounded-sm bg-background shadow-lg ring-1 ring-black ring-opacity-5">
                     <div className="py-1">
                         {/* Account */}
                         <Link
                             to="/profile/account"
-                            className="text-gray-700 flex items-center px-4 py-2 text-sm hover:bg-gray-100"
+                            className="text-muted-foreground flex items-center px-4 py-2 text-sm hover:bg-muted"
                             onClick={onClose}
                         >
                             <Icon name="user" size={16} className="mr-2" />
@@ -73,7 +73,7 @@ const ProfileDropdown: React.FC<ProfileDropdownProps> = ({ isOpen, onClose, onTo
                         {/* Settings */}
                         <Link
                             to="/profile/settings"
-                            className="text-gray-700 flex items-center px-4 py-2 text-sm hover:bg-gray-100"
+                            className="text-muted-foreground flex items-center px-4 py-2 text-sm hover:bg-muted"
                             onClick={onClose}
                         >
                             <Icon name="settings" size={16} className="mr-2" />
@@ -83,7 +83,7 @@ const ProfileDropdown: React.FC<ProfileDropdownProps> = ({ isOpen, onClose, onTo
                         {/* Favorites */}
                         <Link
                             to="/profile/favorites"
-                            className="text-gray-700 flex items-center px-4 py-2 text-sm hover:bg-gray-100"
+                            className="text-muted-foreground flex items-center px-4 py-2 text-sm hover:bg-muted"
                             onClick={onClose}
                         >
                             <Icon name="heart" size={16} className="mr-2" />
@@ -93,7 +93,7 @@ const ProfileDropdown: React.FC<ProfileDropdownProps> = ({ isOpen, onClose, onTo
                         {/* Orders */}
                         <Link
                             to="/profile/orders"
-                            className="text-gray-700 flex items-center px-4 py-2 text-sm hover:bg-gray-100"
+                            className="text-muted-foreground flex items-center px-4 py-2 text-sm hover:bg-muted"
                             onClick={onClose}
                         >
                             <Icon name="shopping-bag" size={16} className="mr-2" />
@@ -103,7 +103,7 @@ const ProfileDropdown: React.FC<ProfileDropdownProps> = ({ isOpen, onClose, onTo
                         {/* Help & Support */}
                         <Link
                             to="/help"
-                            className="text-gray-700 flex items-center px-4 py-2 text-sm hover:bg-gray-100"
+                            className="text-muted-foreground flex items-center px-4 py-2 text-sm hover:bg-muted"
                             onClick={onClose}
                         >
                             <Icon name="help-circle" size={16} className="mr-2" />
@@ -113,7 +113,7 @@ const ProfileDropdown: React.FC<ProfileDropdownProps> = ({ isOpen, onClose, onTo
                         {/* Logout */}
                         <button
                             onClick={handleLogout}
-                            className="flex w-full items-center px-4 py-2 text-sm text-red-600 hover:bg-gray-100 cursor-pointer"
+                            className="flex w-full items-center px-4 py-2 text-sm text-destructive hover:bg-muted cursor-pointer"
                         >
                             <Icon name="log-out" size={16} className="mr-2" />
                             Logout

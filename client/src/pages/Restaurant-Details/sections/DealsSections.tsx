@@ -17,14 +17,14 @@ const deals: Deal[] = [
 const DealsSection: React.FC = () => {
     return (
         <div className="mb-8">
-            <h2 className="text-text-main mb-4 text-2xl font-bold">Deals for You</h2>
+            <h2 className="text-foreground mb-4 text-2xl font-bold">Deals for You</h2>
             <div className="scrollbar-hide flex gap-4 overflow-x-auto p-1">
                 {deals.map(deal => (
                     <div
                         key={deal.id}
-                        className="w-64 flex-shrink-0 rounded-2xl border border-yellow-200 bg-yellow-50 p-1.5 shadow-sm"
+                        className="w-64 flex-shrink-0 rounded-2xl border border-ring bg-warning-muted p-1.5 shadow-sm"
                     >
-                        <p className="text-text-main mb-1 text-lg font-semibold">
+                        <p className="text-foreground mb-1 text-lg font-semibold">
                             {deal.title}
                         </p>
                         <p className="text-text-secondary text-sm">{deal.description}</p>

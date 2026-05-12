@@ -6,7 +6,7 @@ import Icon from '../../../components/ui/Icon';
 const CorporateNavigation: React.FC = () => {
     return (
         <>
-            <nav className="border-border sticky top-0 z-50 border-b bg-white px-2 py-2 shadow-lg lg:px-2 lg:py-1">
+            <nav className="border-border sticky top-0 z-50 border-b bg-background px-2 py-2 shadow-lg lg:px-2 lg:py-1">
                 <div className="mx-auto flex max-w-7xl items-center justify-between">
                     <Link to="/" className="flex items-center space-x-3 lg:space-x-5">
                         <div className="flex h-7 w-7 items-center justify-center rounded-2xl lg:h-12 lg:w-12">
@@ -26,7 +26,7 @@ const CorporateNavigation: React.FC = () => {
                                 to="/corporate/about-cravo"
                                 className={({ isActive }) =>
                                     `flex items-center gap-1 text-lg ${isActive
-                                        ? 'font-semibold text-yellow-600'
+                                        ? 'font-semibold text-primary-hover'
                                         : 'text-text-secondary hover:text-text-main'
                                     }`
                                 }
@@ -38,7 +38,7 @@ const CorporateNavigation: React.FC = () => {
                                 to="/corporate/our-business"
                                 className={({ isActive }) =>
                                     `flex items-center gap-1 text-lg ${isActive
-                                        ? 'font-semibold text-yellow-600'
+                                        ? 'font-semibold text-primary-hover'
                                         : 'text-text-secondary hover:text-text-main'
                                     }`
                                 }
@@ -50,7 +50,7 @@ const CorporateNavigation: React.FC = () => {
                                 to="/corporate/newsroom"
                                 className={({ isActive }) =>
                                     `flex items-center gap-1 text-lg ${isActive
-                                        ? 'font-semibold text-yellow-600'
+                                        ? 'font-semibold text-primary-hover'
                                         : 'text-text-secondary hover:text-text-main'
                                     }`
                                 }
@@ -62,7 +62,7 @@ const CorporateNavigation: React.FC = () => {
                                 to="/corporate/delivering-for-everyone"
                                 className={({ isActive }) =>
                                     `flex items-center gap-1 text-lg ${isActive
-                                        ? 'font-semibold text-yellow-600'
+                                        ? 'font-semibold text-primary-hover'
                                         : 'text-text-secondary hover:text-text-main'
                                     }`
                                 }
@@ -74,7 +74,7 @@ const CorporateNavigation: React.FC = () => {
                                 to="/corporate/connect-us"
                                 className={({ isActive }) =>
                                     `flex items-center gap-1 text-lg ${isActive
-                                        ? 'font-semibold text-yellow-600'
+                                        ? 'font-semibold text-primary-hover'
                                         : 'text-text-secondary hover:text-text-main'
                                     }`
                                 }

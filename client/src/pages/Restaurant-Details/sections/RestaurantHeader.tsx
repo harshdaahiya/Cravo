@@ -22,11 +22,11 @@ const RestaurantHeader: React.FC<RestaurantHeaderProps> = ({ restaurant }) => {
                     {restaurant.cuisine_type?.join(', ')}
                 </p>
                 <div className="mt-2 flex items-center text-white">
-                    <span className="mr-2 flex items-center rounded-full bg-green-500 px-2 py-1 text-sm font-semibold">
+                    <span className="mr-2 flex items-center rounded-full bg-success px-2 py-1 text-sm font-semibold">
                         <Icon name="star" className="mr-1 h-4 w-4 fill-current" />{' '}
                         {restaurant.rating}
                     </span>
-                    <span className="bg-primary text-text-main mr-2 flex items-center rounded-full px-2 py-1 text-sm">
+                    <span className="bg-primary text-foreground mr-2 flex items-center rounded-full px-2 py-1 text-sm">
                         <Icon name="timer" className="mr-1 h-4 w-4" />{' '}
                         {restaurant.delivery_time_mins} mins
                     </span>

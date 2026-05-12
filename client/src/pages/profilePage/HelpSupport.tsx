@@ -179,8 +179,8 @@ const HelpSupport: React.FC = () => {
             availability: 'Available 24/7',
             time: '2-3 min response',
             icon: MessageCircle,
-            bgColor: 'bg-green-100',
-            iconColor: 'text-green-600',
+            bgColor: 'bg-success-muted',
+            iconColor: 'text-success',
         },
         {
             type: 'Phone Support',
@@ -188,8 +188,8 @@ const HelpSupport: React.FC = () => {
             availability: 'Mon-Sun • 8 AM-10 PM',
             time: '+91 555-1234-FOOD',
             icon: Phone,
-            bgColor: 'bg-blue-100',
-            iconColor: 'text-blue-600',
+            bgColor: 'bg-info-muted',
+            iconColor: 'text-info',
         },
         {
             type: 'Email Support',
@@ -255,20 +255,20 @@ const HelpSupport: React.FC = () => {
 
     const getStatusStyle = (status: Ticket['status']) => {
         const styles = {
-            open: 'bg-yellow-100 text-yellow-800',
-            in_progress: 'bg-blue-100 text-blue-800',
-            resolved: 'bg-green-100 text-green-800',
+            open: 'bg-warning-muted text-warning-foreground',
+            in_progress: 'bg-info-muted text-info-foreground',
+            resolved: 'bg-success-muted text-success-foreground',
         };
-        return styles[status] || 'bg-gray-100 text-gray-900';
+        return styles[status] || 'bg-muted text-foreground';
     };
 
     const getPriorityStyle = (priority: Ticket['priority']) => {
         const styles = {
-            high: 'bg-red-100 text-red-800',
-            medium: 'bg-yellow-100 text-yellow-800',
-            low: 'bg-green-100 text-green-800',
+            high: 'bg-destructive-muted text-destructive-foreground',
+            medium: 'bg-warning-muted text-warning-foreground',
+            low: 'bg-success-muted text-success-foreground',
         };
-        return styles[priority] || 'bg-gray-100 text-gray-900';
+        return styles[priority] || 'bg-muted text-foreground';
     };
 
     const FAQTab = () => (
@@ -283,15 +283,15 @@ const HelpSupport: React.FC = () => {
                             onClick={() => {
                                 if (action.title === 'Report Issue') setShowContactForm(true);
                             }}
-                            className="border-gray-200 hover:border-yellow-400 group rounded-2xl border bg-white p-4 text-left transition-all hover:shadow-lg"
+                            className="border-border hover:border-ring group rounded-2xl border bg-background p-4 text-left transition-all hover:shadow-lg"
                         >
-                            <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-yellow-100 transition-colors group-hover:bg-yellow-200">
-                                <Icon className="h-6 w-6 text-yellow-600" />
+                            <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-warning-muted transition-colors group-hover:bg-warning-muted">
+                                <Icon className="h-6 w-6 text-primary-hover" />
                             </div>
-                            <h3 className="text-gray-900 mb-1 text-sm font-bold">
+                            <h3 className="text-foreground mb-1 text-sm font-bold">
                                 {action.title}
                             </h3>
-                            <p className="text-gray-500 text-xs">
+                            <p className="text-muted-foreground text-xs">
                                 {action.description}
                             </p>
                         </button>
@@ -300,14 +300,14 @@ const HelpSupport: React.FC = () => {
             </div>
 
             {/* Search & Filters */}
-            <div className="border-gray-200 space-y-4 rounded-2xl border bg-white p-6">
+            <div className="border-border space-y-4 rounded-2xl border bg-background p-6">
                 <div className="relative">
-                    <Search className="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-gray-400" />
+                    <Search className="absolute top-1/2 left-4 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
                     <input
                         value={searchTerm}
                         onChange={e => setSearchTerm(e.target.value)}
                         placeholder="Search frequently asked questions..."
-                        className="w-full rounded-xl border border-gray-300 py-3 pr-4 pl-12 focus:border-transparent focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+                        className="w-full rounded-xl border border-border py-3 pr-4 pl-12 focus:border-transparent focus:ring-2 focus:ring-ring focus:outline-none"
                     />
                 </div>
 
@@ -319,8 +319,8 @@ const HelpSupport: React.FC = () => {
                                 key={cat.key}
                                 onClick={() => setSelectedCategory(cat.key)}
                                 className={`inline-flex items-center gap-2 rounded-xl px-4 py-2 font-semibold transition-all ${selectedCategory === cat.key
-                                    ? 'bg-primary text-gray-900 shadow-lg'
-                                    : 'text-gray-500 bg-gray-100 hover:bg-gray-200'
+                                    ? 'bg-primary text-foreground shadow-lg'
+                                    : 'text-muted-foreground bg-muted hover:bg-muted'
                                     }`}
                             >
                                 <Icon className="h-4 w-4" />
@@ -334,12 +334,12 @@ const HelpSupport: React.FC = () => {
             {/* FAQ List */}
             <div className="space-y-3">
                 {filteredFaqs.length === 0 ? (
-                    <div className="border-gray-200 rounded-2xl border bg-white p-12 text-center">
-                        <HelpCircle className="mx-auto mb-4 h-16 w-16 text-gray-300" />
-                        <h3 className="text-gray-900 mb-2 text-xl font-bold">
+                    <div className="border-border rounded-2xl border bg-background p-12 text-center">
+                        <HelpCircle className="mx-auto mb-4 h-16 w-16 text-muted-foreground" />
+                        <h3 className="text-foreground mb-2 text-xl font-bold">
                             No FAQs found
                         </h3>
-                        <p className="text-gray-500">
+                        <p className="text-muted-foreground">
                             Try different keywords or another category
                         </p>
                     </div>
@@ -347,38 +347,38 @@ const HelpSupport: React.FC = () => {
                     filteredFaqs.map(faq => (
                         <div
                             key={faq.id}
-                            className="border-gray-200 overflow-hidden rounded-2xl border bg-white"
+                            className="border-border overflow-hidden rounded-2xl border bg-background"
                         >
                             <button
                                 onClick={() =>
                                     setExpandedFaq(expandedFaq === faq.id ? null : faq.id)
                                 }
-                                className="hover:bg-gray-50 flex w-full items-center justify-between p-5 text-left transition-colors"
+                                className="hover:bg-muted flex w-full items-center justify-between p-5 text-left transition-colors"
                             >
-                                <h3 className="text-gray-900 pr-4 font-semibold">
+                                <h3 className="text-foreground pr-4 font-semibold">
                                     {faq.question}
                                 </h3>
                                 {expandedFaq === faq.id ? (
-                                    <ChevronUp className="h-5 w-5 flex-shrink-0 text-gray-400" />
+                                    <ChevronUp className="h-5 w-5 flex-shrink-0 text-muted-foreground" />
                                 ) : (
-                                    <ChevronDown className="h-5 w-5 flex-shrink-0 text-gray-400" />
+                                    <ChevronDown className="h-5 w-5 flex-shrink-0 text-muted-foreground" />
                                 )}
                             </button>
 
                             {expandedFaq === faq.id && (
-                                <div className="border-t border-gray-100 px-5 pb-5">
-                                    <p className="text-gray-500 mt-4 leading-relaxed">
+                                <div className="border-t border-border px-5 pb-5">
+                                    <p className="text-muted-foreground mt-4 leading-relaxed">
                                         {faq.answer}
                                     </p>
                                     <div className="mt-4 flex items-center gap-3">
-                                        <span className="text-gray-500 text-sm">
+                                        <span className="text-muted-foreground text-sm">
                                             Was this helpful?
                                         </span>
-                                        <button className="inline-flex items-center gap-1 rounded-lg bg-green-50 px-3 py-1 text-sm font-medium text-green-700 transition-colors hover:bg-green-100">
+                                        <button className="inline-flex items-center gap-1 rounded-lg bg-success-muted px-3 py-1 text-sm font-medium text-success-foreground transition-colors hover:bg-success-muted">
                                             <ThumbsUp className="h-4 w-4" />
                                             {faq.helpful}
                                         </button>
-                                        <button className="inline-flex items-center gap-1 rounded-lg bg-red-50 px-3 py-1 text-sm font-medium text-red-700 transition-colors hover:bg-red-100">
+                                        <button className="inline-flex items-center gap-1 rounded-lg bg-destructive-muted px-3 py-1 text-sm font-medium text-destructive-foreground transition-colors hover:bg-destructive-muted">
                                             <ThumbsDown className="h-4 w-4" />
                                             {faq.notHelpful}
                                         </button>
@@ -404,19 +404,19 @@ const HelpSupport: React.FC = () => {
                             onClick={() =>
                                 method.type === 'Email Support' && setShowContactForm(true)
                             }
-                            className="border-gray-200 hover:border-yellow-400 rounded-2xl border bg-white p-6 text-left transition-all hover:shadow-lg"
+                            className="border-border hover:border-ring rounded-2xl border bg-background p-6 text-left transition-all hover:shadow-lg"
                         >
                             <div
                                 className={`h-14 w-14 ${method.bgColor} mb-4 flex items-center justify-center rounded-xl`}
                             >
                                 <Icon className={`h-7 w-7 ${method.iconColor}`} />
                             </div>
-                            <h3 className="text-gray-900 mb-2 font-bold">{method.type}</h3>
-                            <p className="text-gray-500 mb-3 text-sm">
+                            <h3 className="text-foreground mb-2 font-bold">{method.type}</h3>
+                            <p className="text-muted-foreground mb-3 text-sm">
                                 {method.description}
                             </p>
-                            <p className="text-gray-400 text-xs">{method.availability}</p>
-                            <p className="text-gray-900 mt-1 text-xs font-semibold">
+                            <p className="text-muted-foreground text-xs">{method.availability}</p>
+                            <p className="text-foreground mt-1 text-xs font-semibold">
                                 {method.time}
                             </p>
                         </button>
@@ -426,22 +426,22 @@ const HelpSupport: React.FC = () => {
 
             {/* Contact Form */}
             {showContactForm && (
-                <div className="border-gray-200 rounded-2xl border bg-white p-6">
+                <div className="border-border rounded-2xl border bg-background p-6">
                     <div className="mb-6 flex items-center justify-between">
-                        <h3 className="text-gray-900 text-xl font-bold">
+                        <h3 className="text-foreground text-xl font-bold">
                             Send us a message
                         </h3>
                         <button
                             onClick={() => setShowContactForm(false)}
-                            className="flex h-8 w-8 items-center justify-center rounded-lg bg-gray-100 transition-colors hover:bg-gray-200"
+                            className="flex h-8 w-8 items-center justify-center rounded-lg bg-muted transition-colors hover:bg-muted"
                         >
-                            <X className="text-gray-500 h-5 w-5" />
+                            <X className="text-muted-foreground h-5 w-5" />
                         </button>
                     </div>
 
                     <div className="space-y-4">
                         <div>
-                            <label className="text-gray-900 mb-2 block text-sm font-semibold">
+                            <label className="text-foreground mb-2 block text-sm font-semibold">
                                 Subject
                             </label>
                             <input
@@ -449,14 +449,14 @@ const HelpSupport: React.FC = () => {
                                 onChange={e =>
                                     setContactForm({ ...contactForm, subject: e.target.value })
                                 }
-                                className="w-full rounded-xl border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+                                className="w-full rounded-xl border border-border px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-ring focus:outline-none"
                                 placeholder="Brief description of your issue"
                             />
                         </div>
 
                         <div className="grid gap-4 md:grid-cols-2">
                             <div>
-                                <label className="text-gray-900 mb-2 block text-sm font-semibold">
+                                <label className="text-foreground mb-2 block text-sm font-semibold">
                                     Category
                                 </label>
                                 <select
@@ -464,7 +464,7 @@ const HelpSupport: React.FC = () => {
                                     onChange={e =>
                                         setContactForm({ ...contactForm, category: e.target.value })
                                     }
-                                    className="w-full rounded-xl border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+                                    className="w-full rounded-xl border border-border px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-ring focus:outline-none"
                                 >
                                     <option value="general">General</option>
                                     <option value="orders">Orders</option>
@@ -474,7 +474,7 @@ const HelpSupport: React.FC = () => {
                             </div>
 
                             <div>
-                                <label className="text-gray-900 mb-2 block text-sm font-semibold">
+                                <label className="text-foreground mb-2 block text-sm font-semibold">
                                     Priority
                                 </label>
                                 <select
@@ -482,7 +482,7 @@ const HelpSupport: React.FC = () => {
                                     onChange={e =>
                                         setContactForm({ ...contactForm, priority: e.target.value })
                                     }
-                                    className="w-full rounded-xl border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+                                    className="w-full rounded-xl border border-border px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-ring focus:outline-none"
                                 >
                                     <option value="low">Low</option>
                                     <option value="medium">Medium</option>
@@ -492,7 +492,7 @@ const HelpSupport: React.FC = () => {
                         </div>
 
                         <div>
-                            <label className="text-gray-900 mb-2 block text-sm font-semibold">
+                            <label className="text-foreground mb-2 block text-sm font-semibold">
                                 Message
                             </label>
                             <textarea
@@ -501,12 +501,12 @@ const HelpSupport: React.FC = () => {
                                     setContactForm({ ...contactForm, message: e.target.value })
                                 }
                                 rows={5}
-                                className="w-full resize-none rounded-xl border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+                                className="w-full resize-none rounded-xl border border-border px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-ring focus:outline-none"
                                 placeholder="Describe your issue in detail..."
                             />
                         </div>
 
-                        <button className="bg-primary hover:bg-yellow-600 text-gray-900 inline-flex items-center gap-2 rounded-xl px-6 py-3 font-bold transition-colors">
+                        <button className="bg-primary hover:bg-primary-hover text-foreground inline-flex items-center gap-2 rounded-xl px-6 py-3 font-bold transition-colors">
                             <Send className="h-4 w-4" />
                             Submit Request
                         </button>
@@ -521,19 +521,19 @@ const HelpSupport: React.FC = () => {
             {supportTickets.map(ticket => (
                 <div
                     key={ticket.id}
-                    className="border-gray-200 rounded-2xl border bg-white p-6 transition-shadow hover:shadow-lg"
+                    className="border-border rounded-2xl border bg-background p-6 transition-shadow hover:shadow-lg"
                 >
                     <div className="flex items-start justify-between">
                         <div className="flex-1">
                             <div className="mb-2 flex items-center gap-2">
-                                <h3 className="text-gray-900 font-bold">{ticket.subject}</h3>
+                                <h3 className="text-foreground font-bold">{ticket.subject}</h3>
                                 <span
                                     className={`rounded-full px-3 py-1 text-xs font-semibold ${getStatusStyle(ticket.status)}`}
                                 >
                                     {ticket.status.replace('_', ' ')}
                                 </span>
                             </div>
-                            <p className="text-gray-500 text-sm">
+                            <p className="text-muted-foreground text-sm">
                                 Created: {new Date(ticket.createdAt).toLocaleDateString()} •{' '}
                                 {ticket.messages} messages
                             </p>
@@ -548,12 +548,12 @@ const HelpSupport: React.FC = () => {
             ))}
 
             {supportTickets.length === 0 && (
-                <div className="border-gray-200 rounded-2xl border bg-white p-12 text-center">
-                    <Package className="mx-auto mb-4 h-16 w-16 text-gray-300" />
-                    <h3 className="text-gray-900 mb-2 text-xl font-bold">
+                <div className="border-border rounded-2xl border bg-background p-12 text-center">
+                    <Package className="mx-auto mb-4 h-16 w-16 text-muted-foreground" />
+                    <h3 className="text-foreground mb-2 text-xl font-bold">
                         No support tickets
                     </h3>
-                    <p className="text-gray-500">
+                    <p className="text-muted-foreground">
                         You haven't created any support tickets yet
                     </p>
                 </div>
@@ -569,14 +569,14 @@ const HelpSupport: React.FC = () => {
                     <a
                         key={guide.title}
                         href="#"
-                        className="group border-gray-200 hover:border-yellow-400 rounded-2xl border bg-white p-6 transition-all hover:shadow-lg"
+                        className="group border-border hover:border-ring rounded-2xl border bg-background p-6 transition-all hover:shadow-lg"
                     >
-                        <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-yellow-100 transition-colors group-hover:bg-yellow-200">
-                            <Icon className="h-6 w-6 text-yellow-600" />
+                        <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-warning-muted transition-colors group-hover:bg-warning-muted">
+                            <Icon className="h-6 w-6 text-primary-hover" />
                         </div>
-                        <h3 className="text-gray-900 mb-2 font-bold">{guide.title}</h3>
-                        <p className="text-gray-500 mb-3 text-sm">{guide.desc}</p>
-                        <ExternalLink className="h-4 w-4 text-gray-400 transition-colors group-hover:text-yellow-600" />
+                        <h3 className="text-foreground mb-2 font-bold">{guide.title}</h3>
+                        <p className="text-muted-foreground mb-3 text-sm">{guide.desc}</p>
+                        <ExternalLink className="h-4 w-4 text-muted-foreground transition-colors group-hover:text-primary-hover" />
                     </a>
                 );
             })}
@@ -587,8 +587,8 @@ const HelpSupport: React.FC = () => {
         <div className="mx-auto max-w-6xl space-y-6">
             {/* Header */}
             <div>
-                <h1 className="text-gray-900 text-3xl font-bold">Help & Support</h1>
-                <p className="text-gray-500 mt-1">We're here to help you 24/7</p>
+                <h1 className="text-foreground text-3xl font-bold">Help & Support</h1>
+                <p className="text-muted-foreground mt-1">We're here to help you 24/7</p>
             </div>
 
             {/* Tabs */}
@@ -603,8 +603,8 @@ const HelpSupport: React.FC = () => {
                         key={tab.id}
                         onClick={() => setActiveTab(tab.id as any)}
                         className={`rounded-xl px-6 py-2.5 font-semibold whitespace-nowrap transition-all ${activeTab === tab.id
-                            ? 'bg-primary text-gray-900 shadow-lg'
-                            : 'text-gray-500 border-gray-200 hover:bg-gray-50 border bg-white'
+                            ? 'bg-primary text-foreground shadow-lg'
+                            : 'text-muted-foreground border-border hover:bg-muted border bg-background'
                             }`}
                     >
                         {tab.label}

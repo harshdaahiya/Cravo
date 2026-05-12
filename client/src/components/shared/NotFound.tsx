@@ -23,17 +23,17 @@ const NotFound: React.FC = () => {
 
                 {/* Main Icon */}
                 <div className="mb-8">
-                    <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full border-4 border-white bg-white shadow-xl">
+                    <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full border-4 border-white bg-background shadow-xl">
                         <span className="text-5xl">🍽️</span>
                     </div>
                 </div>
 
                 {/* Message */}
                 <div className="mb-8">
-                    <h2 className="text-gray-900 mb-4 text-2xl font-bold md:text-3xl">
+                    <h2 className="text-foreground mb-4 text-2xl font-bold md:text-3xl">
                         Page Not Found
                     </h2>
-                    <p className="text-gray-600 mx-auto max-w-md text-lg">
+                    <p className="text-muted-foreground mx-auto max-w-md text-lg">
                         Sorry, the page you're looking for doesn't exist. Let's get you back
                         on track!
                     </p>
@@ -43,7 +43,7 @@ const NotFound: React.FC = () => {
                 <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
                     <Link
                         to="/"
-                        className="bg-primary hover:bg-yellow-600 inline-flex transform items-center rounded-xl px-8 py-4 font-semibold text-gray-900 shadow-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
+                        className="bg-primary hover:bg-primary-hover inline-flex transform items-center rounded-xl px-8 py-4 font-semibold text-foreground shadow-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
                     >
                         <Icon name={'home'} className="mr-2 h-5 w-5" />
                         Back to Cravo
@@ -51,7 +51,7 @@ const NotFound: React.FC = () => {
 
                     <Button
                         onClick={handleGoBack}
-                        className="bg-green-500 hover:bg-green-600 inline-flex transform items-center rounded-xl px-8 py-4 font-semibold text-white shadow-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
+                        className="bg-success hover:bg-success inline-flex transform items-center rounded-xl px-8 py-4 font-semibold text-white shadow-lg transition-all duration-200 hover:-translate-y-1 hover:shadow-xl"
                         variant="primary"
                     >
                         <Icon name={'arrow-left'} className="mr-2 h-5 w-5" />

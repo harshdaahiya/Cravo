@@ -5,10 +5,10 @@ import Icon from '../../../components/ui/Icon';
 
 const CartNavigation: React.FC = () => {
     return (
-        <nav className="border-border sticky top-0 z-50 border-b bg-white px-4 py-1 shadow-sm sm:px-6 sm:py-1">
+        <nav className="border-border sticky top-0 z-50 border-b bg-background px-4 py-1 shadow-sm sm:px-6 sm:py-1">
             <div className="mx-auto flex max-w-7xl items-center justify-between">
                 <div className="flex items-center space-x-3 sm:space-x-4">
-                    <div className="flex items-center justify-center rounded-full bg-white">
+                    <div className="flex items-center justify-center rounded-full bg-background">
                         <div className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-2xl border-2 border-white sm:h-16 sm:w-16 overflow-hidden">
                             <img
                                 src={`/assets/Cravo_logo.png`}
@@ -22,7 +22,7 @@ const CartNavigation: React.FC = () => {
                             />
                         </div>
                     </div>
-                    <h1 className="text-text-main text-xl font-bold sm:text-xl">
+                    <h1 className="text-foreground text-xl font-bold sm:text-xl">
                         Secure Checkout
                     </h1>
                 </div>
@@ -33,7 +33,7 @@ const CartNavigation: React.FC = () => {
                             to="/help-support"
                             className={({ isActive }) =>
                                 `flex items-center gap-1 ${isActive
-                                    ? 'font-semibold text-yellow-600'
+                                    ? 'font-semibold text-primary-hover'
                                     : 'text-text-secondary hover:text-text-main'
                                 }`
                             }
@@ -45,7 +45,7 @@ const CartNavigation: React.FC = () => {
                             to="/profile/account"
                             className={({ isActive }) =>
                                 `flex items-center gap-1 ${isActive
-                                    ? 'font-semibold text-yellow-600'
+                                    ? 'font-semibold text-primary-hover'
                                     : 'text-text-secondary hover:text-text-main'
                                 }`
                             }

@@ -68,16 +68,16 @@ const SignupPage: React.FC = () => {
                     <div className="bg-secondary mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full">
                         <Icon name="user" className="h-8 w-8 text-white" />
                     </div>
-                    <h2 className="text-text-main text-3xl font-bold">Create Account</h2>
+                    <h2 className="text-foreground text-3xl font-bold">Create Account</h2>
                     <p className="text-text-secondary mt-2">
                         Join us and get started today
                     </p>
                 </div>
 
                 {/* form */}
-                <div className="rounded-2xl border border-yellow-100 bg-white p-8 shadow-xl">
+                <div className="rounded-2xl border border-ring bg-background p-8 shadow-xl">
                     {error && (
-                        <p className="mb-4 text-center text-sm font-medium text-red-500">
+                        <p className="mb-4 text-center text-sm font-medium text-destructive">
                             {error}
                         </p>
                     )}
@@ -87,7 +87,7 @@ const SignupPage: React.FC = () => {
                         <div>
                             <label
                                 htmlFor="name"
-                                className="mb-2 block text-sm font-medium text-yellow-800"
+                                className="mb-2 block text-sm font-medium text-warning-foreground"
                             >
                                 Full Name
                             </label>
@@ -106,12 +106,12 @@ const SignupPage: React.FC = () => {
                         <div>
                             <label
                                 htmlFor="email"
-                                className="mb-2 block text-sm font-medium text-yellow-800"
+                                className="mb-2 block text-sm font-medium text-warning-foreground"
                             >
                                 Email Address
                             </label>
                             <div className="relative">
-                                <div className="text-text-muted pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center justify-center">
+                                <div className="text-muted-foreground pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center justify-center">
                                     <Icon name="mail" size={20} />
                                 </div>
                                 <Input
@@ -131,12 +131,12 @@ const SignupPage: React.FC = () => {
                         <div>
                             <label
                                 htmlFor="password"
-                                className="mb-2 block text-sm font-medium text-yellow-800"
+                                className="mb-2 block text-sm font-medium text-warning-foreground"
                             >
                                 Password
                             </label>
                             <div className="relative">
-                                <div className="text-text-muted pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center justify-center">
+                                <div className="text-muted-foreground pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center justify-center">
                                     <Icon name="lock" size={20} />
                                 </div>
                                 <Input
@@ -154,9 +154,9 @@ const SignupPage: React.FC = () => {
                                     onClick={() => setShowPassword(!showPassword)}
                                 >
                                     {showPassword ? (
-                                        <Icon name="eye-off" className="text-text-muted hover:text-text-main h-5 w-5" />
+                                        <Icon name="eye-off" className="text-muted-foreground hover:text-text-main h-5 w-5" />
                                     ) : (
-                                        <Icon name="eye" className="text-text-muted hover:text-text-main h-5 w-5" />
+                                        <Icon name="eye" className="text-muted-foreground hover:text-text-main h-5 w-5" />
                                     )}
                                 </Button>
                             </div>
@@ -166,7 +166,7 @@ const SignupPage: React.FC = () => {
                         <Button
                             type="submit"
                             disabled={isLoading}
-                            className="group bg-primary hover:bg-primary-hover relative flex w-full transform cursor-pointer justify-center rounded-lg px-4 py-3 text-sm font-medium text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:outline-none disabled:opacity-50"
+                            className="group bg-primary hover:bg-primary-hover relative flex w-full transform cursor-pointer justify-center rounded-lg px-4 py-3 text-sm font-medium text-white shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:outline-none disabled:opacity-50"
                         >
                             {isLoading ? (
                                 <div className="h-5 w-5 animate-spin rounded-full border-b-2 border-white"></div>
@@ -187,7 +187,7 @@ const SignupPage: React.FC = () => {
                             Already have an account?{' '}
                             <Link
                                 to="/login"
-                                className="font-medium text-yellow-600 hover:text-yellow-700"
+                                className="font-medium text-primary-hover hover:text-warning-foreground"
                             >
                                 Sign in here
                             </Link>

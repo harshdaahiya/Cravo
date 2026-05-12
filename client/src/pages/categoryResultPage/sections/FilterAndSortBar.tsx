@@ -139,7 +139,7 @@ const FilterAndSortBar: React.FC<FilterAndSortBarProps> = ({
     };
 
     return (
-        <div className="border-border mb-6 rounded-2xl border bg-white p-3 shadow-sm md:p-4">
+        <div className="border-border mb-6 rounded-2xl border bg-background p-3 shadow-sm md:p-4">
             {/* Mobile Layout */}
             <div className="block md:hidden">
                 {/* Top Row - Sort and Filter buttons */}
@@ -148,7 +148,7 @@ const FilterAndSortBar: React.FC<FilterAndSortBarProps> = ({
                     <div className="relative mr-2 flex-1" ref={sortByRef}>
                         <button
                             onClick={() => setIsSortByOpen(!isSortByOpen)}
-                            className="text-text-secondary flex w-full cursor-pointer items-center justify-between rounded-lg bg-gray-100 px-3 py-2 text-sm font-medium transition-colors duration-200 hover:bg-gray-200"
+                            className="text-text-secondary flex w-full cursor-pointer items-center justify-between rounded-lg bg-muted px-3 py-2 text-sm font-medium transition-colors duration-200 hover:bg-muted"
                         >
                             <span>Sort By</span>
                             <Icon
@@ -160,9 +160,9 @@ const FilterAndSortBar: React.FC<FilterAndSortBarProps> = ({
                         </button>
 
                         {isSortByOpen && (
-                            <div className="border-border absolute top-full left-0 z-20 w-full rounded-xl border bg-white shadow-xl mt-1">
-                                <div className="border-b border-gray-100 p-2">
-                                    <h3 className="text-text-main text-sm font-bold">Sort By</h3>
+                            <div className="border-border absolute top-full left-0 z-20 w-full rounded-xl border bg-background shadow-xl mt-1">
+                                <div className="border-b border-border p-2">
+                                    <h3 className="text-foreground text-sm font-bold">Sort By</h3>
                                 </div>
                                 <div className="p-1">
                                     {sortOptions.map(option => (
@@ -175,7 +175,7 @@ const FilterAndSortBar: React.FC<FilterAndSortBarProps> = ({
                                             className="hover:bg-bg-subtle flex w-full cursor-pointer items-center justify-between rounded-lg p-2 text-left transition-colors"
                                         >
                                             <div>
-                                                <p className="text-text-main text-xs font-medium">
+                                                <p className="text-foreground text-xs font-medium">
                                                     {option.label}
                                                 </p>
                                                 <p className="text-text-secondary text-xs">
@@ -186,7 +186,7 @@ const FilterAndSortBar: React.FC<FilterAndSortBarProps> = ({
                                                 <Icon
                                                     name="check"
                                                     size={14}
-                                                    className="text-yellow-400"
+                                                    className="text-primary"
                                                 />
                                             )}
                                         </button>
@@ -200,12 +200,12 @@ const FilterAndSortBar: React.FC<FilterAndSortBarProps> = ({
                     <div className="relative ml-2 flex-1" ref={filterRef}>
                         <button
                             onClick={() => setIsFilterOpen(!isFilterOpen)}
-                            className="text-text-secondary flex w-full items-center justify-center space-x-2 rounded-lg bg-gray-100 px-3 py-2 text-sm font-medium transition-colors duration-200 hover:bg-gray-200"
+                            className="text-text-secondary flex w-full items-center justify-center space-x-2 rounded-lg bg-muted px-3 py-2 text-sm font-medium transition-colors duration-200 hover:bg-muted"
                         >
                             <Icon name="filter" size={14} />
                             <span>Filter</span>
                             {getActiveFiltersCount() > 0 && (
-                                <span className="bg-primary text-text-main min-w-[18px] rounded-full px-1.5 py-0.5 text-center text-xs font-bold">
+                                <span className="bg-primary text-foreground min-w-[18px] rounded-full px-1.5 py-0.5 text-center text-xs font-bold">
                                     {getActiveFiltersCount()}
                                 </span>
                             )}
@@ -213,14 +213,14 @@ const FilterAndSortBar: React.FC<FilterAndSortBarProps> = ({
 
                         {isFilterOpen && (
                             <div
-                                className="border-border absolute top-full right-0 z-20 mt-2 w-80 rounded-xl border bg-white shadow-lg"
+                                className="border-border absolute top-full right-0 z-20 mt-2 w-80 rounded-xl border bg-background shadow-lg"
                                 style={{ maxWidth: '90vw' }}
                             >
-                                <div className="flex items-center justify-between border-b border-gray-100 p-3">
-                                    <h3 className="text-text-main text-sm font-bold">Filters</h3>
+                                <div className="flex items-center justify-between border-b border-border p-3">
+                                    <h3 className="text-foreground text-sm font-bold">Filters</h3>
                                     <button
                                         onClick={clearAllFilters}
-                                        className="text-xs font-medium text-yellow-400 hover:text-yellow-500"
+                                        className="text-xs font-medium text-primary hover:text-primary"
                                     >
                                         Clear All
                                     </button>
@@ -230,9 +230,9 @@ const FilterAndSortBar: React.FC<FilterAndSortBarProps> = ({
                                     {Object.entries(filterOptions).map(([category, options]) => (
                                         <div
                                             key={category}
-                                            className="border-b border-gray-100 p-3 last:border-b-0"
+                                            className="border-b border-border p-3 last:border-b-0"
                                         >
-                                            <h4 className="text-text-main mb-1 text-sm font-semibold capitalize">
+                                            <h4 className="text-foreground mb-1 text-sm font-semibold capitalize">
                                                 {category === 'deliveryTime'
                                                     ? 'Delivery Time'
                                                     : category}
@@ -252,13 +252,13 @@ const FilterAndSortBar: React.FC<FilterAndSortBarProps> = ({
                                                                 onChange={() =>
                                                                     handleFilterChange(category, option.id)
                                                                 }
-                                                                className="h-3 w-3 rounded border-gray-300 text-yellow-400 focus:ring-yellow-400"
+                                                                className="h-3 w-3 rounded border-border text-primary focus:ring-ring"
                                                             />
                                                             <span className="text-text-secondary text-sm">
                                                                 {option.label}
                                                             </span>
                                                         </div>
-                                                        <span className="text-text-muted text-xs">
+                                                        <span className="text-muted-foreground text-xs">
                                                             ({option.count})
                                                         </span>
                                                     </label>
@@ -268,10 +268,10 @@ const FilterAndSortBar: React.FC<FilterAndSortBarProps> = ({
                                     ))}
                                 </div>
 
-                                <div className="border-t border-gray-100 p-3">
+                                <div className="border-t border-border p-3">
                                     <button
                                         onClick={() => setIsFilterOpen(false)}
-                                        className="bg-primary hover:bg-primary-hover text-text-main w-full rounded-lg py-2 text-sm font-semibold transition-colors duration-200"
+                                        className="bg-primary hover:bg-primary-hover text-foreground w-full rounded-lg py-2 text-sm font-semibold transition-colors duration-200"
                                     >
                                         Apply Filters
                                     </button>
@@ -290,8 +290,8 @@ const FilterAndSortBar: React.FC<FilterAndSortBarProps> = ({
                         <button
                             onClick={() => handleQuickFilter('tenMinDelivery')}
                             className={`flex items-center space-x-1.5 rounded-lg px-3 py-1.5 text-sm font-medium whitespace-nowrap transition-all duration-200 ${quickFilters.tenMinDelivery
-                                    ? 'bg-primary text-text-main'
-                                    : 'text-text-secondary bg-gray-100 hover:bg-gray-200'
+                                    ? 'bg-primary text-foreground'
+                                    : 'text-text-secondary bg-muted hover:bg-muted'
                                 }`}
                         >
                             <Icon name="zap" size={14} />
@@ -301,8 +301,8 @@ const FilterAndSortBar: React.FC<FilterAndSortBarProps> = ({
                         <button
                             onClick={() => handleQuickFilter('topRated')}
                             className={`flex items-center space-x-1.5 rounded-lg px-3 py-1.5 text-sm font-medium whitespace-nowrap transition-all duration-200 ${quickFilters.topRated
-                                    ? 'bg-primary text-text-main'
-                                    : 'text-text-secondary bg-gray-100 hover:bg-gray-200'
+                                    ? 'bg-primary text-foreground'
+                                    : 'text-text-secondary bg-muted hover:bg-muted'
                                 }`}
                         >
                             <Icon name="award" size={14} />
@@ -312,8 +312,8 @@ const FilterAndSortBar: React.FC<FilterAndSortBarProps> = ({
                         <button
                             onClick={() => handleQuickFilter('offers')}
                             className={`flex items-center space-x-1.5 rounded-lg px-3 py-1.5 text-sm font-medium whitespace-nowrap transition-all duration-200 ${quickFilters.offers
-                                    ? 'bg-primary text-text-main'
-                                    : 'text-text-secondary bg-gray-100 hover:bg-gray-200'
+                                    ? 'bg-primary text-foreground'
+                                    : 'text-text-secondary bg-muted hover:bg-muted'
                                 }`}
                         >
                             <Icon name="trending-up" size={14} />
@@ -329,8 +329,8 @@ const FilterAndSortBar: React.FC<FilterAndSortBarProps> = ({
                 <button
                     onClick={() => handleQuickFilter('tenMinDelivery')}
                     className={`flex cursor-pointer items-center space-x-2 rounded-xl px-4 py-2 font-medium transition-all duration-200 ${quickFilters.tenMinDelivery
-                            ? 'bg-primary text-text-main'
-                            : 'text-text-secondary bg-gray-100 hover:bg-gray-200'
+                            ? 'bg-primary text-foreground'
+                            : 'text-text-secondary bg-muted hover:bg-muted'
                         }`}
                 >
                     <Icon name="zap" size={16} />
@@ -340,8 +340,8 @@ const FilterAndSortBar: React.FC<FilterAndSortBarProps> = ({
                 <button
                     onClick={() => handleQuickFilter('topRated')}
                     className={`flex cursor-pointer items-center space-x-2 rounded-xl px-4 py-2 font-medium transition-all duration-200 ${quickFilters.topRated
-                            ? 'bg-primary text-text-main'
-                            : 'text-text-secondary bg-gray-100 hover:bg-gray-200'
+                            ? 'bg-primary text-foreground'
+                            : 'text-text-secondary bg-muted hover:bg-muted'
                         }`}
                 >
                     <Icon name="award" size={16} />
@@ -351,8 +351,8 @@ const FilterAndSortBar: React.FC<FilterAndSortBarProps> = ({
                 <button
                     onClick={() => handleQuickFilter('offers')}
                     className={`flex cursor-pointer items-center space-x-2 rounded-xl px-4 py-2 font-medium transition-all duration-200 ${quickFilters.offers
-                            ? 'bg-primary text-text-main'
-                            : 'text-text-secondary bg-gray-100 hover:bg-gray-200'
+                            ? 'bg-primary text-foreground'
+                            : 'text-text-secondary bg-muted hover:bg-muted'
                         }`}
                 >
                     <Icon name="trending-up" size={16} />
@@ -365,7 +365,7 @@ const FilterAndSortBar: React.FC<FilterAndSortBarProps> = ({
                 <div className="relative" ref={sortByRef}>
                     <button
                         onClick={() => setIsSortByOpen(!isSortByOpen)}
-                        className="text-text-secondary flex cursor-pointer items-center space-x-2 rounded-xl bg-gray-100 px-4 py-2 font-medium transition-colors duration-200 hover:bg-gray-200"
+                        className="text-text-secondary flex cursor-pointer items-center space-x-2 rounded-xl bg-muted px-4 py-2 font-medium transition-colors duration-200 hover:bg-muted"
                     >
                         <span>Sort By</span>
                         <Icon
@@ -377,9 +377,9 @@ const FilterAndSortBar: React.FC<FilterAndSortBarProps> = ({
                     </button>
 
                     {isSortByOpen && (
-                        <div className="border-border absolute top-full right-0 z-20 mt-2 w-80 rounded-2xl border bg-white shadow-lg">
-                            <div className="border-b border-gray-100 p-4">
-                                <h3 className="text-text-main font-bold">Sort By</h3>
+                        <div className="border-border absolute top-full right-0 z-20 mt-2 w-80 rounded-2xl border bg-background shadow-lg">
+                            <div className="border-b border-border p-4">
+                                <h3 className="text-foreground font-bold">Sort By</h3>
                             </div>
                             <div className="p-2">
                                 {sortOptions.map(option => (
@@ -392,7 +392,7 @@ const FilterAndSortBar: React.FC<FilterAndSortBarProps> = ({
                                         className="hover:bg-bg-subtle flex w-full cursor-pointer items-center justify-between rounded-xl p-3 transition-colors"
                                     >
                                         <div className="text-left">
-                                            <p className="text-text-main font-medium">
+                                            <p className="text-foreground font-medium">
                                                 {option.label}
                                             </p>
                                             <p className="text-text-secondary text-sm">
@@ -403,7 +403,7 @@ const FilterAndSortBar: React.FC<FilterAndSortBarProps> = ({
                                             <Icon
                                                 name="check"
                                                 size={16}
-                                                className="text-yellow-400"
+                                                className="text-primary"
                                             />
                                         )}
                                     </button>
@@ -417,24 +417,24 @@ const FilterAndSortBar: React.FC<FilterAndSortBarProps> = ({
                 <div className="relative" ref={filterRef}>
                     <button
                         onClick={() => setIsFilterOpen(!isFilterOpen)}
-                        className="text-text-secondary flex cursor-pointer items-center space-x-2 rounded-xl bg-gray-100 px-4 py-2 font-medium transition-colors duration-200 hover:bg-gray-200"
+                        className="text-text-secondary flex cursor-pointer items-center space-x-2 rounded-xl bg-muted px-4 py-2 font-medium transition-colors duration-200 hover:bg-muted"
                     >
                         <Icon name="filter" size={16} />
                         <span>Filter</span>
                         {getActiveFiltersCount() > 0 && (
-                            <span className="bg-primary text-text-main rounded-full px-2 py-1 text-xs font-bold">
+                            <span className="bg-primary text-foreground rounded-full px-2 py-1 text-xs font-bold">
                                 {getActiveFiltersCount()}
                             </span>
                         )}
                     </button>
 
                     {isFilterOpen && (
-                        <div className="border-border absolute top-full right-0 z-20 mt-2 w-96 rounded-2xl border bg-white shadow-lg">
-                            <div className="flex items-center justify-between border-b border-gray-100 p-4">
-                                <h3 className="text-text-main font-bold">Filters</h3>
+                        <div className="border-border absolute top-full right-0 z-20 mt-2 w-96 rounded-2xl border bg-background shadow-lg">
+                            <div className="flex items-center justify-between border-b border-border p-4">
+                                <h3 className="text-foreground font-bold">Filters</h3>
                                 <button
                                     onClick={clearAllFilters}
-                                    className="text-sm font-medium text-yellow-400 hover:text-yellow-500"
+                                    className="text-sm font-medium text-primary hover:text-primary"
                                 >
                                     Clear All
                                 </button>
@@ -444,9 +444,9 @@ const FilterAndSortBar: React.FC<FilterAndSortBarProps> = ({
                                 {Object.entries(filterOptions).map(([category, options]) => (
                                     <div
                                         key={category}
-                                        className="border-b border-gray-100 p-4 last:border-b-0"
+                                        className="border-b border-border p-4 last:border-b-0"
                                     >
-                                        <h4 className="text-text-main mb-3 font-semibold capitalize">
+                                        <h4 className="text-foreground mb-3 font-semibold capitalize">
                                             {category === 'deliveryTime' ? 'Delivery Time' : category}
                                         </h4>
                                         <div className="space-y-2">
@@ -464,13 +464,13 @@ const FilterAndSortBar: React.FC<FilterAndSortBarProps> = ({
                                                             onChange={() =>
                                                                 handleFilterChange(category, option.id)
                                                             }
-                                                            className="h-4 w-4 rounded border-gray-300 text-yellow-400 focus:ring-yellow-400"
+                                                            className="h-4 w-4 rounded border-border text-primary focus:ring-ring"
                                                         />
                                                         <span className="text-text-secondary">
                                                             {option.label}
                                                         </span>
                                                     </div>
-                                                    <span className="text-text-muted text-sm">
+                                                    <span className="text-muted-foreground text-sm">
                                                         ({option.count})
                                                     </span>
                                                 </label>
@@ -480,10 +480,10 @@ const FilterAndSortBar: React.FC<FilterAndSortBarProps> = ({
                                 ))}
                             </div>
 
-                            <div className="border-t border-gray-100 p-4">
+                            <div className="border-t border-border p-4">
                                 <button
                                     onClick={() => setIsFilterOpen(false)}
-                                    className="bg-primary hover:bg-primary-hover text-text-main w-full rounded-xl py-3 font-semibold transition-colors duration-200"
+                                    className="bg-primary hover:bg-primary-hover text-foreground w-full rounded-xl py-3 font-semibold transition-colors duration-200"
                                 >
                                     Apply Filters
                                 </button>

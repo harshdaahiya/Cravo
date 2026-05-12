@@ -81,7 +81,7 @@ const RestaurantMenuPage: React.FC = () => {
     // 2. Modify Loading State Check
     if (isInitialLoading) {
         return (
-            <div className="bg-bg-subtle flex min-h-screen items-center justify-center">
+            <div className="bg-muted flex min-h-screen items-center justify-center">
                 <p className="text-text-secondary text-xl font-semibold">
                     Loading restaurant menu...
                 </p>
@@ -92,13 +92,13 @@ const RestaurantMenuPage: React.FC = () => {
     // 3. Modify Error State Check
     if (isError || !restaurant) {
         return (
-            <div className="bg-bg-subtle flex min-h-screen flex-col items-center justify-center px-4">
-                <p className="text-center text-xl font-semibold text-red-500">
+            <div className="bg-muted flex min-h-screen flex-col items-center justify-center px-4">
+                <p className="text-center text-xl font-semibold text-destructive">
                     {error || 'Restaurant not found.'}
                 </p>
                 <button
                     onClick={refetchMenu}
-                    className="bg-primary text-text-main hover:bg-primary-hover mt-4 rounded-full px-4 py-2 font-semibold transition-colors"
+                    className="bg-primary text-foreground hover:bg-primary-hover mt-4 rounded-full px-4 py-2 font-semibold transition-colors"
                 >
                     Try Again
                 </button>
@@ -108,7 +108,7 @@ const RestaurantMenuPage: React.FC = () => {
 
     return (
         <>
-            <div className="bg-bg-subtle font-helvetica min-h-screen">
+            <div className="bg-muted font-helvetica min-h-screen">
                 <Navbar showSearch={true} />
                 <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
                     <RestaurantHeader restaurant={restaurant} />

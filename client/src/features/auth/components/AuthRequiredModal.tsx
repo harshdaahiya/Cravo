@@ -33,16 +33,16 @@ const AuthRequiredModal: React.FC<AuthRequiredModalProps> = ({
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             {/* Backdrop */}
             <div
-                className="absolute inset-0 bg-gray-200 opacity-20 backdrop-blur-sm transition-opacity duration-300"
+                className="absolute inset-0 bg-muted opacity-20 backdrop-blur-sm transition-opacity duration-300"
                 onClick={onClose}
             />
 
             {/* Modal */}
-            <div className="relative w-full max-w-md scale-100 transform rounded-2xl bg-white opacity-100 shadow-2xl transition-all duration-300">
+            <div className="relative w-full max-w-md scale-100 transform rounded-2xl bg-background opacity-100 shadow-2xl transition-all duration-300">
                 {/* Close Button */}
                 <button
                     onClick={onClose}
-                    className="hover:text-text-secondary absolute top-4 right-4 cursor-pointer rounded-full p-1 text-gray-400 transition-colors hover:bg-gray-100"
+                    className="hover:text-text-secondary absolute top-4 right-4 cursor-pointer rounded-full p-1 text-muted-foreground transition-colors hover:bg-muted"
                     aria-label="Close modal"
                 >
                     <Icon name="x" size={20} />
@@ -52,13 +52,13 @@ const AuthRequiredModal: React.FC<AuthRequiredModalProps> = ({
                 <div className="p-6 sm:p-8">
                     {/* Icon */}
                     <div className="mb-4 flex justify-center">
-                        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-yellow-100">
-                            <Icon name="user" size={32} className="text-yellow-600" />
+                        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-warning-muted">
+                            <Icon name="user" size={32} className="text-primary-hover" />
                         </div>
                     </div>
 
                     {/* Title */}
-                    <h2 className="text-text-main mb-3 text-center text-2xl font-bold">
+                    <h2 className="text-foreground mb-3 text-center text-2xl font-bold">
                         {title || 'Login Required'}
                     </h2>
 
@@ -70,12 +70,12 @@ const AuthRequiredModal: React.FC<AuthRequiredModalProps> = ({
 
                     {/* Action Info (if provided) */}
                     {action && (
-                        <div className="mb-6 rounded-xl border border-yellow-200 bg-yellow-50 p-4">
+                        <div className="mb-6 rounded-xl border border-ring bg-warning-muted p-4">
                             <div className="flex items-start space-x-3">
                                 <Icon
                                     name="info"
                                     size={20}
-                                    className="mt-0.5 flex-shrink-0 text-yellow-600"
+                                    className="mt-0.5 flex-shrink-0 text-primary-hover"
                                 />
                                 <p className="text-text-secondary text-sm">{action}</p>
                             </div>
@@ -86,14 +86,14 @@ const AuthRequiredModal: React.FC<AuthRequiredModalProps> = ({
                     <div className="flex flex-col gap-3">
                         <button
                             onClick={handleLogin}
-                            className="bg-primary hover:bg-primary-hover text-text-main flex flex-1 transform cursor-pointer items-center justify-center space-x-2 rounded-xl px-6 py-3 font-semibold transition-all duration-200 hover:scale-105"
+                            className="bg-primary hover:bg-primary-hover text-foreground flex flex-1 transform cursor-pointer items-center justify-center space-x-2 rounded-xl px-6 py-3 font-semibold transition-all duration-200 hover:scale-105"
                         >
                             <Icon name="log-in" size={18} />
                             <span>Login / Sign Up</span>
                         </button>
                         <button
                             onClick={onClose}
-                            className="text-text-secondary flex-1 cursor-pointer rounded-xl bg-gray-100 px-6 py-3 font-semibold transition-all duration-200 hover:bg-gray-200"
+                            className="text-text-secondary flex-1 cursor-pointer rounded-xl bg-muted px-6 py-3 font-semibold transition-all duration-200 hover:bg-muted"
                         >
                             Maybe Later
                         </button>
