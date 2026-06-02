@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SEO from '../../components/shared/SEO';
 import {
     AlertCircle,
     ChevronDown,
@@ -585,6 +586,10 @@ const HelpSupport: React.FC = () => {
 
     return (
         <div className="mx-auto max-w-6xl space-y-6">
+            <SEO
+                title="Help & Support"
+                description="Get 24/7 customer support, browse frequently asked questions, track active support tickets, and read ordering guides on Cravo."
+            />
             {/* Header */}
             <div>
                 <h1 className="text-foreground text-3xl font-bold">Help & Support</h1>

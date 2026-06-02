@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 import Footer from '../../components/layout/Footer';
 import Navbar from '../../components/layout/navbar/Navbar';
+import SEO from '../../components/shared/SEO';
 import AuthRequiredModal from '../../features/auth/components/AuthRequiredModal';
 import { useAuthForm } from '../../features/auth';
 import RestaurantCategoriesSlider from './sections/Category-Slider';
@@ -64,6 +65,10 @@ const RestaurantsOverviewPage: React.FC = () => {
 
     return (
         <>
+            <SEO 
+                title="Browse Restaurants" 
+                description="Discover top-rated restaurants, local chains, and cuisines in your city. Customize your preferences, check delivery times, and order food online."
+            />
             {/* Fixed navbar container with smooth transition */}
             <div className="fixed top-0 right-0 left-0 z-50">
                 {/* Main Navbar with fade transition */}

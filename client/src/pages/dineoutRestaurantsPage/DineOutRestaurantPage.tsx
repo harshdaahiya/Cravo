@@ -1,4 +1,5 @@
 import React from 'react';
+import SEO from '../../components/shared/SEO';
 
 import { ArrowLeft, Clock, Sparkles, Utensils } from 'lucide-react';
 
@@ -9,6 +10,10 @@ const DineoutRestaurantPage: React.FC = () => {
 
     return (
         <div className="flex min-h-screen items-center justify-center bg-gradient-to-b from-yellow-50 to-white px-4">
+            <SEO
+                title="Dine-out Restaurants"
+                description="Explore top dine-out restaurants, book tables, and discover the best culinary experiences near you. Coming soon to Cravo!"
+            />
             {/* Back Button */}
             <button
                 onClick={handleGoBack}

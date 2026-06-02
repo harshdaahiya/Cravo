@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 
 import Footer from '../../components/layout/Footer';
 import Navbar from '../../components/layout/navbar/Navbar';
+import SEO from '../../components/shared/SEO';
 import AuthRequiredModal from '../../features/auth/components/AuthRequiredModal';
 import { useAuthForm } from '../../features/auth';
 import { useRestaurantMenu } from '../../features/restaurant-menu';
@@ -11,7 +12,6 @@ import CartStatusSection from './sections/CartStatusSection';
 import DealsSection from './sections/DealsSections';
 import MenuFilters from './sections/MenuFilters';
 import ProductList from './sections/ProductList';
-// Importing the sections of this page
 import RestaurantHeader from './sections/RestaurantHeader';
 import { RootState } from '../../store';
 
@@ -78,7 +78,7 @@ const RestaurantMenuPage: React.FC = () => {
         };
     }, []);
 
-    // 2. Modify Loading State Check
+    // Modify Loading State Check
     if (isInitialLoading) {
         return (
             <div className="bg-muted flex min-h-screen items-center justify-center">
@@ -89,7 +89,7 @@ const RestaurantMenuPage: React.FC = () => {
         );
     }
 
-    // 3. Modify Error State Check
+    // Modify Error State Check
     if (isError || !restaurant) {
         return (
             <div className="bg-muted flex min-h-screen flex-col items-center justify-center px-4">
@@ -108,6 +108,10 @@ const RestaurantMenuPage: React.FC = () => {
 
     return (
         <>
+            <SEO 
+                title={`Menu - ${restaurant.name}`}
+                description={`Browse the full menu, bestsellers, chef specials, and verified offers at ${restaurant.name}. Add your favorite dishes to your cart and order online from Cravo.`}
+            />
             <div className="bg-muted font-helvetica min-h-screen">
                 <Navbar showSearch={true} />
                 <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6">

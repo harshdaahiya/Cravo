@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SEO from '../../components/shared/SEO';
 
 import Icon, { IconName } from '../../components/ui/Icon';
 
@@ -180,6 +181,10 @@ const Settings: React.FC = () => {
     ─────────────────────────────── */
     return (
         <div className="mx-auto max-w-4xl space-y-8">
+            <SEO
+                title="Settings"
+                description="Manage your Cravo application settings, notification preferences, privacy options, and marketing permissions."
+            />
             {/* Header */}
             <div className="flex items-center justify-between">
                 <div>

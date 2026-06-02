@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SEO from '../../components/shared/SEO';
 
 import {
     ArrowRight,
@@ -242,6 +243,10 @@ const CorporatePage: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+            <SEO
+                title="Corporate Meal Solutions"
+                description="Streamline corporate food ordering for your team. Discover flexible meal allowances, customized team event catering, centralized billing, and top-tier dining perks on Cravo."
+            />
             {/* Hero Section */}
             <div className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-black">
                 <div className="absolute inset-0">

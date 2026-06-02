@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SEO from '../../components/shared/SEO';
 
 import Icon from '../../components/ui/Icon';
 
@@ -563,6 +564,10 @@ const Payments: React.FC = () => {
 
     return (
         <div className="mx-auto max-w-5xl space-y-8">
+            <SEO
+                title="Payment Methods"
+                description="Manage your credit/debit cards, PayPal account, billing information, and transaction history securely on Cravo."
+            />
             {/* Tabs bar */}
             <div className="border-border flex gap-2 rounded-lg border bg-background p-1">
                 {[

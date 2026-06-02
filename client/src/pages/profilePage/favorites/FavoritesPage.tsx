@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SEO from '../../../components/shared/SEO';
 
 import Icon from '../../../components/ui/Icon';
 import { useWishlistActions } from '../../../features/wishlist/hooks/use-wishlist-actions';
@@ -16,6 +17,10 @@ const FavoritesPage: React.FC = () => {
 
     return (
         <div className="bg-cream min-h-screen py-2">
+            <SEO
+                title="My Favorites"
+                description="View your saved wishlists, curated collections, and favorite dishes and restaurants all in one place on Cravo."
+            />
             <div className="mx-auto max-w-7xl space-y-2 px-4 sm:px-6 lg:px-8">
                 <header className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
                     <div className="flex items-center gap-4">

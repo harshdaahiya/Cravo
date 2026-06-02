@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import SEO from '../../../components/shared/SEO';
 
 import { useOrderActions } from '../../../features/orders/hooks/use-order-actions';
 import EmptyOrdersState from './components/EmptyOrdersState';
@@ -197,6 +198,10 @@ const Orders: React.FC = () => {
 
     return (
         <div className="mx-auto max-w-5xl space-y-6">
+            <SEO
+                title="My Orders"
+                description="View your active and past orders, track delivery status in real-time, and easily reorder your favorite meals on Cravo."
+            />
             <OrdersHeader ordersCount={filteredOrders.length} />
 
             <OrdersTabs

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import SEO from '../../../components/shared/SEO';
 import { RootState } from '../../../store';
 
 import ChangePasswordTab from './components/ChangePasswordTab';
@@ -67,6 +68,10 @@ const AccountPage: React.FC = () => {
 
     return (
         <div className="mx-auto grid max-w-6xl grid-cols-12 gap-6">
+            <SEO
+                title="My Account"
+                description="Manage your Cravo personal account settings, profile information, and email preferences securely."
+            />
             <ProfileSidebar
                 profileData={profileData}
                 tab={tab}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import SEO from '../../../components/shared/SEO';
 
 import AddressDeleteConfirmationModal from '../../../features/address/components/AddressDeleteModal';
 import AddressModal from '../../../features/address/components/AddressModal';
@@ -49,6 +50,10 @@ const AddressPage: React.FC = () => {
 
     return (
         <div className="text-foreground min-h-screen rounded-xl py-2">
+            <SEO
+                title="My Addresses"
+                description="Manage your saved delivery addresses, set default locations, and edit shipping details for seamless food delivery on Cravo."
+            />
             <div className="mx-auto px-4 sm:px-6 md:max-w-6xl lg:px-8">
                 <div className="mb-8 flex items-center justify-between">
                     <div className="flex items-center space-x-3">

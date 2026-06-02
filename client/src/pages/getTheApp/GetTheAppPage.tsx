@@ -1,4 +1,5 @@
 import React from 'react';
+import SEO from '../../components/shared/SEO';
 
 import {
     CreditCard,
@@ -13,6 +14,10 @@ import {
 export default function CravoGetTheAPP() {
     return (
         <div className="min-h-screen bg-gradient-to-br from-yellow-50 via-white to-amber-50">
+            <SEO
+                title="Download Our Mobile App"
+                description="Get the Cravo app on App Store or Google Play. Experience lightning-fast food delivery, real-time tracking, secure payments, and exclusive mobile-only deals."
+            />
             {/* Floating Food Emojis */}
             <div className="pointer-events-none fixed inset-0 overflow-hidden opacity-10">
                 <div

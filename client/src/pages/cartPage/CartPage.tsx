@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
+import SEO from '../../components/shared/SEO';
 import {
     CartItemDeleteModal,
     PaymentStatusModal,
@@ -338,6 +339,10 @@ const CartPage: React.FC = () => {
     if (!isAuthenticated) {
         return (
             <div className="bg-muted flex min-h-screen items-center justify-center font-sans">
+                <SEO 
+                    title="Cart Login Required" 
+                    description="Please log in to continue to your shopping cart, review items, and complete your food order on Cravo." 
+                />
                 <div className="mx-auto max-w-md rounded-3xl bg-background p-8 text-center shadow-lg">
                     <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-warning-muted">
                         <Icon name="user" className="h-12 w-12 text-primary" />
@@ -361,6 +366,10 @@ const CartPage: React.FC = () => {
     if (cartItems.length === 0) {
         return (
             <div className="bg-muted flex min-h-screen items-center justify-center font-sans">
+                <SEO 
+                    title="Your Cart is Empty" 
+                    description="Your shopping cart is empty. Start browsing top-rated restaurants near you to find delicious food on Cravo!" 
+                />
                 <div className="mx-auto max-w-md rounded-3xl bg-background p-8 text-center shadow-lg">
                     <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full bg-warning-muted">
                         <Icon name="shopping-cart" className="h-12 w-12 text-primary" />
@@ -383,6 +392,10 @@ const CartPage: React.FC = () => {
 
     return (
         <>
+            <SEO 
+                title="Your Shopping Cart" 
+                description="Review your cart items, apply promo codes, select your delivery address, and complete your order seamlessly on Cravo." 
+            />
             <div className="bg-muted min-h-screen font-sans">
                 <CartNavigation />
                 <div className="mx-auto max-w-7xl px-4 py-6">

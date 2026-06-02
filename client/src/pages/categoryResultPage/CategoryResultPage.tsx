@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useSearchParams } from 'react-router-dom';
 
+import SEO from '../../components/shared/SEO';
 import Footer from '../../components/layout/Footer';
 import Navbar from '../../components/layout/navbar/Navbar';
 import {
@@ -16,6 +17,9 @@ import { RootState, AppDispatch } from '../../store';
 
 const CategoryResultPage = () => {
     const { categorySlug } = useParams<{ categorySlug: string }>();
+    const categoryTitle = categorySlug
+        ? categorySlug.charAt(0).toUpperCase() + categorySlug.slice(1).replace(/-/g, ' ')
+        : 'Category';
     const dispatch = useDispatch<AppDispatch>();
     const [searchParams] = useSearchParams();
 
@@ -201,6 +205,10 @@ const CategoryResultPage = () => {
 
     return (
         <div className="min-h-screen font-sans">
+            <SEO
+                title={categoryTitle}
+                description={`Order the best ${categoryTitle.toLowerCase()} near you. Discover, filter, and order from top restaurants serving delicious ${categoryTitle.toLowerCase()} with fast delivery on Cravo.`}
+            />
             <div
                 ref={navbarRef}
                 className={`fixed top-0 right-0 left-0 z-50 transition-transform duration-300 ease-in-out ${isNavbarVisible

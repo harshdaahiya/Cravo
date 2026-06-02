@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import SEO from '../../components/shared/SEO';
+
 import {
     Check,
     ChevronRight,
@@ -258,6 +260,10 @@ const OffersPage: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-yellow-50/50 to-white">
+            <SEO 
+                title="Deals & Discount Offers" 
+                description="Save big on your favorite meals! Grab verified coupons, free delivery codes, and exclusive bank discounts on top restaurants." 
+            />
             {/* Hero Section */}
             <div className="relative h-[500px] overflow-hidden">
                 {/* Background Image */}
