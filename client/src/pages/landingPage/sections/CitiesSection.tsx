@@ -83,14 +83,14 @@ const CitiesSection: React.FC = () => {
                         {!showAll ? (
                             <button
                                 onClick={handleShowMore}
-                                className="bg-primary-hover rounded-lg px-6 py-2 text-sm font-medium text-white transition-colors duration-200 hover:bg-primary-hover"
+                                className="bg-primary-hover rounded-lg px-6 py-2 text-sm font-medium text-forground transition-colors duration-200 hover:bg-primary-hover"
                             >
                                 {CITIES_CONFIG.showMoreTextPrefix} ({cities.length - INITIAL_CITIES_COUNT})
                             </button>
                         ) : (
                             <button
                                 onClick={handleShowLess}
-                                className="rounded-lg bg-muted px-6 py-2 text-sm font-medium text-white transition-colors duration-200 hover:bg-muted"
+                                className="bg-primary-hover rounded-lg px-6 py-2 text-sm font-medium text-foreground transition-colors duration-200 hover:bg-primary-hover"
                             >
                                 {CITIES_CONFIG.showLessText}
                             </button>

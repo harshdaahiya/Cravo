@@ -71,7 +71,7 @@ const Footer: React.FC = () => (
                             />
                         </div>
                     </div>
-                    <p className="mb-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
+                    <p className="mb-4 max-w-sm text-sm leading-relaxed text-muted/70">
                         {FOOTER_BRANDING.description}
                     </p>
 
@@ -130,7 +130,7 @@ const Footer: React.FC = () => (
                     </div>
 
                     {/* Copyright */}
-                    <div className="flex items-center space-x-4 text-sm text-muted-foreground">
+                    <div className="flex items-center space-x-4 text-sm text-muted/70">
                         <span>© {new Date().getFullYear()} {FOOTER_COPYRIGHT.company}</span>
                         <span className="hidden sm:inline">•</span>
                         <span className="hidden sm:inline">
