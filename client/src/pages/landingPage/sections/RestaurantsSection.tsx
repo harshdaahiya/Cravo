@@ -61,7 +61,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
                     }}
                 />
                 {restaurant.is_active && (
-                    <div className="absolute top-2 left-2 rounded-full bg-success px-2 text-xs font-semibold text-white shadow-md">
+                    <div className="absolute top-2 left-2 rounded-full bg-success-foreground px-2 py-1 text-xs font-semibold text-white shadow-md">
                         Open
                     </div>
                 )}

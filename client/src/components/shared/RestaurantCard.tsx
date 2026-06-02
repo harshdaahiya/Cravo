@@ -192,7 +192,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ data, listId, className
                     <span className="text-text-secondary font-medium">
                         {data.delivery_time_mins} mins
                     </span>
-                    <span className="font-semibold text-success">
+                    <span className="font-semibold text-success-foreground">
                         {data.is_veg ? 'Veg' : 'Non-Veg'}
                     </span>
                 </div>

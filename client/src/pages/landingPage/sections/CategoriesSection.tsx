@@ -178,22 +178,24 @@ const CategoriesSlider: React.FC = () => {
                             <button
                                 onClick={() => setIndex(i => Math.max(0, i - 1))}
                                 disabled={index === 0}
-                                className={`rounded-full border p-2 transition ${index === 0
+                                aria-label="Scroll left category items"
+                                className={`rounded-full border p-2 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${index === 0
                                         ? 'border-border text-muted-foreground cursor-not-allowed'
                                         : 'text-text-secondary hover:border-border-focus border-border hover:text-primary-hover'
                                     }`}
                             >
-                                <Icon name={'chevron-left'} size={18} />
+                                <Icon name={'chevron-left'} size={18} aria-hidden="true" />
                             </button>
                             <button
                                 onClick={() => setIndex(i => Math.min(maxIndex, i + 1))}
                                 disabled={index === maxIndex}
-                                className={`rounded-full border p-2 transition ${index === maxIndex
+                                aria-label="Scroll right category items"
+                                className={`rounded-full border p-2 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${index === maxIndex
                                         ? 'border-border text-muted-foreground cursor-not-allowed'
                                         : 'text-text-secondary hover:border-border-focus border-border hover:text-primary-hover'
                                     }`}
                             >
-                                <Icon name={'chevron-right'} size={18} />
+                                <Icon name={'chevron-right'} size={18} aria-hidden="true" />
                             </button>
                         </div>
                     )}

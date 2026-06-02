@@ -104,7 +104,7 @@ const Hero: React.FC = () => {
                                 )
                             ))}
                         </h1>
-                        <p className="text-muted-foreground max-w-xl text-center text-base font-medium sm:text-left sm:text-lg md:text-xl">
+                        <p className="text-text-secondary max-w-xl text-center text-base font-medium sm:text-left sm:text-lg md:text-xl">
                             {HERO_CONTENT.description}
                         </p>
                     </div>

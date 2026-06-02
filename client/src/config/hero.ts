@@ -17,7 +17,7 @@ export const HERO_FEATURES = {
     title: 'Premium Quality',
     subtitle: 'Fresh & Fast',
     badges: [
-        { text: '🌿 Fresh', positionClass: '-top-2 -left-2 sm:-top-4 sm:-left-4', bgClass: 'bg-secondary text-white' },
+        { text: '🌿 Fresh', positionClass: '-top-2 -left-2 sm:-top-4 sm:-left-4', bgClass: 'bg-success-muted text-success-foreground border border-success/30' },
         { text: '⚡ 30 min', positionClass: '-right-2 -bottom-2 sm:-right-4 sm:-bottom-4', bgClass: 'bg-primary-hover text-foreground' },
         { text: '1000+ 🏪', positionClass: 'top-1/2 -right-4 sm:-right-8', bgClass: 'bg-background border-2 border-border-focus text-foreground', extraClass: 'border-2 border-border-focus' },
     ]

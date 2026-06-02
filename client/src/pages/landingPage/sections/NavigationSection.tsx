@@ -100,11 +100,14 @@ const LandingNavigation: React.FC = () => {
                     </div>
 
                     <button
-                        className="text-foreground hover:bg-bg-subtle flex items-center justify-center rounded-lg p-2 transition-colors lg:hidden"
+                        className="text-foreground hover:bg-bg-subtle flex items-center justify-center rounded-lg p-2 transition-colors lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         ref={menuButtonRef}
+                        aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+                        aria-expanded={isMobileMenuOpen}
+                        aria-controls="landing-mobile-menu"
                     >
-                        <Icon name="menu" size={20} />
+                        <Icon name="menu" size={20} aria-hidden="true" />
                     </button>
                     {isMobileMenuOpen && (
                         <div
