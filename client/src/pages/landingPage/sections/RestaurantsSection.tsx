@@ -54,6 +54,8 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
                 <img
                     src={imageUrl}
                     alt={restaurant.name}
+                    width="400"
+                    height="240"
                     className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
                     onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
                         (e.target as HTMLImageElement).src =

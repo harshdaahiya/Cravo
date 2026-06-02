@@ -42,6 +42,8 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
                 <img
                     src={c.image}
                     alt={c.name}
+                    width="112"
+                    height="112"
                     className="h-24 w-24 rounded-full object-cover sm:h-28 sm:w-28"
                     onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
                         (e.target as HTMLImageElement).src = '/placeholder-category.png';
