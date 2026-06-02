@@ -14,18 +14,25 @@ const LandingPage: React.FC = () => {
     return (
         <div className="">
             <div className="font-helvetica bg-background">
-                {/* Hero Section */}
-                <section className="bg-primary">
+                {/* Header Section */}
+                <header className="bg-primary">
                     <LandingNavigation />
-                    <Hero />
-                </section>
+                </header>
 
-                {/* Content Sections */}
-                <CategoriesSlider />
-                <RestaurantsSection />
-                <BestDineOutSection />
-                <GetTheAppSection />
-                <CitiesSection />
+                {/* Main Landmark Content */}
+                <main id="main-content">
+                    {/* Hero Section */}
+                    <section className="bg-primary">
+                        <Hero />
+                    </section>
+
+                    {/* Content Sections */}
+                    <CategoriesSlider />
+                    <RestaurantsSection />
+                    <BestDineOutSection />
+                    <GetTheAppSection />
+                    <CitiesSection />
+                </main>
                 <Footer />
                 <AuthSidebar />
             </div>

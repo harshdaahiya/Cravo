@@ -17,7 +17,7 @@ interface LinkItemProps {
 const InternalLinkItem: React.FC<LinkItemProps> = ({ to, children }) => (
     <a
         href={to}
-        className="text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-primary"
+        className="text-sm font-medium text-slate-300 transition-colors duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
     >
         {children}
     </a>
@@ -28,7 +28,7 @@ const ExternalLinkItem: React.FC<LinkItemProps> = ({ href, children }) => (
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-primary"
+        className="text-sm font-medium text-slate-300 transition-colors duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
     >
         {children}
     </a>
@@ -91,9 +91,9 @@ const Footer: React.FC = () => (
                 {/* Dynamic Link Groups */}
                 {FOOTER_LINK_GROUPS.map((group, index) => (
                     <div key={index} className="space-y-3">
-                        <h4 className="text-md font-semibold tracking-wide text-muted-foreground">
+                        <h3 className="text-md font-semibold tracking-wide text-slate-200">
                             {group.title}
-                        </h4>
+                        </h3>
                         <div className="flex flex-col space-y-2">
                             {group.links.map((link, linkIndex) => (
                                 link.to ? (
