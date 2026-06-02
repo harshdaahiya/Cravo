@@ -15,7 +15,7 @@ const GetTheAppSection: React.FC = () => {
                         </span>
                         {GET_THE_APP_CONFIG.headingSuffix}
                     </h2>
-                    <p className="mx-auto text-base text-muted-foreground md:mx-0 md:w-5/6">
+                    <p className="mx-auto text-base text-muted/80 md:mx-0 md:w-5/6">
                         {GET_THE_APP_CONFIG.description}
                     </p>
                 </div>
@@ -36,7 +36,7 @@ const GetTheAppSection: React.FC = () => {
                         <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-yellow-400 to-amber-400">
                             <Icon name="qr-code" className="text-foreground h-5 w-5" />
                         </div>
-                        <p className="pr-1 text-sm font-medium text-muted-foreground">
+                        <p className="pr-1 text-sm font-medium text-muted/80">
                             {GET_THE_APP_CONFIG.qrCodeText}
                         </p>
                     </div>

@@ -17,7 +17,7 @@ interface LinkItemProps {
 const InternalLinkItem: React.FC<LinkItemProps> = ({ to, children }) => (
     <a
         href={to}
-        className="text-sm font-medium text-slate-300 transition-colors duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+        className="text-sm font-medium text-muted/70 transition-colors duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
     >
         {children}
     </a>
@@ -28,7 +28,7 @@ const ExternalLinkItem: React.FC<LinkItemProps> = ({ href, children }) => (
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="text-sm font-medium text-slate-300 transition-colors duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+        className="text-sm font-medium text-muted/70 transition-colors duration-200 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
     >
         {children}
     </a>
@@ -45,7 +45,7 @@ const SocialIcon: React.FC<SocialIconProps> = ({ Icon, href, label }) => (
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="border-border flex h-10 w-10 items-center justify-center rounded-full border text-muted-foreground transition-all duration-200 hover:border-ring hover:text-primary hover:shadow-md"
+        className="border-border flex h-10 w-10 items-center justify-center rounded-full border text-muted transition-all duration-200 hover:border-ring hover:text-primary hover:shadow-md"
         aria-label={label}
     >
         <Icon size={18} />
@@ -91,7 +91,7 @@ const Footer: React.FC = () => (
                 {/* Dynamic Link Groups */}
                 {FOOTER_LINK_GROUPS.map((group, index) => (
                     <div key={index} className="space-y-3">
-                        <h3 className="text-md font-semibold tracking-wide text-slate-200">
+                        <h3 className="text-lg font-semibold tracking-wide text-background">
                             {group.title}
                         </h3>
                         <div className="flex flex-col space-y-2">
@@ -114,11 +114,11 @@ const Footer: React.FC = () => (
 
         {/* Bottom Bar */}
         <div className="border-border border-t">
-            <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6">
+            <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 ">
                 <div className="flex flex-col items-center justify-between space-y-4 sm:flex-row sm:space-y-0">
                     {/* Social Icons */}
                     <div className="flex items-center space-x-3">
-                        <span className="mr-2 text-sm text-muted-foreground">Follow us:</span>
+                        <span className="mr-2 text-sm text-muted">Follow : </span>
                         {FOOTER_SOCIAL_LINKS.map((social, index) => (
                             <SocialIcon
                                 key={index}

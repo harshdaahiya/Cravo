@@ -75,10 +75,10 @@ export const FOOTER_LINK_GROUPS: FooterLinkGroup[] = [
 ];
 
 export const FOOTER_SOCIAL_LINKS: SocialIconConfig[] = [
-  { Icon: Github, href: 'https://github.com/believeharsh', label: 'Github' },
-  { Icon: Twitter, href: 'https://x.com/believeharsh?t=TIwrahwHjYlsDs8-EbUxig&s=09', label: 'Twitter' },
-  { Icon: Instagram, href: 'https://www.instagram.com/theharshdahiya1/', label: 'Instagram' },
-  { Icon: Linkedin, href: 'https://www.linkedin.com/in/believeharsh11/', label: 'LinkedIn' },
+  { Icon: Github, href: 'https://github.com/harshdaahiya', label: 'Github' },
+  { Icon: Twitter, href: 'https://x.com/harshdaahiya', label: 'Twitter' },
+  { Icon: Instagram, href: 'https://www.instagram.com/harshdaahiya', label: 'Instagram' },
+  { Icon: Linkedin, href: 'https://www.linkedin.com/in/harshdaahiya', label: 'LinkedIn' },
 ];
 
 export const FOOTER_COPYRIGHT = {
