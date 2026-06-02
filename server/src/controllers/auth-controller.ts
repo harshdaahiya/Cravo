@@ -38,10 +38,12 @@ export class AuthController extends BaseController {
 
       const { accessToken, refreshToken } = await this.userRepo.matchPassAndGenTokens(email, password);
 
+      const isProduction = configService.nodeEnv === 'production';
       const cookieOptions = {
         httpOnly: true,
-        secure: configService.nodeEnv === 'production',
-        sameSite: (configService.nodeEnv === 'production' ? 'none' : 'lax') as 'none' | 'lax' | 'strict',
+        secure: isProduction,
+        sameSite: 'lax' as const,
+        domain: isProduction ? '.cravo.online' : undefined,
         path: '/',
       };
 
