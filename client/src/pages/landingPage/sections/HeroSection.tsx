@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, FormEvent, MouseEvent as ReactMouseEvent } from 'react';
+import React, { useEffect, useRef, FormEvent, MouseEvent as ReactMouseEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -121,32 +121,48 @@ const Hero: React.FC = () => {
                                         size={18}
                                     />
                                     <input
+                                        id="hero-location-input"
                                         type="text"
                                         placeholder={locationPlaceholder}
                                         value={locationSearchTerm}
                                         onChange={handleLocationChange}
                                         onFocus={handleInputFocus}
-                                        className="border-border focus:border-border-focus text-foreground w-full rounded-xl border-2 py-3 pr-10 pl-10 text-sm font-medium focus:outline-none sm:py-4 sm:pl-12 sm:text-base"
+                                        aria-label="Location search query"
+                                        className="border-border focus:border-border-focus text-foreground w-full rounded-xl border-2 py-3 pr-10 pl-10 text-sm font-medium focus:outline-none sm:py-4 sm:pl-12 sm:text-base focus-visible:ring-2 focus-visible:ring-primary"
                                     />
                                     <Icon
                                         name={isLocationLoading ? 'loading' : 'chevron-down'}
                                         className={`text-muted-foreground absolute top-1/2 right-3 -translate-y-1/2 transform sm:right-4 ${isLocationLoading ? 'animate-spin' : ''
                                             }`}
                                         size={18}
+                                        aria-hidden="true"
                                     />
 
                                     {/* Suggestions Dropdown */}
                                     {showSuggestions &&
                                         (suggestions.length > 0 || isLocationLoading) && (
-                                            <div className="border-border absolute z-10 mt-2 max-h-64 w-full overflow-hidden overflow-y-auto rounded-xl border bg-background shadow-2xl">
+                                            <div 
+                                                className="border-border absolute z-10 mt-2 max-h-64 w-full overflow-hidden overflow-y-auto rounded-xl border bg-background shadow-2xl"
+                                                role="listbox"
+                                                aria-label="Location suggestions"
+                                            >
                                                 <div
-                                                    className="hover:bg-muted flex cursor-pointer items-center gap-3 p-4 text-sm font-medium text-info"
+                                                    className="hover:bg-muted flex cursor-pointer items-center gap-3 p-4 text-sm font-medium text-info focus-visible:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                                                     onClick={handleUseCurrentLocation}
+                                                    role="option"
+                                                    aria-selected="false"
+                                                    tabIndex={0}
+                                                    onKeyDown={(e) => {
+                                                        if (e.key === 'Enter' || e.key === ' ') {
+                                                            e.preventDefault();
+                                                            handleUseCurrentLocation();
+                                                        }
+                                                    }}
                                                 >
-                                                    <Icon name="locate-fixed" size={18} />
+                                                    <Icon name="locate-fixed" size={18} aria-hidden="true" />
                                                     <span>{HERO_CONTENT.useCurrentLocationText}</span>
                                                 </div>
-                                                <hr className="border-border" />
+                                                <hr className="border-border" aria-hidden="true" />
 
                                                 {isLocationLoading && (
                                                     <div className="text-muted-foreground p-4 text-center text-sm">
@@ -158,9 +174,18 @@ const Hero: React.FC = () => {
                                                         {suggestions.map((location, index) => (
                                                             <li
                                                                 key={index}
-                                                                className="hover:bg-bg-subtle text-text-secondary cursor-pointer px-4 py-3 text-sm font-medium"
+                                                                className="hover:bg-bg-subtle text-text-secondary cursor-pointer px-4 py-3 text-sm font-medium focus-visible:bg-bg-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                                                                 onMouseDown={(e: ReactMouseEvent) => e.preventDefault()}
                                                                 onClick={() => handleSelectLocation(location)}
+                                                                role="option"
+                                                                aria-selected="false"
+                                                                tabIndex={0}
+                                                                onKeyDown={(e) => {
+                                                                    if (e.key === 'Enter' || e.key === ' ') {
+                                                                        e.preventDefault();
+                                                                        handleSelectLocation(location);
+                                                                    }
+                                                                }}
                                                             >
                                                                 {location.name}
                                                             </li>
@@ -177,13 +202,16 @@ const Hero: React.FC = () => {
                                         name="search"
                                         className="text-muted-foreground absolute top-1/2 left-3 -translate-y-1/2 transform sm:left-4"
                                         size={18}
+                                        aria-hidden="true"
                                     />
                                     <input
+                                        id="hero-food-input"
                                         type="text"
                                         placeholder={HERO_CONTENT.searchPlaceholderText}
                                         value={categoryName}
                                         onChange={handleCategoryChange}
-                                        className="border-border focus:border-border-focus text-foreground w-full rounded-xl border-2 py-3 pr-10 pl-10 text-sm font-medium focus:outline-none sm:py-4 sm:pl-12 sm:text-base"
+                                        aria-label="Food, category, or restaurant search query"
+                                        className="border-border focus:border-border-focus text-foreground w-full rounded-xl border-2 py-3 pr-10 pl-10 text-sm font-medium focus:outline-none sm:py-4 sm:pl-12 sm:text-base focus-visible:ring-2 focus-visible:ring-primary"
                                     />
                                 </div>
                             </div>
@@ -192,7 +220,8 @@ const Hero: React.FC = () => {
                             <button
                                 onClick={handleSearchSubmit}
                                 disabled={!selectedLocation || isLocationLoading}
-                                className="bg-primary hover:bg-primary-hover text-foreground w-full cursor-pointer rounded-xl py-3 text-sm font-bold shadow-md transition-colors disabled:opacity-50 sm:py-4 sm:text-base"
+                                aria-label="Search restaurants"
+                                className="bg-primary hover:bg-primary-hover text-foreground w-full cursor-pointer rounded-xl py-3 text-sm font-bold shadow-md transition-colors disabled:opacity-50 sm:py-4 sm:text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                             >
                                 {HERO_CONTENT.submitButtonText}
                             </button>

@@ -102,15 +102,17 @@ const Navbar: React.FC<NavbarProps> = ({ showSearch = true, visibility = "" }) =
                             </div>
 
                             {showSearch && (
-                                <div
-                                    className="hidden max-w-xs cursor-pointer items-center space-x-2 rounded-full bg-muted px-4 py-2 transition-colors hover:bg-muted lg:flex"
+                                <button
+                                    type="button"
+                                    className="hidden max-w-xs cursor-pointer items-center space-x-2 rounded-full bg-muted px-4 py-2 transition-colors hover:bg-muted lg:flex border-none text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                                     onClick={openSearchModal}
+                                    aria-label="Search restaurants and cuisines"
                                 >
                                     <Icon name="search" size={18} className="text-muted-foreground" />
                                     <span className="text-muted-foreground overflow-hidden text-sm font-medium text-ellipsis whitespace-nowrap">
                                         {NAVBAR_TEXT.searchPlaceholder}
                                     </span>
-                                </div>
+                                </button>
                             )}
                         </div>
 
@@ -135,9 +137,9 @@ const Navbar: React.FC<NavbarProps> = ({ showSearch = true, visibility = "" }) =
                                         <button
                                             key={item.id}
                                             onClick={item.action}
-                                            className="hover:bg-muted text-muted-foreground hover:text-foreground relative flex cursor-pointer items-center space-x-2 rounded-xl px-4 py-2 font-medium transition-all duration-200 hover:scale-105"
+                                            className="hover:bg-muted text-muted-foreground hover:text-foreground relative flex cursor-pointer items-center space-x-2 rounded-xl px-4 py-2 font-medium transition-all duration-200 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                                         >
-                                            <Icon name={item.Iconname} size={18} />
+                                            <Icon name={item.Iconname} size={18} aria-hidden="true" />
                                             <span className="hidden xl:block">{item.label}</span>
                                         </button>
                                     );
@@ -150,13 +152,13 @@ const Navbar: React.FC<NavbarProps> = ({ showSearch = true, visibility = "" }) =
                                             key={item.id}
                                             to={item.path}
                                             className={({ isActive }) =>
-                                                `hover:bg-muted relative flex items-center space-x-2 rounded-xl px-4 py-2 font-medium transition-all duration-200 hover:scale-105 ${isActive
+                                                `hover:bg-muted relative flex items-center space-x-2 rounded-xl px-4 py-2 font-medium transition-all duration-200 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${isActive
                                                     ? 'bg-warning-muted text-primary-hover'
                                                     : 'text-muted-foreground hover:text-foreground'
                                                 }`
                                             }
                                         >
-                                            <Icon name={item.Iconname} size={18} />
+                                            <Icon name={item.Iconname} size={18} aria-hidden="true" />
                                             <span className="hidden xl:block">{item.label}</span>
                                             {item.badge && (
                                                 <span className="bg-primary text-foreground absolute -top-1 -right-1 rounded-full px-2 py-0.5 text-[10px] font-bold">
@@ -181,40 +183,48 @@ const Navbar: React.FC<NavbarProps> = ({ showSearch = true, visibility = "" }) =
                             {showSearch && (
                                 <Button
                                     onClick={openSearchModal}
-                                    className="rounded-xl p-2"
+                                    className="rounded-xl p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                                     variant="ghost"
+                                    aria-label="Search restaurants and cuisines"
                                 >
                                     <Icon
                                         name={'search'}
                                         size={24}
                                         className="text-muted-foreground"
+                                        aria-hidden="true"
                                     />
                                 </Button>
                             )}
                             <Button
                                 onClick={toggleMobileMenu}
-                                className="rounded-xl p-2"
+                                className="rounded-xl p-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                                 variant="ghost"
+                                aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+                                aria-expanded={isMobileMenuOpen}
+                                aria-controls="mobile-menu"
                             >
                                 {isMobileMenuOpen ? (
-                                    <Icon name={'x'} size={24} className="text-muted-foreground" />
+                                    <Icon name={'x'} size={24} className="text-muted-foreground" aria-hidden="true" />
                                 ) : (
                                     <Icon
                                         name={'menu'}
                                         size={24}
                                         className="text-muted-foreground"
+                                        aria-hidden="true"
                                     />
                                 )}
                             </Button>
                             <div className="flex items-center">
                                 <NavLink
                                     to="/cart"
-                                    className="relative rounded-xl p-2 transition-colors hover:bg-muted"
+                                    className="relative rounded-xl p-2 transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                                    aria-label={`Shopping Cart with ${cartCount} items`}
                                 >
                                     <Icon
                                         name={'shopping-cart'}
                                         size={24}
                                         className="text-muted-foreground"
+                                        aria-hidden="true"
                                     />
                                     {cartCount > 0 && (
                                         <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-success text-[10px] font-bold text-white">

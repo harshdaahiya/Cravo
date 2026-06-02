@@ -106,7 +106,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ data, listId, className
             <div className={imageContainerClasses}>
                 <img
                     src={imageUrl}
-                    alt={data.name}
+                    alt={`Photo of restaurant ${data.name}`}
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                     loading="lazy"
                     onError={e => {
@@ -132,13 +132,16 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ data, listId, className
 
                 {/* Favorite button */}
                 <button
+                    type="button"
                     onClick={onFavoriteButtonClick}
-                    className={`absolute top-3 left-3 z-10 cursor-pointer rounded-full bg-white/80 p-2 transition-all duration-200 hover:bg-white ${isRestaurantInWishlist
+                    aria-label={isRestaurantInWishlist ? `Remove ${data.name} from favorites` : `Add ${data.name} to favorites`}
+                    aria-pressed={isRestaurantInWishlist}
+                    className={`absolute top-3 left-3 z-10 cursor-pointer rounded-full bg-white/80 p-2 transition-all duration-200 hover:bg-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${isRestaurantInWishlist
                         ? 'text-destructive opacity-100'
                         : 'text-muted-foreground opacity-0 group-hover:opacity-100 hover:text-destructive'
                         }`}
                 >
-                    <Icon name="heart" size={16} className="h-4 w-4 fill-current" />
+                    <Icon name="heart" size={16} className="h-4 w-4 fill-current" aria-hidden="true" />
                 </button>
             </div>
 
@@ -163,11 +166,15 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ data, listId, className
 
                 {/* Rating and Reviews */}
                 <div className="flex items-center gap-4">
-                    <div className="flex items-center gap-1 rounded-lg border border-emerald-100 bg-success-muted px-2 py-0.5">
+                    <div 
+                        className="flex items-center gap-1 rounded-lg border border-emerald-100 bg-success-muted px-2 py-0.5"
+                        aria-label={`Rating: ${data.rating} stars`}
+                    >
                         <Icon
                             name="star"
                             size={14}
                             className="fill-current text-success"
+                            aria-hidden="true"
                         />
                         <span className="text-sm font-semibold text-success-foreground">
                             {data.rating}

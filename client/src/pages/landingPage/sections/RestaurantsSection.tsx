@@ -65,8 +65,11 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
                         Open
                     </div>
                 )}
-                <div className="bg-opacity-70 absolute top-2 right-2 flex items-center gap-1 rounded-full bg-black px-2 py-1 text-xs font-semibold text-white">
-                    <Icon name={'star'} size={12} fill="#FACC15" />
+                <div 
+                    className="bg-opacity-70 absolute top-2 right-2 flex items-center gap-1 rounded-full bg-black px-2 py-1 text-xs font-semibold text-white"
+                    aria-label={`Rating: ${restaurant.rating} stars`}
+                >
+                    <Icon name={'star'} size={12} fill="#FACC15" aria-hidden="true" />
                     <span>{restaurant.rating}</span>
                 </div>
             </div>
@@ -88,14 +91,14 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
 
                 <div className="border-border border-t pt-3">
                     <div className="text-muted-foreground mb-1 flex items-center justify-between text-xs">
-                        <div className="flex items-center gap-1">
-                            <Icon name={'map-pin'} size={12} />
+                        <div className="flex items-center gap-1" aria-label={`Location: ${restaurant?.address?.cityDetails?.name || 'N/A'}`}>
+                            <Icon name={'map-pin'} size={12} aria-hidden="true" />
                             <span className="truncate">
                                 {restaurant?.address?.cityDetails?.name || 'N/A'}
                             </span>
                         </div>
-                        <div className="flex items-center gap-1">
-                            <Icon name={'clock'} size={12} />
+                        <div className="flex items-center gap-1" aria-label={`Delivery time: ${restaurant.delivery_time_mins} minutes`}>
+                            <Icon name={'clock'} size={12} aria-hidden="true" />
                             <span>{restaurant.delivery_time_mins} min</span>
                         </div>
                     </div>
@@ -216,22 +219,24 @@ const RestaurantsSection: React.FC = () => {
                             <button
                                 onClick={() => setIndex(i => Math.max(0, i - 1))}
                                 disabled={index === 0}
-                                className={`rounded-full border p-2 transition ${index === 0
+                                aria-label="Scroll left popular restaurants"
+                                className={`rounded-full border p-2 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${index === 0
                                     ? 'border-border cursor-not-allowed text-muted-foreground'
                                     : 'text-text-secondary hover:border-border-focus border-border hover:text-primary-hover'
                                     }`}
                             >
-                                <Icon name={'chevron-left'} size={18} />
+                                <Icon name={'chevron-left'} size={18} aria-hidden="true" />
                             </button>
                             <button
                                 onClick={() => setIndex(i => Math.min(maxIndex, i + 1))}
                                 disabled={index === maxIndex}
-                                className={`rounded-full border p-2 transition ${index === maxIndex
+                                aria-label="Scroll right popular restaurants"
+                                className={`rounded-full border p-2 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary ${index === maxIndex
                                     ? 'border-border cursor-not-allowed text-muted-foreground'
                                     : 'text-text-secondary hover:border-border-focus border-border hover:text-primary-hover'
                                     }`}
                             >
-                                <Icon name={'chevron-right'} size={18} />
+                                <Icon name={'chevron-right'} size={18} aria-hidden="true" />
                             </button>
                         </div>
                     )}
