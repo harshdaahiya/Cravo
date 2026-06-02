@@ -17,10 +17,17 @@ export const fetchAllWishlists = createAsyncThunk<
   { rejectValue: string }
 >('wishlist/fetchAll', async (_, { rejectWithValue }) => {
   try {
-    const response = await axiosInstance.get<ApiResponse<{ lists: IWishlist[] }>>(
-      API_ENDPOINTS.WISHLIST.GET_ALL_RESTAURANTS_LIST
-    );
-    return response.data.data.lists;
+    const [restaurantRes, productRes] = await Promise.all([
+      axiosInstance.get<ApiResponse<{ lists: IWishlist[] }>>(
+        API_ENDPOINTS.WISHLIST.GET_ALL_RESTAURANTS_LIST
+      ),
+      axiosInstance.get<ApiResponse<{ lists: IWishlist[] }>>(
+        API_ENDPOINTS.WISHLIST.GET_ALL_PRODUCTS_LIST
+      ),
+    ]);
+    const restaurantLists = restaurantRes.data?.data?.lists || [];
+    const productLists = productRes.data?.data?.lists || [];
+    return [...restaurantLists, ...productLists];
   } catch (error: any) {
     return rejectWithValue(error.response?.data?.message || 'Failed to fetch wishlists.');
   }
